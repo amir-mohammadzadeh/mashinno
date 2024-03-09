@@ -1,0 +1,57 @@
+.banner_container{
+    width: 100%;
+    margin-block: .5rem;
+    padding: 2rem;
+}
+
+.sliders-content{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+
+}
+/*______ HEADER ________*/
+.banner-header{
+    grid-column: 2 span ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding:1rem ;
+    margin-block: .5rem;
+}
+
+.banner-header_link{
+    text-align: center;
+}
+
+.banner-header_link img{
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: .15rem;
+    margin-bottom: .4rem;
+    border-radius: 50%;
+    background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);;
+}
+/*________ LEFT SLIDER ________________*/
+.slider-2{
+    background-color: rgb(232, 202, 202);
+    width: 25%;
+}
+
+
+/*________ LEFT SLIDER ________________*/
+.slider-wrapper{
+    background-color: rgba(11, 144, 6, 0);
+    width: 73.5%;
+}
+
+.slider-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: .75rem;
+
+}
