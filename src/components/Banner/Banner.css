@@ -1,15 +1,9 @@
-.banner_container{
-    width: 100%;
-    margin-block: .5rem;
-    padding: 2rem;
-}
-
-.sliders-content{
+.sliders-holder-21{
     width: 100%;
     display: flex;
-    gap: 1rem;
-
+    justify-content: space-between;
 }
+
 /*______ HEADER ________*/
 .banner-header{
     grid-column: 2 span ;
@@ -18,7 +12,7 @@
     justify-content: center;
     gap: 1rem;
     padding:1rem ;
-    margin-block: .5rem;
+    margin-bottom: 1rem ;
 }
 
 .banner-header_link{
@@ -35,23 +29,32 @@
     background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);;
 }
 /*________ LEFT SLIDER ________________*/
-.slider-2{
-    background-color: rgb(232, 202, 202);
-    width: 25%;
+.pruducts-slider{
+    width: 24%;
+    border-radius: .5rem;
+    
 }
-
 
 /*________ LEFT SLIDER ________________*/
-.slider-wrapper{
-    background-color: rgba(11, 144, 6, 0);
-    width: 73.5%;
+.banner-slider{
+    width: 75%;
 }
 
-.slider-wrapper img{
+.banner-slider img{
     width: 100%;
     height: 100%;
     object-fit: contain;
     object-position: center;
     border-radius: .75rem;
+}
 
+/*__________ Resvonsive ____________*/
+
+@media screen and (max-width: 992px) {
+    .pruducts-slider{
+        display: none;
+    }
+    .banner-slider{
+        width: 100%;
+    }
 }

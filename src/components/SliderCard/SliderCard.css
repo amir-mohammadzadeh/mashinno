@@ -1,0 +1,130 @@
+.s-product-card {
+    direction: rtl;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0;
+    border-radius: .5rem;
+    box-shadow: 0 0 8px 2px #00000020;
+    cursor: pointer;
+}
+
+/*_______________________________*/
+
+.card-timer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-block: 0 .25rem;
+    padding-inline: 1rem;
+}
+
+.s-product-card span,
+.s-product-card small {
+    display: block;
+}
+
+.timer-progress::after,
+.timer-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: #b8b8b8;
+}
+
+.timer-progress::after {
+    content: '';
+    top: 0;
+    background-color: #111111;
+}
+
+.slick-active .timer-progress::after {
+    animation: 2.3s timer-progress .5s forwards;
+}
+
+@keyframes timer-progress {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/*_______________________________*/
+
+.card-image {
+    background-color: #ffffff;
+    /* #f6f6f6*/
+    width: 100%;
+}
+
+.card-image img {
+    width: 100%;
+    height: 12vw;
+    max-height: 10.75rem;
+    object-fit: contain;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-body .title {
+    font-weight: bold;
+    line-height: 1.5rem;
+    max-height: 1.65rem;
+    overflow: hidden;
+}
+
+.card-body .berannd {
+    padding: .25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-body .raitting {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    color: #FBC02A;
+}
+
+.card-body .raitting span {
+    color: #6f6f6f;
+    font-size: .9rem;
+}
+
+/*_____________________________________*/
+
+.card-action {
+    background-color: #F7F7F7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 .5rem;
+    padding: 1rem .5rem;
+    border-radius: 1rem;
+}
+
+.card-action .price {
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.card-action .price del {
+    font-weight: 400;
+    color: #575757;
+}
+
+.card-action .button {
+    padding: .5rem .75rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}

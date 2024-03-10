@@ -1,14 +1,22 @@
 import React from 'react'
-import './Banner.css'
-import './Slider.css'
+import './Banner.css' // Code => 21
 import SliderContent from '../Slider/SliderContent';
+import SliderCard from '../SliderCard/SliderCard';
+import { NextArrow, PrevArrow } from './SliderCustomArrow';
 
 
 
 const Banner = () => {
 
+    const BannerSlider_Settings ={
+        className:'banner-slider-21',
+        fade:true,
+        nextArrow: <NextArrow />,
+        prevArrow: <PrevArrow  />,
+    }
+
     return (
-        <div className='banner_container'>
+        <div className='container'>
             <header className='banner-header'>
                 <a href="" className='banner-header_link'>
                     <img src="/public/Images/header-story_1.webp" alt="" />
@@ -30,25 +38,19 @@ const Banner = () => {
                 </a>
             </header>
 
-            <div className="sliders-content">
+            <div className="sliders-holder-21">
 
 
-                <div className="slider-2">
-                    <SliderContent arrow={false} >
-                        <div className="">
-                            <h1>Card 1</h1>
-                        </div>
-                        <div className="">
-                            <h1>Card 2</h1>
-                        </div>
-                        <div className="">
-                            <h1>Card 3</h1>
-                        </div>
+                <div className="pruducts-slider">
+                    <SliderContent setting={{arrows:false}} >
+                        <SliderCard />
+                        <SliderCard />
+                        <SliderCard />
                     </SliderContent>
                 </div>
 
-                <div className="slider-wrapper">
-                    <SliderContent fade={true}  >
+                <div className="banner-slider">
+                    <SliderContent setting={BannerSlider_Settings}  >
                         <div className='img-c'>
                             <a href="">
                                 <img src="/public/Banners/baner_1.webp" alt="" />

@@ -8,6 +8,7 @@
     height: 4rem;
     padding: .5rem;
     z-index: 10;
+    box-shadow: 0 -1px 8px -1px var(--shadow-color-3);
 }
 .mobile-navbar{
     width: 100%;
