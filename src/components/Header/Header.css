@@ -1,18 +1,22 @@
-.nav-header {
+.Header-01{
+    height: auto;
+    padding: 2rem 2rem .5rem 2rem;
+    background-color: var(--white);
+    box-shadow: 0 1px 15px 1px var(--shadow-color-1);
+}
+
+.header_container{
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding-inline: 1rem;
-    max-width: 90rem;
-    margin-inline: auto;
 }
 
-.nav-img-content {
+.header-logo-01 {
     width: 10rem;
     font-size: 2rem;
 }
 
-.nav-img-content img {
+.header-logo-01 img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -61,7 +65,7 @@
     gap: .5rem;
 }
 
-.header-btn {
+.header-btn-01 {
     padding: .5rem 1rem;
     height: 3rem;
     border-radius: 3rem;
@@ -76,12 +80,12 @@
     cursor: pointer;
 }
 
-.header-btn:nth-child(2) {
+.header-btn-01:nth-child(2) {
     width: 3rem;
     padding: 0;
 }
 
-.header-btn .cart-couner {
+.header-btn-01 .cart-couner {
     background-color: var(--gray-900);
     color: var(--white);
     width: 1.5rem;
@@ -92,21 +96,35 @@
     font-size: .85rem;
 }
 
-.header-btn .title {
+.header-btn-01 .title {
     font-size: 1.2rem;
     padding-bottom: .3rem;
 }
 
 /*______________________________________ RESPONCIVE ________________*/
 @media screen and (max-width:992px) {
-
-    .header-button-group,
-    .nav-img-content {
-        display: none;
+    .Header-01{
+        padding: .5rem ;
+        position: sticky;
+        top: 0;
+        z-index: 9;
     }
 
+    .header-button-group,
+    .header-logo-01 {
+        display: none;
+    }
     .search-box {
         width: 100%;
     }
-
+    .search-input{
+        border-radius: .5rem;
+    }
+    .search-box .search-icon{
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
+        color: var(--gray-600);
+        border-right: 1px solid var(--gray-600);
+    }
 }

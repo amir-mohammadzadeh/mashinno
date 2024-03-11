@@ -3,16 +3,13 @@ import NavMenu from './NavMenu/NavMenu'
 import MobileNavBar from './MobileNavBar/MobileNavBar'
 import { BsCarFront, BsShop } from "react-icons/bs";
 import { TfiMenuAlt } from "react-icons/tfi";
-import Header from '../Header/Header';
 import './Navigation.css'
 
 const Navigation = () => {
 
     return (
         <>
-        <nav className='Navigatiopn_container'>
-            <Header />
-
+        <nav>
             <div className="navbar-content">
                 <ul className='navbar'>
                     <li className="navbar_menu-btn">
