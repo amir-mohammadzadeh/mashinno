@@ -58,3 +58,18 @@
         width: 100%;
     }
 }
+@media screen and (max-width: 568px) {
+    .banner-header{
+        gap: 2rem;
+        margin-bottom: 0;
+    }
+    .banner-header_link{
+        font-size: 14px;
+    }
+    .banner-header_link img{
+        width: 2rem;
+        height: 2rem;
+        padding: .1rem;
+        margin-bottom: .1rem;
+    }
+}

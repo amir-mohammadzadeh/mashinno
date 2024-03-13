@@ -90,6 +90,7 @@
     color: #111111;
 }
 .footer-about .about-body a{
+    display: inline-block;
     color: #0c6dc1;
     padding-inline: .5rem;
     text-decoration: underline dashed 1px;

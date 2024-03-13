@@ -128,3 +128,12 @@
         border-right: 1px solid var(--gray-600);
     }
 }
+@media screen and (max-width:568px) {
+    .search-input{
+        height: 2.5rem;
+    }
+    .search-box .search-icon {
+        height: 2rem;
+        line-height: 2.3rem;
+    }
+}
