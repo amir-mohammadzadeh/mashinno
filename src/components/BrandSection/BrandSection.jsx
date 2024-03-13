@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './BrandSection.css' // Code =>  22
 import Data from '../../assets/Data/Brands.json'
+import { Link } from 'react-router-dom'
 
 const BrandSection = () => {
   const [brandsList, setBrandsList] = useState(Data)
@@ -20,14 +21,14 @@ const BrandSection = () => {
           <ul className="">
             {brandsList.map(brand =>
               <li key={brand.id} className="">
-                <a href="">
+                <Link to={'/brand/' + brand.slug} >
                   <div className="brand-image-22">
                     <img src="/public/Images/no-image.webp" alt={brand.name} />
                   </div>
                   <span className="brand-name-22">
                     {brand.name}
                   </span>
-                </a>
+                </Link>
               </li>
             )}
           </ul>

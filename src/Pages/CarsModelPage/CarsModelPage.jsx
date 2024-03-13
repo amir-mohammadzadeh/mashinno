@@ -3,21 +3,29 @@ import { useParams } from 'react-router-dom'
 import Header from '../../components/CarsModelPage/Header'
 import Category from '../../components/CarsModelPage/Category'
 import InformationBox from '../../components/CarsModelPage/InformationBox'
+import Data from '../../assets/Data/Brands.json'
 
 const CarsModelPage = () => {
-    const filterList = Array.from(Array(3).keys())
-    const modelList = Array.from(Array(10).keys())
-    const [filter, setFilter] = useState('All')
+    const [brandInfo, setBrandInfo] = useState(null)
+    const [carsList, setCarsList] = useState(null)
     const params = useParams()
 
     useEffect(() => {
-        console.log(params)
+        document.title = 'لوازم یدکی ' + params.brandName + ' - فروشگاه آملاین لوازم یدکی کاپوت'
+        setBrandInfo(Data.find(b=> b.slug == params.brandName))
     }, [])
 
+    useEffect(() => {
+        brandInfo &&
+            setCarsList(brandInfo.cars)
+    }, [brandInfo])
+
+
+    if (!brandInfo || !carsList ) return <h1> Loading...</h1>
     return (
         <main>
-            <Header optionsList={filterList} onSelect={setFilter} value={filter} />
-            <Category valueList={modelList}  />
+            <Header listOfCars={carsList} updateList={setCarsList} />
+            <Category valueList={carsList} brandName={brandInfo.name}  />
             <InformationBox  />
         </main>
     )

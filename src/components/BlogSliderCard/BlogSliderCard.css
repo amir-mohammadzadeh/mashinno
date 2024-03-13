@@ -15,9 +15,7 @@
 }
 
 .card-image-35 {
-    min-width: 10rem;
-    max-width: 15rem;
-    height: 10rem;
+    max-width: 100%;
     border-radius: 0 0 1.5rem 1.5rem;
     overflow: hidden;
 }
@@ -27,6 +25,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    aspect-ratio: 5 / 3;
 }
 
 .date-tag-35 {

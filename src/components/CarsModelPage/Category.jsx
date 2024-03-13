@@ -3,24 +3,25 @@ import './Category.css'//____________ Code =>  35
 import { BsChevronDoubleLeft } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
-const Category = ({ valueList }) => {
-   
+const Category = ({ valueList , brandName }) => {
+    const brand_name = brandName.replace(' ', '-')
+
     return (
         <>
             <div className="container models-holder-35">
                 <ul className="content-35">
-                    {valueList.map(item =>
-                        <li className="model-item-35">
+                    {valueList.map(car =>
+                        <li key={car.id} className="model-item-35">
                             <div className="card-35">
                                 <div className="image-35">
                                     <img src="/public/Images/no-image.webp" alt="" />
                                 </div>
                                 <div className="card-body-35">
                                     <span>
-                                        {item}
+                                        {car.title} {car.id}
                                     </span>
                                     <div className="card-btn-35">
-                                        <Link to={`/shop/5/5`}>
+                                        <Link to={`/shop/${brand_name}/${car.title}`}>
                                             مشاهده
                                             <span className='icon'>
                                                 <BsChevronDoubleLeft />

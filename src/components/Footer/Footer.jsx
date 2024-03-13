@@ -107,9 +107,9 @@ const Footer = () => {
                 </div>
                 <section className="footer-about">
                     <div className="about-body">
-                        <h2>
+                        <h3>
                             خرید اینترنتی لوازم یدکی خودرو
-                        </h2>
+                        </h3>
                         <p>
                             در
                             <a href="">
