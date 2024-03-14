@@ -2,6 +2,7 @@ import React from 'react'
 import './Header.css' // Code 01
 import { BsCart3, BsInfoCircle, BsPersonCircle, BsSearch, BsShop } from "react-icons/bs";
 import Navigation from '../Navigation/Navigation';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const inputFocusHandler = () => {
@@ -14,7 +15,9 @@ const Header = () => {
                 <div className="container header_container">
 
                     <div className="header-logo-01">
-                        <img src="/public/logo.webp" alt="Logo" />
+                        <Link to='/' >
+                            <img src="/public/logo.webp" alt="Logo" />
+                        </Link>
                     </div>
                     <div className="search-box">
 

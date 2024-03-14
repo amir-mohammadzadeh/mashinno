@@ -7,7 +7,7 @@ const BrandSection = () => {
   const [brandsList, setBrandsList] = useState(Data)
 
   return (
-    <div className='brannd_section'>
+    <div className='brannd_section' id='Brands_Section'>
       <div className="container brand_container-22">
         <div className="header-22">
           <h4>

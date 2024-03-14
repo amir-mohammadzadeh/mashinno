@@ -4,7 +4,7 @@ import { BsChevronDoubleLeft } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
 const Category = ({ valueList , brandName }) => {
-    const brand_name = brandName.replace(' ', '-')
+    const brand_name = brandName.split(' ').join('_')
 
     return (
         <>

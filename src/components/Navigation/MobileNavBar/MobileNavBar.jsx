@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import './MobileNavBar.css' // Cose  23
 import SideBar from '../../SideBar/SideBar'
 import { BsPersonCircle, BsHouseDoor, BsBasket, BsGrid, BsPlus, BsPlusCircle } from "react-icons/bs";
-
+import { Link } from 'react-router-dom';
 
 const MobileNavBar = () => {
     const [openSideBar, setOpenSideBar] = useState(false)
@@ -11,14 +11,14 @@ const MobileNavBar = () => {
             <nav className="mobile-navbar_container">
                 <ul className="mobile-navbar">
                     <li className="mobile-nav-item">
-                        <a href="">
+                        <Link to={'/'}>
                             <span className='icon-23'>
                                 <BsHouseDoor />
                             </span>
                             <span className='lab-23'>
                                 صفحه اصلی
                             </span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="mobile-nav-item">
                         <div onClick={() => setOpenSideBar(true)}>
@@ -41,24 +41,24 @@ const MobileNavBar = () => {
                         </div>
                     </li>
                     <li className="mobile-nav-item">
-                        <a href="">
+                        <Link to={''}>
                             <span className="icon-23">
                             <BsBasket />
                             </span>
                             <span className='lab-23'>
                                 سبد خرید
                             </span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="mobile-nav-item">
-                        <a href="">
+                        <Link to={''}>
                             <span className="icon-23">
                                 <BsPersonCircle />
                             </span>
                             <span className='lab-23'>
                                 کاپوت من
                             </span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </nav>

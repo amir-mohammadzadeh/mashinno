@@ -1,47 +1,50 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './NavMenu.css'
 import SubNav from './SubNav'
+import Data from '../../../assets/Data/Brands.json'
+import { Link } from 'react-router-dom'
+
+//______ Create Fack Data for example ________________
+const Lavazem_List = new Array(5).fill().map((e, id) => ({ name: 'دسته لوازم مصرفی ' + id, id }))
+const Accessory_List = new Array(10).fill().map((e, id) => ({ name: 'دسته اکسسوری ' + id, id }))
 
 const NavMenu = () => {
-
-  const Berand_List = Array.from(Array(25).keys())
-  const Lavazem_List = Array.from(Array(5).keys())
-  //<SecoundMenu list={Berand_List} grid={true} />
+  const Brand_List = useRef(Data)
 
   return (
     <div className='nav-menu_container'>
       <ul className='menu-content'>
         <li className="menu-item">
-          <a className='menu-title'>
+          <a href='#Brands_Section' className='menu-title'>
             برند خودرو
           </a>
-          <SubNav list={Berand_List} grid={true} active={true} />
+          <SubNav list={Brand_List.current} grid={true} active={true} />
         </li>
         <li className="menu-item">
-          <a className='menu-title'>
+          <Link className='menu-title'>
             لوازم مصرفی
-          </a>
+          </Link>
           <SubNav list={Lavazem_List} />
 
         </li>
         <li className="menu-item">
-          <a className='menu-title'>
+          <Link className='menu-title'>
             اکسسوری خودرو
-          </a>
-          <SubNav list={Lavazem_List} />
+          </Link>
+          <SubNav list={Accessory_List} />
 
         </li>
         <li className="menu-item">
-          <a className='menu-title'>
+          <Link className='menu-title'>
             لوازم جانبی خودرو
-          </a>
+          </Link>
           <SubNav list={[]} />
 
         </li>
         <li className="menu-item">
-          <a className='menu-title'>
+          <Link className='menu-title'>
             نگهداری خودرو
-          </a>
+          </Link>
           <SubNav list={[]} />
 
         </li>

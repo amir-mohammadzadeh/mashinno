@@ -13,6 +13,14 @@ const Banner = () => {
         fade:true,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow  />,
+        responsive:[
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows:false,
+                }
+            }
+        ]
     }
 
     return (

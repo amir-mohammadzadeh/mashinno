@@ -33,11 +33,27 @@
   --shadow-color-3: #00000030;
   --shadow-color-4: #407bff31;
   --body-bg: #f8f8f9;
-
+  --shadow-1:0 0 8px 1px #4747474d;
+  --shadow-2:0 0 8px 1px #00000010;
+  --shadow-3:0 0 8px 1px #00000030;
 }
 
 * {
   box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth !important;
+}
+html::-webkit-scrollbar{
+  width: 7px;
+}
+html::-webkit-scrollbar-thumb{
+  background-color: #061C2F;
+  border-radius: 10px;
+}
+html::-webkit-scrollbar-track{
+  background-color: #d4d4d8; /* var(--zinc-300 ) */
+  border-radius: 10px;
 }
 
 body {

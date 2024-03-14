@@ -3,22 +3,22 @@ import './SideBar.css' // Code => 12
 import { BsChevronLeft, } from 'react-icons/bs'
 import SubMenu from './SubMenu'
 import ModalContainer from '../../ModalContainer/ModalContainer'
+import { useOutClicker } from '../../Hook/useOutsideClick'
+import Data from '../../assets/Data/Brands.json'
+
+//______ Create Fack Data for example ________________
+const SUBMENU_VALUES = n => new Array(n).fill().map((e, id) => ({ name: 'زیرمجموعه - ' + id, id }))
+
 
 
 const SideBar = ({ onClose }) => {
-    const SUBMENU_VALUES = n => Array.from(Array(n).keys())
-
-    const sidebar_ref = useRef(null)
+    const Brands_List = useRef(Data)
+    const [sidebar_ref ,outSideClickHandler ] = useOutClicker(onClose)
 
     const openDropDown = (event) => {
         event.target.classList.toggle('open-dropdown-12')
     }
-    const outSideClickHandler = (e) => {
-        if (e.target != sidebar_ref.current && !sidebar_ref.current.contains(e.target)) {
-            onClose()
-        }
-    }
-
+   
     return (
         <ModalContainer onClick={outSideClickHandler} >
 
@@ -45,7 +45,7 @@ const SideBar = ({ onClose }) => {
                                     <BsChevronLeft />
                                 </span>
                             </div>
-                            <SubMenu valueList={SUBMENU_VALUES(10)} onClick={onClose} />
+                            <SubMenu valueList={Brands_List.current} onClick={onClose} />
 
                         </li>
                         <li onClick={openDropDown}>
