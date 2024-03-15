@@ -1,0 +1,32 @@
+.product-detailes-51{
+    margin: 2rem 0;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+.img-gallery-51{
+    --gallery-size: 30rem ;
+    
+}
+
+.product-content-51{
+    flex: 1;
+}
+.title-51{
+
+}
+.car-info-51{
+
+}
+.car-info-51 span{
+    padding-inline: .25rem;
+    color: #6b7280;
+}
+
+/*_______ Make Responcive ___________*/
+@media screen and (max-width: 1300px) {
+    .img-gallery-51{
+        --gallery-size: 25rem
+    }
+}

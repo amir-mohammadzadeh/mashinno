@@ -42,6 +42,7 @@
     .sidemenu-holder-45{
         flex-direction: row;
         align-items: center;
+        padding-inline: .75rem;
     }
     .filter-btn-45{
         display: flex;

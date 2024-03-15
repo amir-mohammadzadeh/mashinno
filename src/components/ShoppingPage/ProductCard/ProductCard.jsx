@@ -11,7 +11,7 @@ const ProductCard = () => {
           console.log('icon')
         } else {
           console.log('carrd')
-          //navigate('/product/ProductID')
+          navigate('/product-detailes/2')
         }
       }
     return (
