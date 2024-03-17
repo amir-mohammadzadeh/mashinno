@@ -1,7 +1,4 @@
 /*________ Code of this css file is 33 _____*/
-.my-2{
-    margin-block: 3rem;
-}
 .weblog-header-33 {
     background-color: var(--white);
     margin-inline: .5rem;
@@ -73,4 +70,10 @@
 
 .slider-btn-disable{
     opacity: .3;
+}
+
+@media screen and (max-width: 660px) {
+    .weblog-slider_contaner-33{
+        padding: 0;
+    }
 }

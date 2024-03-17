@@ -22,7 +22,7 @@ const SliderCard = () => {
                     </span>
                     <div className="berannd">
                         <small>
-                            ماشین‌نو
+                            کاپوت
                         </small>
                         <div className="raitting">
                             <span>

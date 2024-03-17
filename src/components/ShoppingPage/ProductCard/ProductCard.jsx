@@ -4,7 +4,7 @@ import { BsBookmarkHeart, BsBookmarkHeartFill } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
 
 
-const ProductCard = () => {
+const ProductCard = ({noChange=false}) => {
     const navigate = useNavigate()
     const cardClick = (e) => {
         if (e.target.tagName == 'svg' || e.target.className == 'icon-46') {
@@ -15,11 +15,11 @@ const ProductCard = () => {
         }
       }
     return (
-        <div className="product-card-46" onClick={cardClick}>
+        <div className={`product-card-46 ${!noChange && 'card-R-1'}`} onClick={cardClick}>
             <div className="icon-46" >
                 <BsBookmarkHeart size={25} />
             </div>
-            <div className="product-image-46">
+            <div className={`product-image-46 ${!noChange && 'card-R-2'}`}>
                 <img src="/public/Images/no-image.webp" alt="" />
             </div>
             <div className="card-body-46">

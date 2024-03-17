@@ -33,7 +33,7 @@ const SideBar = ({ onClose }) => {
                         </span>
                     </div>
                     <div className="sidebar-image-12">
-                        <img src="/public/logo.webp" alt="" />
+                        <img src="/public/logo.webp" alt="Site Logo" />
                     </div>
                 </header>
                 <div>

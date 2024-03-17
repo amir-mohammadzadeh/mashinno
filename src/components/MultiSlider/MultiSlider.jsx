@@ -1,11 +1,10 @@
-import React from 'react'
-import './WeblogSection.css' // Code -33
+import './MultiSlider.css' // Code -33
 import { BsChevronDoubleLeft, BsChevronLeft, BsChevronRight, BsGrid } from 'react-icons/bs'
 import SliderContent from '../Slider/SliderContent'
-import BlogSliderCard from '../BlogSliderCard/BlogSliderCard'
+import { Link } from 'react-router-dom'
 
-const WeblogSection = () => {
-    const list = Array.from(Array(20).keys())
+const WeblogSection = ({ headerTitle, headerBtnLink, children }) => {
+
 
     const responsive = [
         {
@@ -30,13 +29,15 @@ const WeblogSection = () => {
             breakpoint: 660,
             settings: {
                 slidesToShow: 2,
+                arrows:false
             }
         },
         {
             breakpoint: 450,
             settings: {
                 slidesToShow: 1,
-                centerMode:true
+                centerMode: true,
+                arrows:false
             }
         }
     ]
@@ -58,26 +59,22 @@ const WeblogSection = () => {
                 <div className="font-lg flex-33" >
                     <BsGrid size={25} />
                     <span>
-                        در وبلاگ ما
+                        {headerTitle}
                     </span>
                 </div>
-                <div className="header-btn-33">
-                    <a href="" className='flex-33'>
-                        مشاهده همه
-                        <BsChevronDoubleLeft />
-                    </a>
-                </div>
+                {headerBtnLink &&
+                    <div className="header-btn-33">
+                        <Link to={headerBtnLink} className='flex-33'>
+                            مشاهده همه
+                            <BsChevronDoubleLeft />
+                        </Link>
+                    </div>
+                }
             </div>
             <div className="weblog-slider_contaner-33">
 
                 <SliderContent setting={Slider_setting} >
-
-                    {list.map(item =>
-                        <div key={item}>
-                            <BlogSliderCard />
-                        </div>
-                    )}
-
+                    {children}
                 </SliderContent>
 
             </div>
@@ -88,10 +85,10 @@ const WeblogSection = () => {
 
 export default WeblogSection
 
-function Next({ onClick, currentSlide, slideCount , breakpoints}) {
-    let n ;
+function Next({ onClick, currentSlide, slideCount, breakpoints }) {
+    let n;
     breakpoints.map(i => {
-        if(i.breakpoint >= window.innerWidth )  n = i.settings.slidesToShow ;
+        if (i.breakpoint >= window.innerWidth) n = i.settings.slidesToShow;
     })
     return (
         <>

@@ -22,7 +22,7 @@ function LinkWrapper({ data, title }) {
 const Footer = () => {
     const Quick_access = [
         { title: 'تماس با ما', url: "" },
-        { title: 'درباره ماشینو', url: "" },
+        { title: 'درباره کاپوت', url: "" },
         { title: ' قوانین و مقررات', url: "" },
         { title: 'شرایط بازگشت کالا', url: "" },
         { title: 'وبلاگ', url: "" },
@@ -63,7 +63,7 @@ const Footer = () => {
                             ایمیل‌های ارتباطی
                         </div>
                         <a href="mailto:info@mashinno.com" className='value'>
-                            info@mashinno.com
+                            info@kapoot.com
                         </a>
                     </div>
                     <div className="address-content">
