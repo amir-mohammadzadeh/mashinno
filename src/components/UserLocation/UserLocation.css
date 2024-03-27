@@ -1,0 +1,29 @@
+.location-content-03{
+    border-bottom: 1px solid #d4d4d8;
+    margin-block: 1rem;
+    padding: 1rem;
+    ibox-shadow: 0 10px 5px -5px var(--shadow-color-2);
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+.item-03{
+    color: #71717a; /* var(--zinc-500 ) */
+    cursor: pointer;
+    transition: .3s;
+}
+.item-03:hover{
+    color: #111827;
+}
+.icon-03{
+    display: inline-block;
+    margin-inline: .25rem;
+    transform: translateY(5px);
+}
+
+.item-03:last-child .icon-03{
+    display: none;
+}
+.item-03:last-child{
+    color: #374151; /*  g700 */
+}

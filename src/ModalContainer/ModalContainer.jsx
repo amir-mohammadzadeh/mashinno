@@ -1,22 +1,29 @@
-import {createPortal} from 'react-dom'
+import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 
-const ModalContainer = ({ onClick ,children}) => {
+const ModalContainer = ({ onClick, clasName = '', children }) => {
+    useEffect(() => {
+        document.documentElement.style.overflowY = 'hidden';
 
-    const styles= {
-        position:"fixed",
-        inset:'0',
-        width:'100%',
-        height:'100vh',
-        backgroundColor:"#00000040",
-        backdropFilter:"blur(2px)",
-        zIndex:'11'
+        return () => document.documentElement.style.overflowY = 'auto';
+    }, [])
+    const styles = {
+        position: "fixed",
+        inset: '0',
+        width: '100%',
+        height: '100dvh',
+        backgroundColor: "#00000040",
+        backdropFilter: "blur(2px)",
+        zIndex: '11',
+        display: 'grid',
+        placeItems: 'center'
     }
 
-    return createPortal (
-    <div style={styles} onClick={onClick}>
-        {children}
-    </div>
-    , document.getElementById('modal_parent')
-  )
+    return createPortal(
+        <div style={styles} className={clasName} onClick={onClick}>
+            {children}
+        </div>
+        , document.getElementById('modal_parent')
+    )
 }
 export default ModalContainer

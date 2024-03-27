@@ -1,10 +1,15 @@
 import './SideMenu.css' // Code => 45
 import { BsXLg } from 'react-icons/bs'
 import {  useOutClicker } from '../../../Hook/useOutsideClick'
+import { useEffect } from 'react'
 
 const SideMenu = ({ valueList, openSideMenu, closeAction , onSelect }) => {
     const [ elem_ref ,outSideClickHandler] = useOutClicker(closeAction) //=> Custom Hook to close menu
-    
+    useEffect(()=>{
+        openSideMenu 
+        ? document.documentElement.style.overflowY = "hidden"
+        : document.documentElement.style.overflowY = "auto"; 
+    },[openSideMenu])
     return (
         <>
             <div className={`sidemenu_container-45 ${openSideMenu && 'open-sidemenu-45'}`} onClick={outSideClickHandler}>

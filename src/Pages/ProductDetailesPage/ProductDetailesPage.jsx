@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react'
-import './ProductDetailesPage.css'  //  Code =>  51
+import React, { useEffect, useState } from 'react'
+import './ProductDetailesPage.css'  //  Code =>  5
 import { ImageGallery } from '../../components/ImageGallery/ImageGallery'
 import ModalContainer from '../../ModalContainer/ModalContainer'
-import { useParams } from 'react-router-dom'
-import { BsCart, BsCart3 } from 'react-icons/bs'
+import { useLocation, useParams } from 'react-router-dom'
+import { FaXmark } from "react-icons/fa6";
 import SiteFeatures from '../../components/SiteFeatuers/SiteFeatuers'
 import MultiSlider from '../../components/MultiSlider/MultiSlider'
 import ProductCard from '../../components/ShoppingPage/ProductCard/ProductCard'
+import UserLocation from '../../components/UserLocation/UserLocation'
+import ProductsDetailesCard from '../../components/ProductsDetailesCard/ProductsDetailesCard'
+import TextEditor from '../../components/TextEditor/TextEditor'
+import CommentsContainer from '../../components/CommentsContainer/CommentsContainer'
 
 //__________ Fack product iamge list ................
 const exam = ['no-image.webp', 'footer-img_1.webp', 'footer-img_2.webp']
@@ -14,110 +18,68 @@ const exampel_imageList = new Array(3).fill().map((e, i) => '/public/Images/' + 
 const matchProductList = Array.from(Array(10).keys())
 
 const ProductDetailesPage = () => {
+    const [openGallery, setOpenGallery] = useState(false)
+    const [activeTab, setActiveTab] = useState(2)
     const params = useParams()
+    const t = useLocation()
     useEffect(() => {
-        console.log(params.productID)
+        console.log(t)
         document.title = 'قیمت و خرید ' + '"نام محصول "' + ' | کاپوت'
     }, [])
 
     return (
         <>
+            <UserLocation />
             <main className="container ">
 
-                <div className="product-detailes-51">
-                    <ImageGallery className='img-gallery-51' imageList={exampel_imageList} />
-                    <div className="product-content-51">
-                        <div className="title-51">
-                            <h3>
-                                عنوان محصول
-                            </h3>
-                            <div className="car-info-51">
-                                خودروی
-                                <span> کیا  </span>
-                                مدل
-                                <span> فلان  </span>
-                            </div>
+                <div className="product-detailes-5">
+                    <ImageGallery
+                        className='image-container-5'
+                        imageList={exampel_imageList}
+                        productName={'نام محصول'}
+                        onImgClick={() => setOpenGallery(true)}
+                    />
+                    <ProductsDetailesCard />
+                </div>
+                <div className="dis-coment-container_5">
+                    <header className="tab-wrapper_5">
+                        <div className={`tab_5 ${activeTab == 1 && 'active-tab_5'}`} onClick={() => setActiveTab(1)}>
+                            توضیحات
                         </div>
-                        <div className="detaile-body-51">
-                            <ul className="featurs-51">
-                                <li className="feature-51">
-                                    <span>
-                                        K
-                                    </span>
-                                    <span>
-                                        گارانتی سلامت فیزیکی کالا
-                                    </span>
-                                </li>
-                                <li className="feature-51">
-                                    <span>
-                                        برند تولید کننده:
-                                    </span>
-                                    <span>
-                                        طرح اصلی
-                                    </span>
-                                </li>
-                                <li className="feature-51">
-                                    <span>
-                                        کشور سازنده:
-                                    </span>
-                                    <span>
-                                        کره جنوبی
-                                    </span>
-                                </li>
-                                <li className="feature-51">
-                                    <span>
-                                        فروشنده:
-                                    </span>
-                                    <span>
-                                        فروشگاه کاپوت
-                                    </span>
-                                </li>
-                                <li className="feature-51">
-                                    <span>
-                                        ارسال از :
-                                    </span>
-                                    <span>
-                                        تهران
-                                    </span>
-                                </li>
-
-                            </ul>
-                            <div className="price-links-51">
-                                <div className="ratting-51">
-                                    4.2
-                                </div>
-
-                            </div>
+                        <div className={`tab_5 ${activeTab == 2 && 'active-tab_5'}`} onClick={() => setActiveTab(2)}>
+                            نظرات
                         </div>
+                    </header>
 
-                        <div className="detaile-footer-51">
-                            <div className="price-51">
-                                ۱۹۰۰۰۰
-                                <span>تومان</span>
-                            </div>
-                            <div className="add-cart-btn">
-                                <span className="btn-icon-51">
-                                    <BsCart3 size={20} />
-                                </span>
-                                <span>
-                                    افزودن به سبد خرید
-                                </span>
-                            </div>
+                    {activeTab == 1 && <>
+                        <div className="discreption-content_5">
+
                         </div>
-                    </div>
+                        <div className="isEmpty_5">توضیحی برای این محصول ارائه نشده است !</div>
+
+                    </>}
+
+                    {activeTab == 2 &&
+                        <CommentsContainer />
+                    }
                 </div>
             </main>
             <SiteFeatures />
             <MultiSlider headerTitle='محصولات مشابه' headerBtnLink={false} >
                 {matchProductList.map(i =>
-                    <div dir='rtl' key={i}className='test' >
+                    <div dir='rtl' key={i} className='test' >
                         <ProductCard noChange={true} />
                     </div>
                 )}
-
             </MultiSlider>
-
-
+            {openGallery &&
+                <ModalContainer >
+                    <div className="gallery-close-5" onClick={() => setOpenGallery(false)}>
+                        <FaXmark size={'100%'} />
+                    </div>
+                    <ImageGallery className='gallery-container-5' imageList={exampel_imageList} productName={'نام محصول'} />
+                </ModalContainer>
+            }
         </>
     )
 }

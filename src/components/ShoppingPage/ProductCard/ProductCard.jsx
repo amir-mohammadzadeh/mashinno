@@ -1,24 +1,24 @@
 import React from 'react'
 import './ProductCard.css'
-import { BsBookmarkHeart, BsBookmarkHeartFill } from 'react-icons/bs'
 import { useNavigate } from 'react-router-dom'
+import {LikeButton} from '../../ToggleButtons/ToggleButtons'
 
 
-const ProductCard = ({noChange=false}) => {
+const ProductCard = ({ noChange = false }) => {
     const navigate = useNavigate()
     const cardClick = (e) => {
-        if (e.target.tagName == 'svg' || e.target.className == 'icon-46') {
-          console.log('icon')
-        } else {
-          console.log('carrd')
-          navigate('/product-detailes/2')
-        }
-      }
+        navigate('/product-detailes/2', { preventScrollReset: true, state: 'test' })
+    }
+    const onBookmark = (event,payload) => {
+        event.stopPropagation()
+        // if payload is true => this product can added to bookmarks or favorites 
+        console.log(payload)
+    }
     return (
         <div className={`product-card-46 ${!noChange && 'card-R-1'}`} onClick={cardClick}>
-            <div className="icon-46" >
-                <BsBookmarkHeart size={25} />
-            </div>
+
+            <LikeButton className='icon-46' type='bookmark' onClick={onBookmark} />
+
             <div className={`product-image-46 ${!noChange && 'card-R-2'}`}>
                 <img src="/public/Images/no-image.webp" alt="" />
             </div>

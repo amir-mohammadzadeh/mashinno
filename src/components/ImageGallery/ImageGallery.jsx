@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import './ImageGallery.css' // Code => 52
+import './ImageGallery.css' // Code => 51
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 
-export const ImageGallery = ({ imageList, className, border = true }) => {
+export const ImageGallery = ({ productName, imageList, className, onImgClick=undefined }) => {
     const [currentImage, setCurrentImage] = useState(imageList[0])
 
     const changeImg = (n) => {
@@ -23,29 +23,29 @@ export const ImageGallery = ({ imageList, className, border = true }) => {
     return (
         <>
             <div className={className} >
-                <div className={"gallery-slider-52 "} style={{ borderWidth: border ? '1px' : '0' }}>
+                <div className={"img-slider-51 "}>
+                    <div onClick={onImgClick} >
+                        <img src={currentImage} alt={productName} />
+                    </div>
 
-                    <img src={currentImage} alt="" />
-
-                    <div className="next-arrow-52" onClick={() => changeImg(1)} >
+                    <div className="next-arrow-51" onClick={() => changeImg(1)} >
                         <BsChevronLeft size={'100%'} />
                     </div>
-                    <div className="prevent-arrow-52" onClick={() => changeImg(-1)} >
+                    <div className="prevent-arrow-51" onClick={() => changeImg(-1)} >
                         <BsChevronRight size={'100%'} />
                     </div>
                 </div>
 
-                <div className="img-content-52" onClick={() => console.log('hgfhf')}>
+                <div className="img-content-51">
                     {imageList.map((img, index) =>
                         <div
                             key={index}
-                            className={currentImage == img ? "gallery-item-52 selected-img-52" : "gallery-item-52"}
+                            className={currentImage == img ? "gallery-item-51 selected-img-51" : "gallery-item-51"}
                             onClick={() => onSelectImg(img)}
                         >
-                            <img src={img} alt="" />
+                            <img src={img} alt={productName + ' _ ' + index} />
                         </div>
                     )}
-
 
                 </div>
             </div>
@@ -56,14 +56,14 @@ export const ImageGallery = ({ imageList, className, border = true }) => {
 
 function Next({ onClick }) {
     return (
-        <div className="custom-next-arrow-52" onClick={onClick}>
+        <div className="custom-next-arrow-51" onClick={onClick}>
             <BsChevronRight size={'100%'} />
         </div>
     )
 }
 function Prevent({ onClick }) {
     return (
-        <div className="custom-prevent-arrow-52" onClick={onClick}>
+        <div className="custom-prevent-arrow-51" onClick={onClick}>
             <BsChevronLeft size={'100%'} />
         </div>
     )

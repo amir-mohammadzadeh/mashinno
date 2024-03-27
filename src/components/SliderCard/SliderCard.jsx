@@ -41,7 +41,7 @@ const SliderCard = () => {
                             250,000
                         </del>
                     </div>
-                    <div className="button btn-primary">
+                    <div className="button btn-primary btn-animate">
                         مشاهده
                         <BsArrowLeft />
                     </div>

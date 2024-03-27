@@ -1,0 +1,145 @@
+.detailes-card_52 {
+    flex: 1;
+    background-color: var(--white );
+    padding: 1rem;
+    border-radius: .95rem;
+    box-shadow: var(--shadow-2);
+    display: flex;
+    flex-direction: column;
+}
+
+.title_52 {
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--gray-300 );
+}
+
+.car-info_52 {
+    color: var(--gray-500 );
+}
+
+.car-info_52 span {
+    color: var(--gray-800 );
+    font-weight: 600;
+    padding-inline: .25rem;
+}
+
+/*____________________________*/
+
+.detaile-body_52 {
+    flex-grow: 1;
+    display: flex;
+    gap: .5rem;
+    margin-block: 1rem;
+}
+
+.featurs-content_52 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    padding-inline: .5rem;   
+}
+.featurs-content_52:nth-child(1){
+    border-left: 1px solid var(--gray-300 );
+}
+
+.feature_52 {
+    padding-block: .25rem ;
+    font-size: 1.15rem;
+}
+
+.feature_52 span:first-child {
+    display: inline-block;
+    color: var(--gray-600 ); 
+    font-size: 1rem;
+    padding-inline-end: .25rem;
+}
+.ratting_52{
+    padding-block: .25rem;
+}
+.ratting_52 .icon_52{
+    color: var(--yellow-500 );
+}
+
+.flex_52{
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+.toggle-content_52{
+    justify-content: space-between;
+    gap: .75rem;
+}
+
+.toggles_52{
+    gap: 1rem;  
+}
+
+.location-btn_52{
+    margin-top: .25rem;
+    align-self: flex-start;
+    background-color: var(--sky-100 );
+    box-shadow: 0 2px 5px -1px #7dd4fcbd ;
+}
+.location-btn_52 span.icon_52{
+    color: black;
+}
+.location-btn_52:hover{
+    background-color: var(--sky-200 );
+}
+.detaile-footer_52 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 2px solid var(--gray-300 );
+}
+
+.price_52 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.price_52 span {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-inline-start: .5rem;
+    color: var(--gray-700 );
+}
+
+.cart-btn_52 {
+    background-color: var(--green-500 );
+    box-shadow: 0 2px 8px -1px var(--green-400 );
+    color: var(--white );
+}
+
+.cart-btn_52:hover {
+    box-shadow: none;
+    transform: scale(.99);
+}
+
+.btn_52{
+    padding: .5rem 1rem;
+    border-radius: .35rem;
+    gap: .5rem;
+    display: flex;
+    align-items: center;
+    transition: .3s;
+    cursor: pointer;
+}
+
+/*________ Make Responcive ________________________*/
+@media screen and (max-width: 601px) {
+    .detaile-body_52{
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+    .featurs-content_52:nth-child(1){
+        border: 0;
+    }
+    .detaile-footer_52{
+        flex-direction: column;
+    }
+
+}

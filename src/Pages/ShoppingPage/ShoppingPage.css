@@ -14,10 +14,11 @@
 .filter-btn-45{
     background-color: white;
     width: max-content;
-    padding: .5rem .85rem;
+    padding: .5rem 1rem;
     border-radius: .35rem;
-    box-shadow: var(--shadow-3);
+    border: 1px solid #9ca3af;
     display: none;
+    justify-content: center;
     gap: .25rem;
     cursor: pointer;
 }

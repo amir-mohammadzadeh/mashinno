@@ -1,13 +1,11 @@
 import React from 'react'
 import './Header.css' // Code 01
-import { BsCart3, BsInfoCircle, BsPersonCircle, BsSearch, BsShop } from "react-icons/bs";
+import { BsCart3, BsGeoAlt, BsPersonCircle, BsSearch, BsShop } from "react-icons/bs";
 import Navigation from '../Navigation/Navigation';
 import { Link } from 'react-router-dom';
+import SearchBox from '../SearchBox/SearchBox';
 
 const Header = () => {
-    const inputFocusHandler = () => {
-        window.innerWidth <= 992 && console.log('Search input is onFocus...')
-    }
 
     return (
         <>
@@ -19,15 +17,9 @@ const Header = () => {
                             <img src="/public/logo.webp" alt="Logo" />
                         </Link>
                     </div>
-                    <div className="search-box">
 
-
-                        <input type="search" className='search-input' placeholder='جستجوی محصولات' onFocus={inputFocusHandler} />
-                        <span className='search-icon btn-primary'>
-                            <BsSearch size={20} />
-                        </span>
-
-                    </div>
+                    <SearchBox className='search-box-01' />
+                    
                     <div className="header-button-group">
                         <div className="header-btn-01">
                             <BsPersonCircle size={22} />
@@ -36,12 +28,15 @@ const Header = () => {
                             </span>
                         </div>
                         <div className="header-btn-01">
-                            <BsInfoCircle size={22} />
-                        </div>
-                        <div className="header-btn-01">
                             <BsCart3 size={22} />
                             <span className='cart-couner'>
                                 0
+                            </span>
+                        </div>
+                        <div className="header-btn-01">
+                            <BsGeoAlt size={22} />
+                            <span className='title'>
+                                انتخاب شهر
                             </span>
                         </div>
                     </div>

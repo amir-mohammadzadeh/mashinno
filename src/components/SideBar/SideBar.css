@@ -1,6 +1,6 @@
 .sidebar_container {
     position: fixed;
-    inset: top right;
+    inset: 0 0 auto auto;
     width: 25rem;
     height: 100%;
     background-color: var(--white);
