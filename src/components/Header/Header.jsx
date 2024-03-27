@@ -1,12 +1,13 @@
 import React from 'react'
 import './Header.css' // Code 01
-import { BsCart3, BsGeoAlt, BsPersonCircle, BsSearch, BsShop } from "react-icons/bs";
+import { BsCart3, BsGeoAlt, BsPersonCheckFill, BsPersonCircle } from "react-icons/bs";
 import Navigation from '../Navigation/Navigation';
 import { Link } from 'react-router-dom';
 import SearchBox from '../SearchBox/SearchBox';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-
+    const [name, isLogin] = useSelector((state) => [`${state.userInfo.name} ${state.userInfo.lastName}`, state.userInfo.isLogin])
     return (
         <>
             <header className='Header-01'>
@@ -19,14 +20,24 @@ const Header = () => {
                     </div>
 
                     <SearchBox className='search-box-01' />
-                    
+
                     <div className="header-button-group">
                         <div className="header-btn-01">
-                            <BsPersonCircle size={22} />
-                            <span className='title'>
-                                ورود
-                            </span>
+                            {isLogin ? <>
+                                <BsPersonCheckFill size={22} />
+                                <span className='title'>
+                                    {name}
+                                </span>
+
+                            </> : <>
+                                <BsPersonCircle size={22} />
+                                <span className='title'>
+                                    ورود
+                                </span>
+                            </>}
+
                         </div>
+
                         <div className="header-btn-01">
                             <BsCart3 size={22} />
                             <span className='cart-couner'>

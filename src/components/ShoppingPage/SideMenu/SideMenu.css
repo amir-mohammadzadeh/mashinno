@@ -85,7 +85,7 @@
 /*_________ Make Responcive ________________*/
 @media screen and (max-width: 1200px) {
     .sidemenu-45 {
-        width: 18rem;
+        width: 25rem;
     }
 }
 
@@ -122,5 +122,14 @@
 
     .open-sidemenu-45~.sidemenu-45 {
         transform: translateX(0);
+    }
+}
+@media screen and (max-width: 405px) {
+    .sidemenu-45 {
+        width: 100%;
+        border-radius: 0;
+    }
+    .sideMenu-header-45{
+        padding-inline: .85rem;
     }
 }

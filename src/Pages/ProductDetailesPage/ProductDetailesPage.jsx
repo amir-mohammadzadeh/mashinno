@@ -19,7 +19,7 @@ const matchProductList = Array.from(Array(10).keys())
 
 const ProductDetailesPage = () => {
     const [openGallery, setOpenGallery] = useState(false)
-    const [activeTab, setActiveTab] = useState(2)
+    const [activeTab, setActiveTab] = useState(1)
     const params = useParams()
     const t = useLocation()
     useEffect(() => {

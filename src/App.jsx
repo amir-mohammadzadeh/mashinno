@@ -3,16 +3,20 @@ import './App.css'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import HelpWidget from './components/HelpWidget/HelpWidget'
+import { Provider } from 'react-redux'
+import store from './redux/store'
 
 
 function App() {
 
   return (
     <>
-      <Header />
+      <Provider store={store} >
+        <Header />
         <Outlet />
-      <Footer  />
-      <HelpWidget />
+        <Footer />
+        <HelpWidget />
+      </Provider>
     </>
   )
 }

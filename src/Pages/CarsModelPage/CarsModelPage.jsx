@@ -13,9 +13,10 @@ const CarsModelPage = () => {
     const location = useLocation()
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scroll({ behavior: 'instant', top: 0, left: 0 })
         document.title = 'لوازم یدکی ' + params.brandName + ' - فروشگاه آملاین لوازم یدکی کاپوت'
         setBrandInfo(Data.find(b => b.slug == params.brandName))
+        return () => window.scroll({ behavior: 'instant', top: 0, left: 0 })
     }, [location])
 
 

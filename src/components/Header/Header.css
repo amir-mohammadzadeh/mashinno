@@ -24,11 +24,12 @@
 .search-box-01{
     --input-height: 3rem;
     --input-radius: 3rem;
-    width: 50%;
+    width: 30%;
+    flex-shrink: 1;
 }
 
 .header-button-group {
-    flex-grow: 1;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
