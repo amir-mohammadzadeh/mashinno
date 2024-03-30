@@ -73,7 +73,13 @@
     }
 
     .card_22 {
-        width: 100%;
+        width: 75vw;
+        margin-inline: auto;
     }
 
+}
+@media screen and (max-width: 222px) {
+    .card_22 {
+        width: 100%;
+    }
 }

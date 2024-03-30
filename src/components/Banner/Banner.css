@@ -1,4 +1,4 @@
-.sliders-holder-21{
+.sliders-holder_15{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -12,7 +12,7 @@
     justify-content: center;
     gap: 1rem;
     padding:1rem ;
-    margin-bottom: 1rem ;
+    margin-bottom: .5rem ;
 }
 
 .banner-header_link{
@@ -29,32 +29,32 @@
     background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);;
 }
 /*________ LEFT SLIDER ________________*/
-.pruducts-slider{
+.pruducts-slider_15{
     width: 24%;
     border-radius: .5rem;
-    
 }
 
 /*________ LEFT SLIDER ________________*/
-.banner-slider{
+.banner-slider_15{
     width: 75%;
 }
-
-.banner-slider img{
+.banner-image_15{
+    border-radius: .75rem;
+    overflow: hidden;
+}
+.banner-image_15 img{
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    object-position: center;
-    border-radius: .75rem;
+    aspect-ratio: 1020 / 360;
 }
 
 /*__________ Resvonsive ____________*/
 
 @media screen and (max-width: 992px) {
-    .pruducts-slider{
+    .pruducts-slider_15{
         display: none;
     }
-    .banner-slider{
+    .banner-slider_15{
         width: 100%;
     }
 }

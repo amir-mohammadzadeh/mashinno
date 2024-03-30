@@ -1,4 +1,4 @@
-import './SideMenu.css' // Code => 45
+import './SideMenu.css' // Code => 32
 import { BsXLg } from 'react-icons/bs'
 import {  useOutClicker } from '../../../Hook/useOutsideClick'
 import { useEffect } from 'react'
@@ -12,11 +12,11 @@ const SideMenu = ({ valueList, openSideMenu, closeAction , onSelect }) => {
     },[openSideMenu])
     return (
         <>
-            <div className={`sidemenu_container-45 ${openSideMenu && 'open-sidemenu-45'}`} onClick={outSideClickHandler}>
+            <div className={`sidemenu_container_32 ${openSideMenu && 'open-sidemenu_32'}`} onClick={outSideClickHandler}>
             </div>
-            <div ref={elem_ref} className="sidemenu-45">
+            <div ref={elem_ref} className="sidemenu_32 no-scrollbar">
 
-                <header className="sideMenu-header-45">
+                <header className="sideMenu-header_32">
                     <span>
                         فیلترها
                     </span>
@@ -29,10 +29,10 @@ const SideMenu = ({ valueList, openSideMenu, closeAction , onSelect }) => {
                     <span className="h5">
                         دسته بندی‌ها
                     </span>
-                    <ul className="categories-45">
+                    <ul className="categories_32">
 
                         {valueList.map(item =>
-                            <li key={item.id} className="item-45">
+                            <li key={item.id} className="item_32">
                                 <input type="checkbox" id={"check-"+ item.id} onChange={()=>onSelect(item)} />
                                 <label htmlFor={"check-"+ item.id}>
                                     {item.title}

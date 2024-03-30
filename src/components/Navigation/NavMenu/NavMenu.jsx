@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import './NavMenu.css'
+import './NavMenu.css' // Code => 21
 import SubNav from './SubNav'
 import Data from '../../../assets/Data/Brands.json'
 import { Link } from 'react-router-dom'
@@ -13,35 +13,35 @@ const NavMenu = () => {
 
   return (
     <div className='nav-menu_container'>
-      <ul className='menu-content'>
-        <li className="menu-item">
+      <ul className='menu-content_21'>
+        <li className="menu-item_21">
           <a href='#Brands_Section' className='menu-title'>
             برند خودرو
           </a>
           <SubNav list={Brand_List.current} grid={true} active={true} />
         </li>
-        <li className="menu-item">
+        <li className="menu-item_21">
           <Link className='menu-title'>
             لوازم مصرفی
           </Link>
           <SubNav list={Lavazem_List} />
 
         </li>
-        <li className="menu-item">
+        <li className="menu-item_21">
           <Link className='menu-title'>
             اکسسوری خودرو
           </Link>
           <SubNav list={Accessory_List} />
 
         </li>
-        <li className="menu-item">
+        <li className="menu-item_21">
           <Link className='menu-title'>
             لوازم جانبی خودرو
           </Link>
           <SubNav list={[]} />
 
         </li>
-        <li className="menu-item">
+        <li className="menu-item_21">
           <Link className='menu-title'>
             نگهداری خودرو
           </Link>

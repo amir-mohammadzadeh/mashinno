@@ -1,45 +1,45 @@
-
 /*__________ Descriptions ____________*/
-.description-box-35{
+.description-box_23{
     max-width: 90rem;
     width: 90vw;
     padding: 1.5rem;
     margin: 1rem auto;
     border-radius: 1rem;
-    background-color: white;
+    background-color: var(--white );
     box-shadow: 0 0 10px 1px var(--shadow-color-3);
 }
 
-.description-box-35 > section {
-    color: #111827; /* var(--gray-900 ) */   
+.description-box_23 > section {
+    color: var(--gray-900 ); 
 }
 
-.description-box-35 > section p{
+.description-box_23 > section p{
     line-height: 1.7rem;
-    color: #3f3f46; /*  var(--zinc-700 ) */
+    color: var(--zinc-700 );
 }
-.description-box-35 > section a{
+.description-box_23 > section a{
     display: inline-block;
-    color: #1d4ed8; /*  var(--blue-700 ) */
-    text-decoration: underline dashed 1px ;
-    text-underline-offset: 7px;
+    color: var(--blue-700 );
     padding-inline: 4px;
     font-weight: bold;
 }
-.description-box-35 > section strong{
-    color: #111827;
+.description-box_23 > section strong{
+    color: var(--slate-900 );
 }
-.question-35{
+.question_23{
     margin-bottom: .5rem;
 }
-.question-35 p {
+.question_23 p {
+    padding-inline-start: .5rem;
     margin-block: .25rem;
+    border-radius: .35rem;
 }
-.question-35 p:nth-child(1){
+.question_23 p:nth-child(1){
     font-weight: bold;
 }
 
-.question-35 p:nth-child(2){
-    padding-inline-start: .75rem;
+.question_23 p:nth-child(2){
+    background-color: var(--slate-100 );
+    padding-inline-start: 1.25rem;
 }
 

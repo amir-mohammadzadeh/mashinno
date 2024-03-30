@@ -3,7 +3,7 @@ import NavMenu from './NavMenu/NavMenu'
 import MobileNavBar from './MobileNavBar/MobileNavBar'
 import { BsCarFront, BsInfoCircle, BsShop } from "react-icons/bs";
 import { TfiMenuAlt } from "react-icons/tfi";
-import './Navigation.css'
+import './Navigation.css' // Code => 02
 import { Link } from 'react-router-dom';
 
 const Navigation = () => {
@@ -11,10 +11,10 @@ const Navigation = () => {
     return (
         <>
         <nav>
-            <div className="navbar-content">
+            <div className="container navbar-content">
                 <ul className='navbar'>
-                    <li className="navbar_menu-btn">
-                        <div className="nav_link btn-primary btn-animate">
+                    <li className="menu-button_02">
+                        <div className="btn btn-primary btn-animate">
                             <TfiMenuAlt size={20} />
                             <span>
                                 منوی اصلی
@@ -22,35 +22,35 @@ const Navigation = () => {
                         </div>
                         <NavMenu />
                     </li>
-                    <li className="">
-                        <Link to="" className="nav_link">
+                    <li className="nav_link_02">
+                        <Link to="">
                             <BsCarFront size={20} />
                             <span>
                                 سامانه خودرو
                             </span>
                         </Link>
                     </li>
-                    <li className="">
-                        <Link to="" className="nav_link">
+                    <li className="nav_link_02">
+                        <Link to="">
                             <BsCarFront size={20} />
                             <span>
                                 خرید آنلاین بیمه نامه
                             </span>
                         </Link>
                     </li>
-                    <li className="">
-                        <Link to="" className="nav_link">
+                    <li className="nav_link_02">
+                        <Link to="">
                             <BsShop size={20} />
                             <span>
                                 فروشنده شو
                             </span>
                         </Link>
                     </li>
-                    <li className="">
-                        <Link to="" className="nav_link">
+                    <li className="nav_link_02">
+                        <Link to="">
                             <BsInfoCircle size={20} />
                             <span>
-                                دباره ما
+                                درباره ما
                             </span>
                         </Link>
                     </li>

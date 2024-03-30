@@ -23,6 +23,7 @@ const ProductDetailesPage = () => {
     const params = useParams()
     const t = useLocation()
     useEffect(() => {
+        window.scroll({ behavior: 'instant', top: 0, left: 0 })
         console.log(t)
         document.title = 'قیمت و خرید ' + '"نام محصول "' + ' | کاپوت'
     }, [])

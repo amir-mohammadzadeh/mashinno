@@ -1,15 +1,20 @@
-import { BsCart, BsCart3, BsShieldFillCheck, BsStar, BsStarFill, BsXLg } from 'react-icons/bs'
+import { BsCart3, BsShieldFillCheck, BsStarFill } from 'react-icons/bs'
 import React from 'react'
 import { GrMapLocation } from "react-icons/gr";
 import './ProductsDetailesCard.css' // Code => 52
 import { LikeButton, ShareButton } from '../ToggleButtons/ToggleButtons';
+import { useSeparate } from '../../Hook/useNumbers';
 
 const ProductsDetailesCard = () => {
+    const Product_Price = useSeparate('1230000',',') // => قیمت محصول را دریافت و ۳ رقم ۳ رقم جدا کرده و به فارسی بر میگرداند
     const addToFavorites =(payload)=>{
         payload ? console.log('Add to favorites') : console.log('Remove from favorites')
     }
     const shareHandle=()=>{
         console.log('Share this Product link ;)')
+    }
+    const openMap=()=>{
+        window.open("https://maps.google.com?q=38.05339143532025,46.28310309630766")
     }
     return (
         <div className="detailes-card_52">
@@ -50,7 +55,7 @@ const ProductsDetailesCard = () => {
                             ۰۹۱۴۱۲۳۴۵۶۷
                         </span>
                     </li>
-                    <li className="feature_52 btn_52 location-btn_52">
+                    <li className="feature_52 btn_52 location-btn_52" onClick={openMap}>
                         <span className='icon_52 '>
                             <GrMapLocation size={20} />
                         </span>
@@ -105,7 +110,7 @@ const ProductsDetailesCard = () => {
 
             <div className="detaile-footer_52">
                 <div className="price_52">
-                    ۱۹۰۰۰۰
+                    {Product_Price}
                     <span>تومان</span>
                 </div>
                 <div className="btn_52 cart-btn_52">

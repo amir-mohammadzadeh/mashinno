@@ -1,5 +1,4 @@
 import './SliderContent.css'
-import './CustomStyles.css'
 import Slider from 'react-slick';
 
 const SliderContent = ({ setting, children }) => {

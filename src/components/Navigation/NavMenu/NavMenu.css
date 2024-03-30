@@ -1,6 +1,6 @@
 /*_________ Open Nav Menu ____________*/
 .nav-menu_container:hover,
-.navbar_menu-btn:hover .nav-menu_container {
+.menu-button_02:hover .nav-menu_container {
     display: block;
 }
 
@@ -18,7 +18,7 @@
     z-index: 10;
 }
 
-.menu-content {
+.menu-content_21 {
     /*ul*/
     position: relative;
     max-height: 20rem;
@@ -26,12 +26,12 @@
     background-color: var(--gray-200);
 }
 
-.menu-content .menu-item {
+.menu-item_21 {
     transition: .3s;
     width: max-content;
 }
 
-.menu-content .menu-item:hover {
+.menu-item_21:hover {
     cursor: pointer;
     background-color: #ffa41b30;/*  ffa41b30  */
     padding-inline-start: .5rem;

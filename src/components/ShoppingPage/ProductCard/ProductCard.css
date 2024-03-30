@@ -1,6 +1,6 @@
-.product-card-46{
+.product-card_31{
     position: relative;
-    background-color: white;
+    background-color: var(--white );
     padding: 1rem .25rem;
     border-radius: .5rem;
     box-shadow: var(--shadow-3);
@@ -9,12 +9,12 @@
     cursor: pointer;
     transition: .3s ease;
 }
-.icon-46{
+.icon_31{
     position: absolute;
     top: .25rem;
     margin-inline: .25rem;
     background-color: #ffffff80;
-    color: #374151; /* var(--gray-700 ) */
+    color: var(--gray-700 );
     transition: .2s ease-in;
     cursor: pointer;
     z-index: 2;
@@ -22,29 +22,32 @@
     opacity: 0;
 }
 
-.product-card-46:hover{
+.product-card_31:hover{
     transform: scale(1.02);
 }
-.product-card-46:hover > .icon-46{
+.product-card_31:hover > .icon_31{
     transform: translateY(0);
     opacity: 1;
 }
 
-.product-image-46{
+.product-image_31{
     width: 100%;
     border-radius: .25rem;
     overflow: hidden;
     user-select: none;
 }
-.product-image-46 img{
+.product-image_31 img{
     max-width: 100%;
     height: auto;
     aspect-ratio: 45 / 30;
 }
-.card-body-46{
+.card-body_31{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding: .5rem .25rem 0 .25rem;
 }
-.card-title-46{
+.card-title_31{
     display: -webkit-box;
     line-clamp: 2;
     -webkit-line-clamp: 2;
@@ -52,15 +55,15 @@
     overflow: hidden;
     height: 3rem;
 }
-.price-46{
-    background-color: #ede9fe;/* var(--teal-200 ) var(--violet-100 )  */
+.price_31{
+    background-color: var(--violet-100 );
     padding: .5rem;
     border-radius: .3rem;
     margin-top: .5rem;
     text-align: center;
-    font-weight: 600;
+    font-size: 1.1rem;
 }
-.price-46 span{
+.price_31 span{
     font-size: .9rem;
     margin-inline-start: .25rem;
 }
@@ -70,23 +73,31 @@
 
 @media screen and (max-width: 566px) {
     .card-R-1{
-    /*.product-card-46*/
+    /*.product-card_31*/
+        padding-block:  .25rem;
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: .25rem;
+        
     }
     .card-R-2{
-    /*.product-image-46*/
-        max-width: 11rem;
+    /*.product-image_31*/
+        max-width:8rem;
+        flex-grow: 0;
     }
-    .card-body-46{
+    .card-title_31{
+        padding: .8rem .25rem 0 0;
+    }
+    .card-body_31{
+        justify-content: space-between;
         flex: 1 0 10rem;
     }
-    .icon-46{
+    .icon_31{
         transform: none;
         left: .25rem;
-        top: .25rem;
+        top: .1rem;
         width: max-content;
-        opacity: 1;
+        opacity: .7;
+        transform: scale(.9);
     }
 }

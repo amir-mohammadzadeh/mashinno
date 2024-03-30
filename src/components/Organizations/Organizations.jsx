@@ -9,7 +9,7 @@ const Organizations = () => {
         { name: "درگاه اعتباری آپسان", logo: "no-image.webp" },
     ]
     return (
-        <div className='container organs_holder'>
+        <div className='container my-2'>
             <div className="organization-header">
                 سازمان‌های طرف قرارداد
             </div>
@@ -17,7 +17,7 @@ const Organizations = () => {
                 {Organizations_List.map((organ, index) =>
                     <li key={index} className="organization">
                         <div className="image">
-                            <img src={`/public/Images/${organ.logo}`} alt="" />
+                            <img src={`/public/Images/${organ.logo}`} alt={organ.name} />
                         </div>
                         <span>
                             {organ.name}

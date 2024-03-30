@@ -1,5 +1,5 @@
 import React from 'react'
-import './Banner.css' // Code => 21
+import './Banner.css' // Code => 15
 import SliderContent from '../Slider/SliderContent';
 import SliderCard from '../SliderCard/SliderCard';
 import { NextArrow, PrevArrow } from './SliderCustomArrow';
@@ -24,7 +24,7 @@ const Banner = () => {
     }
 
     return (
-        <div className='container'>
+        <div className='container my-1'>
             <header className='banner-header'>
                 <a href="" className='banner-header_link'>
                     <img src="/public/Images/header-story_1.webp" alt="" />
@@ -46,10 +46,9 @@ const Banner = () => {
                 </a>
             </header>
 
-            <div className="sliders-holder-21">
+            <div className="sliders-holder_15">
 
-
-                <div className="pruducts-slider">
+                <div className="pruducts-slider_15">
                     <SliderContent setting={{arrows:false}} >
                         <SliderCard />
                         <SliderCard />
@@ -57,24 +56,24 @@ const Banner = () => {
                     </SliderContent>
                 </div>
 
-                <div className="banner-slider">
+                <div className="banner-slider_15">
                     <SliderContent setting={BannerSlider_Settings}  >
-                        <div className='img-c'>
+                        <div className='banner-image_15'>
                             <a href="">
                                 <img src="/public/Banners/baner_1.webp" alt="" />
                             </a>
                         </div>
-                        <div className='img-c'>
+                        <div className='banner-image_15'>
                             <a href="">
                                 <img src="/public/Banners/baner_2.webp" alt="" />
                             </a>
                         </div>
-                        <div className='img-c'>
+                        <div className='banner-image_15'>
                             <a href="">
                                 <img src="/public/Banners/baner_3.webp" alt="" />
                             </a>
                         </div>
-                        <div className='img-c'>
+                        <div className='banner-image_15'>
                             <a href="">
                                 <img src="/public/Banners/baner_4.webp" alt="" />
                             </a>

@@ -1,5 +1,5 @@
 import { BsCheck2Circle } from 'react-icons/bs'
-import './Header.css' // Code  => 34
+import './Header.css' // Code  => 24
 import { useRef, useState } from 'react'
 
 const Header = ({ listOfCars, updateList }) => {
@@ -11,16 +11,16 @@ const Header = ({ listOfCars, updateList }) => {
     const onChange = (filterValue) => {
         filterValue == "All" ?
             updateList(orginal_Data)
-            : updateList(orginal_Data.filter(car => car.category != filterValue));
+            : updateList(orginal_Data.filter(car => car.category == filterValue));
         setFilter(filterValue)
     }
 
     return (
         <>
-            <header className="Header-34">
-                <div className="container header-content-34">
+            <header className="Header_24">
+                <div className="container header-content_24">
 
-                    <div className="header-title-34">
+                    <div className="header-title_24">
                         <span className='h4'>
                             مدل های خودرو
                         </span>
@@ -29,12 +29,12 @@ const Header = ({ listOfCars, updateList }) => {
                         </span>
                     </div>
                     <div className="header-body">
-                        <ul className="filters-34">
+                        <ul className="filters_24">
                             <li
-                                className={filter == "All" ? "filter-item-34 active-filter-34" : "filter-item-34"}
+                                className={filter == "All" ? "filter-item_24 active-filter_24" : "filter-item_24"}
                                 onClick={() => onChange('All')}
                             >
-                                <span className="filter-icon-34">
+                                <span className="filter-icon_24">
                                     <BsCheck2Circle size={'100%'} />
                                 </span>
                                 <span>
@@ -44,10 +44,10 @@ const Header = ({ listOfCars, updateList }) => {
                             {optionsList.map(option =>
                                 <li
                                     key={option}
-                                    className={filter == option ? "filter-item-34 active-filter-34" : "filter-item-34"}
+                                    className={filter == option ? "filter-item_24 active-filter_24" : "filter-item_24"}
                                     onClick={() => onChange(option)}
                                 >
-                                    <span className="filter-icon-34">
+                                    <span className="filter-icon_24">
                                         <BsCheck2Circle size={'100%'} />
                                     </span>
                                     <span>

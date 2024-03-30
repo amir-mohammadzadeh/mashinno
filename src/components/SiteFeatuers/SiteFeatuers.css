@@ -1,11 +1,11 @@
-.featuers-content-36{
+.featuers-content_18{
     padding: 1rem;
     display: grid;
     grid-template-columns: repeat(4 , 1fr);
     gap: 1rem;
 }
 
-.feature-card-36{
+.feature-card_18{
     background-color: var(--white);
     color: var(--gray-900);
     box-shadow: 0 1px 8px 1px var(--shadow-color-2);
@@ -16,19 +16,19 @@
     gap: .75rem;
 }
 
-.icon-36{
+.icon_18{
     width: 3rem;
     height: 3rem;
     color: #1d4ed8;/* var(--blue-700 ) */
 }
 
-.title-36{
+.title_18{
     display: block;
     margin-bottom: .5rem;
     font-weight: bold;
     font-size: 1rem;
 }
-.subtitle-36{
+.subtitle_18{
     font-size: .9rem;
     font-family: var(--main-font-b);
     color: #6b7280;/* var(--gray-500 ) */
@@ -36,16 +36,16 @@
 
 /*___________ RESPONCIYE ___________________*/
 @media screen and (max-width: 992px) {
-    .featuers-content-36{
+    .featuers-content_18{
         grid-template-columns: repeat(2 , 1fr);
     }
     
 }
 @media screen and (max-width: 568px) {
-    .featuers-content-36{
+    .featuers-content_18{
         grid-template-columns: 1fr;
     }
-    .icon-36{
+    .icon_18{
         width: 2.5rem;
     }
 }

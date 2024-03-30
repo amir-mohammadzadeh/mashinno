@@ -4,6 +4,9 @@ import Home from "./Pages/Home";
 import CarsModelPage from "./Pages/CarsModelPage/CarsModelPage";
 import ShoppingPage from "./Pages/ShoppingPage/ShoppingPage";
 import ProductDetailesPage from "./Pages/ProductDetailesPage/ProductDetailesPage";
+import Login from "./Pages/LoginPage/Login";
+import Dashbord from './Pages/Dashbord/Dashbord'
+import PrivetRoute from "./Pages/PrivetRoute/PrivetRoute";
 
 
 const routes = createBrowserRouter([
@@ -26,6 +29,14 @@ const routes = createBrowserRouter([
             {
                 path: 'product-detailes/:productID',
                 element: <ProductDetailesPage />
+            },
+            {
+                path: 'login',
+                element: <Login />
+            },
+            {
+                path: 'userdashbord',
+                element: <PrivetRoute><Dashbord /></PrivetRoute>
             },
         ]
     }

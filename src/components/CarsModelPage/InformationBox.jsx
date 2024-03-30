@@ -1,9 +1,9 @@
 import React from 'react'
-import './InformationBox.css'//____________ Code =>  35
+import './InformationBox.css'//____________ Code =>  23
 
 const InformationBox = () => {
     return (
-        <article className='description-box-35'>
+        <article className='description-box_23'>
             <section>
                 <h3>
                     لوازم یدکی کیا
@@ -35,7 +35,7 @@ const InformationBox = () => {
                     سوالات متداول
                 </h6>
                 <ul>
-                    <li className='question-35'>
+                    <li className='question_23'>
                         <p>
                             <span> سوال: </span>
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.

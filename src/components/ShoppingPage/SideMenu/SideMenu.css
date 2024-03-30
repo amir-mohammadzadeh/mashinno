@@ -1,9 +1,9 @@
-.sidemenu_container-45{
+.sidemenu_container_32{
     display: none;
 }
-.sidemenu-45 {
+.sidemenu_32 {
     background-color: var(--white);
-    color: #111827;/*  var(--gray-900 ) */
+    color: var(--gray-900 );
     box-shadow: 0 0 8px 1px var(--shadow-color-2);
     padding: 1rem .5rem;
     border-radius: 1rem;
@@ -13,53 +13,48 @@
     top: 1rem;
     max-height: 95vh;
     overflow-y: auto;
-    scrollbar-width: none;
 }
 
-.sidemenu-45::-webkit-scrollbar {
-    width: 0;
-}
-
-.sideMenu-header-45 {
+.sideMenu-header_32 {
     position: sticky;
     top: 0;
-    background-color: #ffffff;
+    background-color: var(--white );
     padding: 1rem .5rem;
     font-size: 1.25rem;
     display: none;
     justify-content: space-between;
 }
 
-.categories-45 {
+.categories_32 {
     margin-top: .75rem;
     padding: .5rem;
-    border-top: 1px solid #d1d5db;/*  var(--gray-300 ) */
+    border-top: 1px solid var(--gray-300 );
 }
 
-.item-45 {
+.item_32 {
     padding: .3rem 0;
 }
 
-.item-45 input {
+.item_32 input {
     width: 1.1rem;
     height: 1.1rem;
     transform: translateY(4px);
     cursor: pointer;
     opacity: .4;
-    accent-color: #16a34a;/* var(--green-600 ) */
+    accent-color: var(--green-600 );
 }
 
-.item-45 label {
+.item_32 label {
     padding-inline-start: 3px;
     cursor: pointer;
 
 }
 
-.item-45 input:checked~label {
+.item_32 input:checked~label {
     font-weight: bold;
 }
 
-.item-45 input:checked {
+.item_32 input:checked {
     opacity: 1;
 }
 
@@ -84,13 +79,13 @@
 
 /*_________ Make Responcive ________________*/
 @media screen and (max-width: 1200px) {
-    .sidemenu-45 {
-        width: 25rem;
+    .sidemenu_32 {
+        width: 18rem;
     }
 }
 
 @media screen and (max-width: 992px) {
-    .sidemenu_container-45 {
+    .sidemenu_container_32 {
         position: fixed;
         inset: 0;
         background-color: #11182770;
@@ -98,38 +93,39 @@
         z-index: 9;
     }
 
-    .sideMenu-header-45 {
+    .sideMenu-header_32 {
         display: flex;
         z-index: 11;
     }
 
-    .sidemenu-45 {
+    .sidemenu_32 {
         position: fixed;
         top: 0;
         right: 0;
         padding-top: 0;
         border-radius: 1rem 0 0 1rem;
         height: 100%;
+        width: 25rem;
         max-height: 100%;
         transition: .3s ease-in-out;
         transform: translateX(110%);
         z-index: 10;
     }
 
-    .open-sidemenu-45 {
+    .open-sidemenu_32 {
         display: block;
     }
 
-    .open-sidemenu-45~.sidemenu-45 {
+    .open-sidemenu_32~.sidemenu_32 {
         transform: translateX(0);
     }
 }
 @media screen and (max-width: 405px) {
-    .sidemenu-45 {
+    .sidemenu_32 {
         width: 100%;
         border-radius: 0;
     }
-    .sideMenu-header-45{
+    .sideMenu-header_32{
         padding-inline: .85rem;
     }
 }

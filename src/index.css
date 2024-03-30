@@ -1,12 +1,6 @@
-/*
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-}
-*/
 @import url('./reset.css');
 
-/*________________________________________*/
+/*______________ Import Font __________________________*/
 @font-face {
   font-family: 'main-font';
   src: url('/public/Font/BYekan.ttf');
@@ -21,8 +15,8 @@
 
 :root {
   --black: #000000;
-  --main-font-b: 'main-font-bold';
-  --main-font: 'main-font';
+  --main-font-b: 'main-font-bold',sans-serif;
+  --main-font: 'main-font',sans-serif;
   --white: #ffffff;
   --gray-100: #f4f4f4;
   --gray-200: #eeeeee;
@@ -273,16 +267,16 @@ html {
 }
 
 html::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
 }
 
 html::-webkit-scrollbar-thumb {
-  background-color: #061C2F;
+  background-color: var(--slate-800 );
   border-radius: 10px;
 }
 
 html::-webkit-scrollbar-track {
-  background-color: #d4d4d8;
+  background-color: var(--gray-300 );
   /* var(--zinc-300 ) */
   border-radius: 10px;
 }
@@ -299,7 +293,12 @@ body {
   margin-inline: auto;
   padding-inline: 1rem;
 }
-
+.my-1{
+  margin-block: 1rem;
+}
+.my-2{
+  margin-block: 2rem;
+}
 .font-lg {
   font-size: 1.25rem;
 }
@@ -367,4 +366,31 @@ body {
 .no-scrollbar::-webkit-scrollbar-thumb{
   width: 0;
   height: 0;
+}
+
+/*_____________ Limited text lines _______________*/
+.line-limit-1{
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+}
+.line-limit-2{
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.line-limit-2,
+.line-limit-1{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/*_____________ SideBars open & close animation _______________*/
+
+@keyframes open-animation {
+  from { transform: translateX(-110%); }
+  to { transform: translateX(0); }
+}
+@keyframes close-animation {
+  from { transform: translateX(0); }
+  to { transform: translateX(-110%); }
 }

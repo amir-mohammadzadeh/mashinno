@@ -1,0 +1,20 @@
+.advertising_004{
+    grid-column: 1 / -1 ;
+    width: 100%;
+    min-height: 5rem;
+    padding: .25rem;
+    border-radius: .5rem;
+    border: 1px solid var(--gray-300 );
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: .25rem;
+}
+
+@media screen and (max-width: 566px) {
+    .advertising_004{
+        grid-template-columns: 1fr;
+        gap: .5rem;
+    }
+}
