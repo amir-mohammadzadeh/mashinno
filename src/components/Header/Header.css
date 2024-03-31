@@ -1,49 +1,48 @@
-.Header-01{
+.Header_01 {
     height: auto;
     padding: 2rem 2rem .5rem 2rem;
     background-color: var(--white);
     box-shadow: 0 1px 15px 1px var(--shadow-color-1);
 }
 
-.header_container{
+.header_container {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.header-logo-01 {
+.header-logo_01 {
     width: 10rem;
-    font-size: 2rem;
 }
 
-.header-logo-01 img {
-    width: 100%;
-    height: 100%;
-    transform: translateY(5px);
+.header-logo_01 img {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 160/40;
 }
-.search-box-01{
+
+.search-box_01 {
     --input-height: 3rem;
     --input-radius: 3rem;
     width: 30%;
-    flex-shrink: 1;
 }
 
 .header-button-group {
-    flex: 1;
+    flex-grow: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: end;
     gap: .5rem;
 }
 
-.header-btn-01 {
+.button_01 {
     padding: .5rem 1rem;
     height: 3rem;
     border-radius: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: .5rem;
+    gap: .3rem;
     color: var(--gray-600);
     background-color: var(--white);
     border: 1px solid var(--gray-200);
@@ -52,11 +51,7 @@
     flex-shrink: 0;
 }
 
-.header-btn-01:nth-child(3) span {
-    font-size: 1rem;
-}
-
-.header-btn-01 .cart-couner {
+.button_01 .cart-couner_01 {
     background-color: var(--gray-900);
     color: var(--white);
     width: 1.5rem;
@@ -67,31 +62,58 @@
     font-size: .85rem;
 }
 
-.header-btn-01 .title {
+.button_01 .title_01 {
     font-size: 1.2rem;
-    padding-bottom: .3rem;
+    transform: translateY(-2px);
+}
+
+.city-selector_01 .title_01 {
+    font-size: 1rem;
 }
 
 /*______________________________________ RESPONCIVE ________________*/
 @media screen and (max-width:992px) {
-    .Header-01{
-        padding: .5rem ;
+    .Header_01 {
+        padding: .5rem;
         position: sticky;
         top: 0;
         z-index: 9;
     }
 
-    .header-button-group,
-    .header-logo-01 {
+    .header-button-group {
+        flex-grow: 0;
+        width: max-content;
+        justify-content: unset;
+    }
+
+    .button_01:nth-child(1),
+    .button_01:nth-child(2),
+    .header-logo_01 {
         display: none;
     }
-    .search-box-01 {
-        width: 100%;
-    } 
+
+    .search-box_01 {
+        width: 80%;
+        flex-grow: 1;
+    }
 }
+
 @media screen and (max-width:768px) {
-    .search-box-01{
+    .header_container {
+        gap: .25rem;
+        justify-content: space-between;
+    }
+
+    .search-box_01 {
+        flex-shrink: 3;
         --input-height: 2.5rem;
         --input-radius: .5rem;
     }
+
+    .city-selector_01 {
+        height: 2.5rem;
+        border-radius: .5rem;
+        padding: .25rem .75rem;
+    }
+
 }
