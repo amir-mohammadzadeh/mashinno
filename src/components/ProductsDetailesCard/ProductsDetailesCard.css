@@ -128,6 +128,18 @@
     transition: .3s;
     cursor: pointer;
 }
+.counter-holder_52{
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+.counter_52{
+    width: 8.5rem;
+}
+.remove-btn_52{
+    cursor: pointer;
+    color: var(--red-700 );
+}
 
 /*________ Make Responcive ________________________*/
 @media screen and (max-width: 601px) {

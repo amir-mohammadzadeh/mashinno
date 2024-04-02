@@ -9,7 +9,8 @@ import Dashbord from './Pages/Dashbord/Dashbord'
 import PrivetRoute from "./Pages/PrivetRoute/PrivetRoute";
 import CartPage from "./Pages/CartPage/CartPage";
 import CartContent from './Pages/CartPage/CartContent/CartContent'
-import ShippingDetails from "./Pages/CartPage/ShippingDetails/ShippingDetails";
+import OrderDetails from "./Pages/CartPage/OrderDetails/OrderDetails";
+import AddressConfirm from "./Pages/CartPage/AddressConfirm/AddressConfirm";
 
 
 const routes = createBrowserRouter([
@@ -50,8 +51,12 @@ const routes = createBrowserRouter([
                         element:<CartContent />
                     },
                     {
-                        path:'shipping-details',
-                        element:<ShippingDetails />
+                        path:'address',
+                        element:<AddressConfirm />
+                    },
+                    {
+                        path:'order-details',
+                        element:<OrderDetails />
                     },
                 ]
             },

@@ -15,7 +15,6 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
 }
 .comments-content_54 ul:empty ~ .isEmpty_5{
     display: block;
@@ -27,7 +26,16 @@
     top: 0;
     padding-inline-start: 1rem;
     border-right: 1px solid var(--slate-400);
+}
 
+.comment-form_54 form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment-msg_54{
+    height: 10rem;
 }
 
 .ratinng-content_54 {
@@ -39,7 +47,7 @@
 .comment-btn_54 {
     width: 8rem;
     background-color: var(--blue-700);
-    color: white;
+    color: var(--white );
 }
 
 .comment-btn_54:hover {
@@ -109,6 +117,5 @@
         padding-block-start: 1.5rem;
         border-right: 0;
         border-top: 5px double var(--slate-400 );
-
     }
 }

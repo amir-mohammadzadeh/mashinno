@@ -1,5 +1,4 @@
 import React from 'react'
-import './CartSideBar.css' // Code => 06
 import { FaTrashCan, FaXmark } from "react-icons/fa6";
 import { useSeparate } from '../../Hook/useNumbers';
 import ModalContainer from '../../ModalContainer/ModalContainer';
@@ -7,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { closeCartMenu } from '../../redux/CartReducer/CartSlice';
 import { useOutClicker } from '../../Hook/useOutsideClick';
 import { Link } from 'react-router-dom';
+import CountInput from '../CounterInput/CountInput';
+import './CartSideBar.css' // Code => 06
 
 
 const CartSideBar = ({ }) => {
@@ -65,13 +66,14 @@ function CartItem() {
                 <img src="/public/Images/no-image.webp" alt="" />
             </div>
             <div className="body_06">
-                <span className="line-limit-2">
+                <span className="line-limit-1">
                     نام محصول
                 </span>
                 <span className="price_06">
                     {Price}
                     <small>تومان</small>
                 </span>
+                <CountInput className="counter_06" value={1} />
             </div>
         </>
     )

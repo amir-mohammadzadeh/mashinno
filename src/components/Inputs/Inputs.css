@@ -1,21 +1,12 @@
-/*
-
-.comment-form_54 input:not([value = '']) ~ label{
-    transform: translateY(1rem);
-
-}
-*/
-.input-box-03{
+.input-box_04{
     position: relative;
-    margin-block: .5rem;
     display: flex;
     flex-direction: column-reverse;
     gap: .35rem;
-    background-color: rgba(250, 235, 215, 0.073);
 }
 
-.input-box-03 textarea,
-.input-box-03 input{
+.input-box_04 textarea,
+.input-box_04 input{
     width: 100%;
     padding: .35rem .5rem;
     font-size: 1.1rem;
@@ -26,17 +17,17 @@
     transition: .3s;
 }
 
-.input-box-03 textarea{
+.input-box_04 textarea{
     resize: none;
-    min-height: 8rem;
+    height: 100%;
 }
 
-.input-box-03 textarea::placeholder,
-.input-box-03 input::placeholder{
+.input-box_04 textarea::placeholder,
+.input-box_04 input::placeholder{
     font-size: .95rem;
 }
 
-.input-box-03 label{
+.input-box_04 label{
     padding-inline: .75rem ;
     color: var(--gray-500 );
     transition: .3s;
@@ -44,15 +35,22 @@
     width: max-content;
 }
 
-.input-box-03 textarea:focus,
-.input-box-03 input:focus{
+.input-box_04 textarea:focus,
+.input-box_04 input:focus{
     border-color: var(--gray-500 );
 }
-.input-box-03 textarea:not(:empty) ,
-.input-box-03 input:not([value = '']) {
+.input-box_04 textarea:not(:empty) ,
+.input-box_04 input:not([value = '']) {
     border-color: var(--green-700 );
 }
 
-.input-box-03 input:focus ~ label{
+.input-box_04 input:focus ~ label{
     color: var(--gray-800 );
+}
+
+.input-box_04 input[type='number']::-webkit-inner-spin-button,
+.input-box_04 input[type='number']::-webkit-outer-spin-button{
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
 }

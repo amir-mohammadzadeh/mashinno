@@ -17,7 +17,7 @@ const Selection = ({ optionList, onSelect, label,value, menuHeight = 'auto', cla
 
     return (
         <>
-            <div className={`selection-wrapper-1 ${className}`}>
+            <div className={`selection-wrapper-1 ${className}`} style={{zIndex: openMenu ? '6':'5'}} >
                 <div className="selection-head-1" onClick={() => setOpenMenu(!openMenu)} >
                     <span>
                         {value|| label}

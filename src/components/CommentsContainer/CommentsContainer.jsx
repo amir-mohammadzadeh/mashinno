@@ -34,7 +34,7 @@ const CommentsContainer = ({ commentList = [1] }) => {
                 </div>
                 <form onSubmit={sendComment}>
                     <Input value={userNameValue} onChange={setUserNameValue} helpText='نام' name='username' label='نام خود را وارد کنید' required={true} />
-                    <TextArea value={messageValue} onChange={setMessageValue} helpText='نظر خود را درباره این محصول بیان کنید' name='message' label='متن کامنت' required={true} />
+                    <TextArea className="comment-msg_54" value={messageValue} onChange={setMessageValue} helpText='نظر خود را درباره این محصول بیان کنید' name='message' label='متن کامنت' required={true} />
                     <button type="submit" className="btn btn-animate comment-btn_54">
                         ثبت نظر
                     </button>

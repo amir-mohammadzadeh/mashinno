@@ -1,8 +1,8 @@
 import React from 'react'
-import './CartContent.css' // Code => 62
-import { Link } from 'react-router-dom'
 import { FaTrashAlt } from 'react-icons/fa'
-import DiscountInput from './DiscountInput'
+import CartSidePanel from '../../../components/CartSidePanels/CartSidePanel'
+import CountInput from '../../../components/CounterInput/CountInput'
+import './CartContent.css' // Code => 62
 
 const CartContent = () => {
   return (
@@ -19,8 +19,7 @@ const CartContent = () => {
                 <th>نام محصول</th>
                 <th>برند تولید کننده</th>
                 <th>خودرو</th>
-                <th>تعداد</th>
-                <th>قیمت واحد</th>
+                <th>تعداد و قیمت واحد</th>
               </tr>
             </thead>
             <tbody>
@@ -38,55 +37,7 @@ const CartContent = () => {
       </div>
 
       <div className="cart-summary_62">
-
-        <DiscountInput />
-
-        <div className="summary-card_62">
-          <span className="h6">
-            صورت حساب شما
-          </span>
-          <ul className="summarys_62">
-            <li className="item_62">
-              <span>
-                تعداد کالاها:
-              </span>
-              <span>
-                4
-              </span>
-            </li>
-            <li className="item_62">
-              <span>
-                جمع کل:
-              </span>
-              <span>
-                ۳۰۰۰۰۰۰۰۰
-                <small>
-                  تومان
-                </small>
-              </span>
-            </li>
-            <li className="item_62">
-              <span>
-                قیمت نهایی:
-              </span>
-              <span>
-                ۳۰۰۰۰۰۰۰۰
-                <small>
-                  تومان
-                </small>
-              </span>
-            </li>
-          </ul>
-          <div className="buttons_62">
-            <Link to={'/cart/shipping-details#2'} className="btn btn-animate next-step_62 " >
-              تایید و تکمیل سفارش
-            </Link>
-            <Link to={-1} className="btn return_62 ">
-              بازگشت
-            </Link>
-          </div>
-        </div>
-
+        <CartSidePanel />
       </div>
     </div>
   )
@@ -110,8 +61,11 @@ function TableItem() {
       </td>
       <td>اصل</td>
       <td>پژو پارس</td>
-      <td>۲</td>
-      <td>۲۳۰۰۰۰</td>
+      <td>
+        ۲۳۰۰۰۰
+        <CountInput className="counter_62" value={1} />
+        </td>
+      
     </tr>
   )
 }

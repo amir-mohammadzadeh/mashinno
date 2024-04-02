@@ -1,0 +1,45 @@
+.counter_011{
+    background-color: #fafafa;
+    box-shadow: 0 0 5px 1px #bababa85;
+    width: 100%;
+    height: 2rem;
+    font-size: 1.2em;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    user-select: none;
+}
+.button_011{
+    background-color: #1c1c20d3;
+    height: 100%;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    cursor: pointer;
+}
+.button_011:first-child{
+    color: var(--green-500 );
+}
+.button_011:last-child{
+    color: var(--red-500 );
+}
+
+.result_011{
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    padding: .1em .4em;
+    font-size: .8em;
+    border: 0;
+    text-align: center;
+    background-color: transparent;
+}
+
+.counter_011 input[type= 'number']::-webkit-inner-spin-button,
+.counter_011 input[type= 'number']::-webkit-outer-spin-button{
+    margin: 0;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}

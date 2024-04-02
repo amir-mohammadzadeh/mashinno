@@ -152,7 +152,7 @@ button,
 input {
     overflow: visible;
 }
-
+textarea:focus,
 input:focus {
     outline: none;
 }

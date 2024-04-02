@@ -139,3 +139,67 @@
         animation-timing-function: linear;
     }
 }
+
+/*___________ Button Loader __________________*/
+.button-loader_005 {
+    --dot-size: 10px ;
+    --dot-bg-1: #b3d4fc ;
+    --dot-bg-2:#6793fb ;
+    --duration: 1.5s ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+    width: 100%;
+}
+
+.dot_005 {
+    height: var(--dot-size);
+    width: var(--dot-size);
+    border-radius: 10px;
+    background-color: var(--dot-bg-1);
+    animation: pulse var(--duration) infinite ease-in-out ;
+}
+
+.dot_005:last-child {
+    margin-right: 0;
+}
+
+.dot_005:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.dot_005:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.dot_005:nth-child(3) {
+    animation-delay: 0.3s;
+}
+.dot_005:nth-child(4) {
+    animation-delay: 0.2s;
+}
+.dot_005:nth-child(5) {
+    animation-delay: 0.1s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8) translateY(3px);
+        background-color: var(--dot-bg-1);
+        box-shadow: 0 0 0 0 var(--dot-bg-1);
+    }
+
+    50% {
+        transform: scale(1.2) translateY(-3px);
+        background-color: var(--dot-bg-2);
+        box-shadow: 0 0 0 10px transparent;
+    }
+
+    100% {
+        transform:scale(0.8) translateY(3px) ;
+        background-color: var(--dot-bg-1);
+        box-shadow: 0 0 0 0 var(--dot-bg-1);
+    }
+}

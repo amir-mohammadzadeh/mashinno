@@ -97,7 +97,7 @@
 .price_06 {
     color: var(--green-600 );
     margin-inline: .5rem;
-    text-align: center;
+    text-align: end;
     padding: .3rem;
     border-radius: .3rem;
     font-weight: bold;
@@ -105,6 +105,13 @@
 
 .price_06 small {
     padding-inline: .35rem;
+}
+.counter_06{
+    align-self: flex-end;
+    width: 6rem;
+    height: 1.75rem;
+    font-size: 1.15rem;
+    margin-top: .25rem;
 }
 
 /*_____________ Button _______________*/
