@@ -83,3 +83,48 @@
 .cart-summary_62 {
     width: 20rem;
 }
+/*__________ Make Responcive ________*/
+@media screen and (max-width: 1200px) {
+    .table-wrapper_62{
+        max-width: 51rem;
+        overflow-x: auto;
+    }
+   .scroll-area_62 {
+        scrollbar-width: unset;
+   }
+   .scroll-area_62::-webkit-scrollbar{
+        width: 0;
+        height: 8px;
+   }
+   .scroll-area_62::-webkit-scrollbar-thumb{
+        background-color: var(--gray-600 );
+        border-radius: 10px;
+   }
+    .table_62{
+        min-width: 50rem;
+    }
+}
+@media screen and (max-width: 992px) {
+    .main-content_62{
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .table-wrapper_62{
+        flex: none;
+        max-width: 100%;
+    }
+    .cart-summary_62{
+        width: 100%;
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 2rem;
+    }
+}
+@media screen and (max-width: 568px) {
+    .cart-summary_62{
+        width: 85%;
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

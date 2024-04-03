@@ -1,0 +1,121 @@
+.toast-holder_006 {
+    position: fixed;
+    bottom: 10vh;
+    right: 2vw;
+    z-index: 100;
+    max-width: 25rem;
+}
+.show_006 {
+    animation: toast-show .5s forwards;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.hidde_006 {
+    animation: toast-hide .5s forwards;
+    animation-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
+}
+
+.toast_006 {
+    --toast-bg: #ffffff;
+    --toast-color: #000000;
+    --timer-color: #111111;
+    position: relative;
+    background-color: var(--toast-bg);
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    box-shadow: var(--shadow-2);
+    overflow: hidden;
+}
+
+.icon_006 {
+    color: var(--toast-color);
+    transform: translateY(3px);
+}
+
+.body_006 {
+    flex-grow: 1;
+    color: var(--toast-color);
+}
+
+.header {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: .25rem;
+}
+
+.body_006 p {
+    margin: 0;
+}
+
+.close_006 {
+    cursor: pointer;
+    align-self: start;
+    color: #000000;
+    font-size: 1.25rem;
+    transform: translate(-7px, -8px);
+}
+
+.timer-progres_006{
+    --timer: 3s ;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: transparent;
+}
+
+.timer-progres_006::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--timer-color);
+    animation: toast-timer var(--timer) forwards ease-out;
+}
+
+.success_006 {
+    --toast-bg: var(--green-200);
+    --toast-color: var(--green-900);
+    --timer-color: var(--green-600);
+}
+
+.warning_006 {
+    --toast-bg: var(--yellow-200);
+    --toast-color: var(--yellow-900);
+    --timer-color: var(--yellow-500);
+}
+
+.info_006 {
+    --toast-bg: var(--cyan-200);
+    --toast-color: var(--blue-900);
+    --timer-color: var(--blue-600);
+}
+
+.error_006 {
+    --toast-bg: var(--red-200);
+    --toast-color: var(--red-900);
+    --timer-color: var(--red-600 );
+}
+
+/*______________ Animation ______________________*/
+@keyframes toast-show {
+    0% {  transform: translateX(150%);  }
+    100% {  transform: translateX(0px);  }
+}
+
+@keyframes toast-hide {
+    0% {  transform: translateX(0);  }
+    100% {  transform: translateX(130%);  }
+}
+
+@keyframes toast-timer {
+    to{ width: 100% ; }
+}

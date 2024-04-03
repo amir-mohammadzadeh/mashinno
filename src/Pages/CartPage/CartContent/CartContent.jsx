@@ -5,13 +5,21 @@ import CountInput from '../../../components/CounterInput/CountInput'
 import './CartContent.css' // Code => 62
 
 const CartContent = () => {
+  const test=(e)=>{
+    const t = document.getElementById('testt')
+    console.log(t)
+    t.scrollBy(50 ,0)
+  }
+  const test2=(e)=>{
+    console.log(e)
+  }
   return (
     <div className="main-content_62">
 
       <div className="table-wrapper_62">
-        <div className="scroll-area_62 no-scrollbar">
+        <div id='testt' className="scroll-area_62 no-scrollbar">
 
-          <table className="table_62">
+          <table className="table_62" onMouseDown={test} onMouseUp={test2} >
             <thead>
               <tr>
                 <th></th>

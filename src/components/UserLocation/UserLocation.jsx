@@ -10,7 +10,7 @@ const UserLocation = () => {
     useEffect(()=>{
             //console.log(params)
             //console.log(location)
-            //console.log(his)
+            //console.log(window.location)
     },[])
   return (
     <nav className='container'>
