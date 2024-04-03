@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import './CommentsContainer.css' // Code => 54
 import { Input, TextArea } from '../Inputs/Inputs'
+import RaittingToggle from '../RaittingToggle/RaittingToggle'
 
 // Comments List will came from " Detales Page "
 
 const CommentsContainer = ({ commentList = [1] }) => {
+    const [raite, setRaite] = useState(0)
     const [userNameValue, setUserNameValue] = useState("")
     const [messageValue, setMessageValue] = useState("")
     const sendComment=(e)=>{
@@ -29,7 +31,7 @@ const CommentsContainer = ({ commentList = [1] }) => {
                         چقدر از این محصول راضی بودی؟
                     </span>
                     <div className="">
-                        قسمت امتیاز دهی کاربر
+                        <RaittingToggle raite={raite} onChange={setRaite} />
                     </div>
                 </div>
                 <form onSubmit={sendComment}>

@@ -1,12 +1,12 @@
 import React from 'react'
 import './BlogSliderCard.css' // Code => 17
 import { BsAlarm, BsTag } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 const BlogSliderCard = () => {
   return (
     <>
-
-        <a className="blog-card_17">
+        <Link to={'/'} className="blog-card_17">
             <div className="card-image_17">
                 <img src="/public/Images/no-image.webp" alt="" />
             </div>
@@ -25,9 +25,7 @@ const BlogSliderCard = () => {
                     راهنمایی کامل روش‌های مختلف پیگیری گواهینامه رانندگی خودرو و موتور
                 </h2>
             </div>
-        </a>
-
-
+        </Link>
     </>
   )
 }

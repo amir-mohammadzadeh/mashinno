@@ -14,7 +14,7 @@ const OrderCompleteSidePanel = () => {
         </li>
         <li className="panel-item_64">
           <span> هزینه ارسال: </span>
-          <span> ۸۲۴۳۲۰۰۰ </span>
+          <span> بر عهده مشتری </span>
         </li>
         <li className="panel-item_64">
           <span> قیمت نهایی: </span>
