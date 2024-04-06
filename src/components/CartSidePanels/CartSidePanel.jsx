@@ -3,7 +3,6 @@ import './CartSidePanels.css' // Code => 62
 import { Link } from 'react-router-dom'
 import { Input } from '../Inputs/Inputs'
 import { ButtonLoader } from '../Loading/Loading'
-import { GiCheckMark } from "react-icons/gi";
 
 
 const example_discountList = [{code:'1234',value:'10%'},{code:'asdkjh',value:'4%'},{code:'a8oo8',value:'75%'},{code:'w354dsf',value:'5%'},{code:'asdad',value:'10%'},]

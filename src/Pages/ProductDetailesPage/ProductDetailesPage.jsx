@@ -65,7 +65,7 @@ const ProductDetailesPage = () => {
                     }
                 </div>
             </main>
-            <SiteFeatures />
+            
             <MultiSlider headerTitle='محصولات مشابه' headerBtnLink={false} >
                 {matchProductList.map(i =>
                     <div dir='rtl' key={i} className='test' >

@@ -19,12 +19,7 @@ const Category = ({ valueList, brandName }) => {
                                     {car.title} {car.id}
                                 </span>
                                 <div className="card-btn_22">
-                                    <Link to={`/shop/${brand_name}/${car.title}`}>
-                                        <span className='icon'>
-                                            <FaMoneyBillTrendUp />
-                                        </span>
-                                        قیمت روز خودرو
-                                    </Link>
+                                    
                                     <Link to={`/shop/${brand_name}/${car.title}`}>
                                         <span className='icon'>
                                             <FaWrench />
@@ -35,7 +30,7 @@ const Category = ({ valueList, brandName }) => {
                                         <span className='icon'>
                                             <FaScroll />
                                         </span>
-                                        مشاهده آگهی‌ها
+                                        مشاهده قطعات
                                     </Link>
                                 </div>
 

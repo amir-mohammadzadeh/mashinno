@@ -23,7 +23,6 @@ const Home = () => {
                         </div>
                     )}
                 </MultiSlider>
-                <SiteFeatuers />
             </main>
         </>
     )

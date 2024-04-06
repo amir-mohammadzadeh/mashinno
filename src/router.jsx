@@ -11,6 +11,7 @@ import CartPage from "./Pages/CartPage/CartPage";
 import CartContent from './Pages/CartPage/CartContent/CartContent'
 import OrderDetails from "./Pages/CartPage/OrderDetails/OrderDetails";
 import AddressConfirm from "./Pages/CartPage/AddressConfirm/AddressConfirm";
+import OrderComplete from "./Pages/CartPage/OrderComplete/OrderComplete";
 
 
 const routes = createBrowserRouter([
@@ -57,6 +58,10 @@ const routes = createBrowserRouter([
                     {
                         path:'order-details',
                         element:<OrderDetails />
+                    },
+                    {
+                        path:'order-complete',
+                        element:<OrderComplete />
                     },
                 ]
             },

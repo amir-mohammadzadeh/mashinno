@@ -129,6 +129,7 @@
 }
 
 .panel-btn_64 {
+    display: block;
     width: 80%;
     margin: 1rem auto 0 auto;
     text-align: center;

@@ -1,7 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const OrderCompleteSidePanel = () => {
+  const navigate = useNavigate()
+  const clickHandler = () => {
+    navigate('/cart/order-complete#4')
+  }
   return (
     <aside className="sidepanel_64">
       <div className="panel-header_64">
@@ -21,9 +25,9 @@ const OrderCompleteSidePanel = () => {
           <span> ۸۲۴۳۲۰۰۰ </span>
         </li>
       </ul>
-      <Link to={''} className="btn btn-animate panel-btn_64" >
+      <button className="btn btn-animate panel-btn_64" onClick={clickHandler}>
         پرداخت و تکمیل سفارش
-      </Link>
+      </button>
     </aside>
   )
 }

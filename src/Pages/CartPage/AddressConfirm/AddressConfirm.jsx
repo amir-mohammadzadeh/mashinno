@@ -1,23 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './AddressConfirm.css' // Code => 63
 import { Input, TextArea } from '../../../components/Inputs/Inputs'
 import Selection from '../../../components/Selection/Selection'
 import { useNavigate } from 'react-router-dom'
-
-const exampel_listOstan = ['استان ۱', 'استان ۲', 'استان ۳', 'استان ۴']
-const exampel_cityList = ['شهر ۱', 'شهر ۲', 'شهر ۳', 'شهر ۴']
+import ProvincesCities from '../../../assets/Data/Provinces_and_Cities.json' //=> لیست استان ها و شهر ها
 
 const AddressConfirm = () => {
     const navigate = useNavigate()
+    const provinces_cities_list = useRef(ProvincesCities)
+    const [provincesList, setProvincesList] = useState([])
+    const [citiesList, setCitiesList] = useState([])
     const [username, setUsername] = useState('')
     const [phonenumber, setPhonenumber] = useState('')
     const [codeposty, setCodeposty] = useState('')
     const [ostan, setOstan] = useState('')
     const [city, setCity] = useState('')
     const [address, setAddress] = useState('')
+
+    useEffect(() => {
+        setProvincesList(provinces_cities_list.current.map(item => item.ostan))
+        provinces_cities_list.current.map(item => item.ostan == ostan && setCitiesList(item.cities))
+        ostan == '' && setCitiesList([]), setCity('');
+    }, [ostan])
+
     const selectOstan = (value) => {
         let user_ostan = value || '';
-        console.log(user_ostan)
         setOstan(user_ostan)
     }
     const selectCity = (value) => {
@@ -76,7 +83,7 @@ const AddressConfirm = () => {
                         value={ostan}
                         onSelect={selectOstan}
                         label='انتخاب استان'
-                        optionList={exampel_listOstan}
+                        optionList={provincesList}
                     />
                 </div>
                 <div className="selection_63">
@@ -87,7 +94,7 @@ const AddressConfirm = () => {
                         value={city}
                         onSelect={selectCity}
                         label='انتخاب شهر'
-                        optionList={exampel_cityList}
+                        optionList={citiesList}
                     />
                 </div>
 
