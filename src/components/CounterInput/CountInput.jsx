@@ -1,6 +1,6 @@
 import './CountInput.css' // Code => 011
 
-const CountInput = ({ value, onPluse, onMinus, className = '' }) => {
+const CountInput = ({ value, onPluse, onMinus, onInputValue, className = '' }) => {
   const minus = () => {
     value != 1 && onMinus()
   }
@@ -9,11 +9,11 @@ const CountInput = ({ value, onPluse, onMinus, className = '' }) => {
       <div className="button_011" onClick={onPluse}>
         &#43;
       </div>
-      <input value={value} onWheel={(e) => e.target.blur()} type='number' className="result_011" />
+      <input type='number' className="result_011" value={value <= 0 ? 1 : value} onChange={(e) => onInputValue(e)} onWheel={(e) => e.target.blur()} />
       <div className="button_011" onClick={minus}>
         &#8722;
       </div>
-      
+
     </div>
   )
 }

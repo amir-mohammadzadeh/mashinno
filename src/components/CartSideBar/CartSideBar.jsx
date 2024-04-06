@@ -59,9 +59,6 @@ function CartItem() {
     const Price = useSeparate(230000)
     return (
         <>
-            <span className="delete-btn_06">
-                <FaTrashCan size={20} />
-            </span>
             <div className="image_06">
                 <img src="/public/Images/no-image.webp" alt="" />
             </div>
@@ -73,7 +70,10 @@ function CartItem() {
                     {Price}
                     <small>تومان</small>
                 </span>
-                <CountInput className="counter_06" value={1} />
+                <div className="counter-box_06">
+                    <CountInput className="counter_06" value={1} />
+                    <span className="delete-btn_06"> <FaTrashCan size={20} /> </span>
+                </div>
             </div>
         </>
     )

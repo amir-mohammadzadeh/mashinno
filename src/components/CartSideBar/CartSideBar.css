@@ -58,21 +58,6 @@
     background-color: var(--white);
 }
 
-.cart-item_06:hover>.delete-btn_06 {
-    color: var(--red-700);
-    opacity: 1;
-}
-
-.delete-btn_06 {
-    color: var(--red-900);
-    position: absolute;
-    top: .5rem;
-    right: .5rem;
-    opacity: .2;
-    transition: .3s ease-in;
-    cursor: pointer;
-}
-
 .image_06 {
     max-width: 6rem;
 }
@@ -106,12 +91,28 @@
 .price_06 small {
     padding-inline: .35rem;
 }
-.counter_06{
+
+.counter-box_06{
     align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-top: .25rem;
+}
+
+.delete-btn_06 {
+    color: var(--red-700);
+    opacity: 1;
+    transition: .3s ease-in;
+    cursor: pointer;
+    margin-inline-end: .5rem;
+    transform: translateY(3px);
+}
+
+.counter_06{
     width: 6rem;
     height: 1.75rem;
     font-size: 1.15rem;
-    margin-top: .25rem;
 }
 
 /*_____________ Button _______________*/
