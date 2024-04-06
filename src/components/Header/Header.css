@@ -70,6 +70,10 @@
 .city-selector_01 .title_01 {
     font-size: 1rem;
 }
+.city-selector_01:has(.bg-red_01){
+    color: var(--red-600 );
+    font-weight: bold;
+}
 
 /*______________________________________ RESPONCIVE ________________*/
 @media screen and (max-width:992px) {

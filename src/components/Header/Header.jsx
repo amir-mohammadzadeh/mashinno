@@ -8,31 +8,31 @@ import { closeCartMenu, openCartMenu } from '../../redux/CartReducer/CartSlice';
 import ModalContainer from '../../ModalContainer/ModalContainer';
 import CartSideBar from '../CartSideBar/CartSideBar';
 import { useState } from 'react';
+import CitySelectModal from '../CitySelectModal/CitySelectModal';
 
 const Header = () => {
-    //const [openCartSidebar, setOpenCartSidebar] = useState(false)
-    const [name, isLogin,openCartSidebar ] = useSelector((state) =>{
+    const [openCityModal, setOpenCityModal] = useState(false)
+    const [name, isLogin, openCartSidebar, Cities_List] = useSelector((state) => {
         return [
             `${state.userInfo.name} ${state.userInfo.lastName}`,
-             state.userInfo.isLogin,
-             state.cartMenuStatus.value
-            ]
-        })
-
+            state.userInfo.isLogin,
+            state.cartMenuStatus.value,
+            state.citiesList,
+        ]
+    })
+    //const Cities_List = useSelector(st)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    
+
     const profileClickHandler = () => {
-        //isLogin ? navigate('userdashbord/'+ userID ) : navigate('/login')
-        navigate('/userdashbord' )
+        navigate('/userdashbord')
     }
     const cartClickHandler = () => {
-        console.log('Open Cart....')
         dispatch(openCartMenu())
-        
     }
+
     const citySelectorOpen = () => {
-        console.log('Open City selector....')
+        setOpenCityModal(true)
     }
 
     return (
@@ -71,8 +71,10 @@ const Header = () => {
                         </div>
                         <div className="button_01 city-selector_01" onClick={citySelectorOpen} >
                             <BsGeoAlt size={22} />
-                            <span className='title_01'>
-                                انتخاب شهر
+                            <span className={`title_01 ${Cities_List.length !=0 && 'bg-red_01'}`}>
+                                {Cities_List.length == 0 ? ' انتخاب شهر' :
+                                    Cities_List.length > 1 ? `${Cities_List.length}   تا شهر` : Cities_List[0]
+                                }
                             </span>
                         </div>
                     </div>
@@ -80,8 +82,8 @@ const Header = () => {
                 <Navigation />
             </header>
 
-            {openCartSidebar && <CartSideBar /> }
-        
+            {openCartSidebar && <CartSideBar />}
+            {openCityModal && <CitySelectModal closeAction={setOpenCityModal} />}
         </>
     )
 }
