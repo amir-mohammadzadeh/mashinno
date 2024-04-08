@@ -1,41 +1,22 @@
 .brannd_section{
     background-color: var(--slate-800);
     color: var(--white);
-    padding: 2rem 0;
+    padding: 1rem;
+    margin-block: 2rem;
 }
 
 .brand_container_16{
     padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header_16{
-    flex-shrink: 0;
-    width: 15rem;
     position: relative;
-    padding-inline: 1rem;
-}
-.header_16::after{
-    content: '';
-    position: absolute;
-    inset: 0 0;
-    width: 3px;
     height: 100%;
-    background-color: var(--red-600 ); /*  var(--red-600 )  */
-}
-.header_16 h4{
-    font-size: 1.75rem;
-    font-weight: 600;
-}
-.brands-holder_16{
-    color: var(--gray-900);
 }
 
-.brands-holder_16 ul {
+.brands-holder_16 {
+    height: 100%;
+    transition: 1s;
+    overflow: hidden;
     background-color: var(--white);
-    max-width: 60rem;
+    color: var(--gray-900);
     padding: 1rem;
     border-radius: 1rem;
     display: flex;
@@ -44,41 +25,51 @@
     gap: 1rem;
 }
 
-.brands-holder_16 ul li {
+.brands-holder_16 li {
     width: 6rem;
-    padding: .25rem .5rem ;
+    padding: .25rem .25rem ;
     text-align: center;
+    transition: .3s;
+    border-radius: .25rem;
+}
+.brands-holder_16 li:hover{
+    box-shadow: 0 0 8px -1px var(--gray-300 );
+    transform: translateY(-3px);
 }
 
 .brand-image_16{
     margin-inline: auto;
     width: 100%;
-    height: 4rem;
-    margin-bottom: .25rem;
+    height: max-content;
 }
+
 .brand-image_16 img{
     width: 100%;
-    height: 100%;
     object-fit: contain;
+    object-position: top;
 }
 .brand-name_16{
-    
+    display: block;
+    padding-block: .25rem;
+}
+
+.more-btn_11{
+    position: absolute;
+    bottom: -.5rem;
+    left: calc(50% - 5rem);
+    width: 10rem;
+    border-radius: 0 0 2rem 2rem;
+    background-color: white;
+    color: var(--blue-700 );
+    font-weight: bold;
+}
+.more-btn_11:hover{
+    font-size: 1.05rem;
 }
 
 /*__________ RESPONCIVE _____________________*/
-@media screen and (max-width: 1024px) {
-    .brannd_section{
-        padding: .5rem 0;
-    }
-    .brand_container_16{
-        flex-direction: column;
-        gap: 2rem;
-    }
-    .header_16{
-        align-self: self-start;
-    }
-    .brands-holder_16 ul{
-        width: 100%;
-        max-width: 100%;
-    }
+@media screen and (max-width: 992px) {
+   .brannd_section{
+    display: none;
+   }
 }

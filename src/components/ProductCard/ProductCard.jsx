@@ -1,8 +1,8 @@
 import React from 'react'
 import './ProductCard.css' // Code =>31
 import { useNavigate } from 'react-router-dom'
-import { LikeButton } from '../../ToggleButtons/ToggleButtons'
-import { useSeparate } from '../../../Hook/useNumbers'
+import { LikeButton } from '../ToggleButtons/ToggleButtons'
+import { useSeparate } from '../../Hook/useNumbers'
 
 
 const ProductCard = ({ noChange = false }) => {
@@ -27,8 +27,11 @@ const ProductCard = ({ noChange = false }) => {
                 <img src="/public/Images/no-image.webp" alt="" />
             </div>
             <div className="card-body_31">
-                <span className="card-title_31">
+                <span className="card-title_31 line-limit-2">
                     عنوان محصول
+                </span>
+                <span className="store-name_31" >
+                     فروشگاه فلان
                 </span>
                 <div className="price_31">
                     {count == 0 ? <span> ناموجود </span>
@@ -40,7 +43,9 @@ const ProductCard = ({ noChange = false }) => {
                         </>}
                 </div>
             </div>
-
+            <div className="off-content_31">
+                30%
+            </div>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import SideMenu from '../../components/ShoppingPage/SideMenu/SideMenu'
 import { useParams } from 'react-router-dom'
 import Selection from '../../components/Selection/Selection'
 import { FiFilter } from "react-icons/fi";
-import ProductCard from '../../components/ShoppingPage/ProductCard/ProductCard'
+import ProductCard from '../../components/ProductCard/ProductCard'
 import UserLocation from '../../components/UserLocation/UserLocation'
 import Advertising from '../../components/Advertising/Advertising'
 

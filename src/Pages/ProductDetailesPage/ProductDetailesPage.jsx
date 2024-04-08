@@ -6,7 +6,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import { FaXmark } from "react-icons/fa6";
 import SiteFeatures from '../../components/SiteFeatuers/SiteFeatuers'
 import MultiSlider from '../../components/MultiSlider/MultiSlider'
-import ProductCard from '../../components/ShoppingPage/ProductCard/ProductCard'
+import ProductCard from '../../components/ProductCard/ProductCard'
 import UserLocation from '../../components/UserLocation/UserLocation'
 import ProductsDetailesCard from '../../components/ProductsDetailesCard/ProductsDetailesCard'
 import TextEditor from '../../components/TextEditor/TextEditor'

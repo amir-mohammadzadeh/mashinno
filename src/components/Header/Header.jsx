@@ -1,5 +1,5 @@
 import './Header.css' // Code => 01
-import { BsCart3, BsGeoAlt, BsPersonCheckFill, BsPersonCircle } from "react-icons/bs";
+import { BsPlusCircleDotted, BsGeoAlt, BsPersonCheckFill, BsPersonCircle, BsPlus, BsPlusLg } from "react-icons/bs";
 import Navigation from '../Navigation/Navigation';
 import { Link, useNavigate } from 'react-router-dom';
 import SearchBox from '../SearchBox/SearchBox';
@@ -27,7 +27,7 @@ const Header = () => {
     const profileClickHandler = () => {
         navigate('/userdashbord')
     }
-    const cartClickHandler = () => {
+    const addNewPostClick = () => {
         dispatch(openCartMenu())
     }
 
@@ -63,10 +63,10 @@ const Header = () => {
                             </>}
 
                         </div>
-                        <div className="button_01" onClick={cartClickHandler} >
-                            <BsCart3 size={22} />
-                            <span className='cart-couner_01'>
-                                0
+                        <div className="button_01" onClick={addNewPostClick} >
+                            <BsPlusCircleDotted size={22} />
+                            <span className='title_01'>
+                                ثبت آگهی
                             </span>
                         </div>
                         <div className="button_01 city-selector_01" onClick={citySelectorOpen} >
@@ -82,7 +82,6 @@ const Header = () => {
                 <Navigation />
             </header>
 
-            {openCartSidebar && <CartSideBar />}
             {openCityModal && <CitySelectModal closeAction={setOpenCityModal} />}
         </>
     )

@@ -51,17 +51,6 @@
     flex-shrink: 0;
 }
 
-.button_01 .cart-couner_01 {
-    background-color: var(--gray-900);
-    color: var(--white);
-    width: 1.5rem;
-    height: 1.5rem;
-    text-align: center;
-    line-height: 1.5rem;
-    border-radius: 50%;
-    font-size: .85rem;
-}
-
 .button_01 .title_01 {
     font-size: 1.2rem;
     transform: translateY(-2px);
@@ -103,21 +92,15 @@
 }
 
 @media screen and (max-width:768px) {
-    .header_container {
-        gap: .25rem;
-        justify-content: space-between;
+    .Header_01{
+        box-shadow: 0 1px 15px 1px var(--shadow-color-2);
     }
-
     .search-box_01 {
-        flex-shrink: 3;
         --input-height: 2.5rem;
         --input-radius: .5rem;
     }
-
-    .city-selector_01 {
-        height: 2.5rem;
-        border-radius: .5rem;
-        padding: .25rem .75rem;
+    .header-button-group{
+        display: none;
     }
 
 }

@@ -5,6 +5,7 @@ import Organizations from '../../components/Organizations/Organizations'
 import MultiSlider from '../../components/MultiSlider/MultiSlider'
 import BlogSliderCard from '../../components/BlogSliderCard/BlogSliderCard'
 import StoryContainer from '../../components/StoryContainer/StoryContainer'
+import ProductsGridLayout from '../../components/ProductsGridLayout/ProductsGridLayout'
 
 
 const Home = () => {
@@ -15,6 +16,10 @@ const Home = () => {
                 <StoryContainer />
                 <Banner />
                 <BrandSection />
+                <div className="container my-2">
+                    <ProductsGridLayout />
+                </div>
+                {/*
                 <MultiSlider headerTitle={'در وبلاگ ما'} headerBtnLink={'#'}>
                     {list.map(item =>
                         <div key={item}>
@@ -22,6 +27,7 @@ const Home = () => {
                         </div>
                     )}
                 </MultiSlider>
+                        */}
             </main>
         </>
     )
