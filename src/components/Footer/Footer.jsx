@@ -41,7 +41,7 @@ const Footer = () => {
         { title: ' لوازم یدکی برلیانس', url: "" },
     ]
     return (
-        <footer className="footer_container">
+        <footer id='MainFooter' className="footer_container">
             <div className="footer_content">
                 <address className='footer_grid'>
                     <div className="address-content">

@@ -1,0 +1,90 @@
+.story-container_11 {
+    margin-block: 2rem;
+    position: relative;
+    user-select: none;
+}
+
+.stories_11 {
+    margin-inline: 3rem;
+    padding-inline: .25rem;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.profile-img_11 {
+    display: block;
+    width: 4.5rem;
+    height: 4.5rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.profile-img_11 img {
+    width: 100%;
+    aspect-ratio: 1;
+    display: block;
+    padding: .15rem;
+    object-position: center;
+    object-fit: cover;
+    border-radius: 50%;
+    background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);
+}
+
+.story-item_11 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    max-width: 5rem;
+}
+
+.name_11 {
+    font-size: .95rem;
+    align-self: stretch;
+}
+
+.prevent-arrow_11,
+.next-arrow_11 {
+    position: absolute;
+    top: calc(50% - 2rem);
+    width: 3rem;
+    height: 3rem;
+    padding: .5rem;
+    border-radius: 30%;
+    box-shadow: var(--shadow-3);
+    background-color: #ffffff80;
+    opacity: .5;
+    line-height: 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.next-arrow_11 {
+    left: 1rem;
+}
+.prevent-arrow_11 {
+    right: 1rem;
+}
+
+/*________________ Make Responcive _____________________*/
+@media screen and (max-width: 768px) {
+    .story-container_11{
+        position: sticky;
+        top: 3.5rem;
+        margin-block: 0;
+        padding-block: 1rem;
+        z-index: 8;
+        background-color: var(--body-bg);
+        box-shadow: 0 1px 15px 1px var(--shadow-color-1);
+    }
+
+    .next-arrow_11,
+    .prevent-arrow_11 {
+        display: none;
+    }
+    .stories_11 {
+        margin-inline: 1rem;
+    }
+}
