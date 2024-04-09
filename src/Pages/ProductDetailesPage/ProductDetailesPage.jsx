@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './ProductDetailesPage.css'  //  Code =>  5
 import { ImageGallery } from '../../components/ImageGallery/ImageGallery'
 import ModalContainer from '../../ModalContainer/ModalContainer'
 import { useLocation, useParams } from 'react-router-dom'
 import { FaXmark } from "react-icons/fa6";
-import SiteFeatures from '../../components/SiteFeatuers/SiteFeatuers'
 import MultiSlider from '../../components/MultiSlider/MultiSlider'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import UserLocation from '../../components/UserLocation/UserLocation'

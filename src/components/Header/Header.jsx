@@ -4,19 +4,16 @@ import Navigation from '../Navigation/Navigation';
 import { Link, useNavigate } from 'react-router-dom';
 import SearchBox from '../SearchBox/SearchBox';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeCartMenu, openCartMenu } from '../../redux/CartReducer/CartSlice';
-import ModalContainer from '../../ModalContainer/ModalContainer';
-import CartSideBar from '../CartSideBar/CartSideBar';
+import { openCartMenu } from '../../redux/CartReducer/CartSlice';
 import { useState } from 'react';
 import CitySelectModal from '../CitySelectModal/CitySelectModal';
 
 const Header = () => {
     const [openCityModal, setOpenCityModal] = useState(false)
-    const [name, isLogin, openCartSidebar, Cities_List] = useSelector((state) => {
+    const [name, isLogin, Cities_List] = useSelector((state) => {
         return [
             `${state.userInfo.name} ${state.userInfo.lastName}`,
             state.userInfo.isLogin,
-            state.cartMenuStatus.value,
             state.citiesList,
         ]
     })

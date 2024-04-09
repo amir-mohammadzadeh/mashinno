@@ -7,11 +7,6 @@ import ProductDetailesPage from "./Pages/ProductDetailesPage/ProductDetailesPage
 import Login from "./Pages/LoginPage/Login";
 import Dashbord from './Pages/Dashbord/Dashbord'
 import PrivetRoute from "./Pages/PrivetRoute/PrivetRoute";
-import CartPage from "./Pages/CartPage/CartPage";
-import CartContent from './Pages/CartPage/CartContent/CartContent'
-import OrderDetails from "./Pages/CartPage/OrderDetails/OrderDetails";
-import AddressConfirm from "./Pages/CartPage/AddressConfirm/AddressConfirm";
-import OrderComplete from "./Pages/CartPage/OrderComplete/OrderComplete";
 
 
 const routes = createBrowserRouter([
@@ -43,28 +38,7 @@ const routes = createBrowserRouter([
                 path: 'userdashbord',
                 element: <PrivetRoute><Dashbord /></PrivetRoute>
             },
-            {
-                path: 'cart/',
-                element: <CartPage />,
-                children:[
-                    {
-                        path:'summary',
-                        element:<CartContent />
-                    },
-                    {
-                        path:'address',
-                        element:<AddressConfirm />
-                    },
-                    {
-                        path:'order-details',
-                        element:<OrderDetails />
-                    },
-                    {
-                        path:'order-complete',
-                        element:<OrderComplete />
-                    },
-                ]
-            },
+            
         ]
     }
 ])
