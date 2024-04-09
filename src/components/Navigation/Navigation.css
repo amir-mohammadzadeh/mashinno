@@ -1,15 +1,26 @@
-
-/*______________________ Links _____________________*/
 .navbar-content {
     position: relative;
     padding: 1rem;
     padding-bottom: 0;
 }
 
-.navbar {
+.navbar-content,
+.navbar_02 {
     display: flex;
     align-items: center;
     gap: 1.5rem;
+}
+
+/*______________________ Navbar style on mobile screen.... _____________________*/
+.navbar-on-mobile_02{
+    padding: 0 1rem 1rem 1rem;
+    margin-bottom: .5rem;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    border-bottom: 2px dashed var(--slate-300 ) ;
 }
 
 .nav_link_02{
@@ -36,12 +47,41 @@
 .nav_link_02:hover{
     color: var(--gray-900 );
     transform: translateY(-2px);
-
 }
-/*____________ RESPONCIVE _______________*/
 
+.snapp-icon_02{
+    display: block;
+    background-color: var(--green-500 );
+    color: var(--white);
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: .2rem;
+    border-radius: .3rem;
+}
+.snapp-icon_02 svg{
+    transform: rotate(20deg);
+}
+
+/*____________ Make Responcive _______________*/
 @media screen and (max-width:992px) {
+    .nav_link_02:last-child,
     .navbar-content {
         display: none;
+    }
+    /*_____________________ Navbar items style on mobile screen.... _______________*/
+    .navbar-on-mobile_02{
+        display: flex;
+    }
+    .nav_link_02{
+        justify-content: center;
+        border: 2px solid var(--gray-300 );
+        border-radius: .5rem;
+        padding: .25rem .75rem;
+    }
+}
+
+@media screen and (max-width:568px) {
+    .navbar-on-mobile_02{
+        justify-content: start;
     }
 }
