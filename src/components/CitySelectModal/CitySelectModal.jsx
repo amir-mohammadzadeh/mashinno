@@ -8,7 +8,7 @@ import { setCitiesList } from '../../redux/CityReducer/CitySlice'
 import { useOutClicker } from '../../Hook/useOutsideClick'
 
 const CitySelectModal = ({ closeAction }) => {
-    const [modal_ref, outClicker] = useOutClicker(closeAction)
+    const [modal_ref, outClicker] = useOutClicker(closeHandler)
     const dispatch = useDispatch()
     const Provinces_Cities_list = useRef(ProvincesCities)
     const Cities_List = useSelector(state => state.citiesList)
@@ -38,7 +38,12 @@ const CitySelectModal = ({ closeAction }) => {
 
     const confirmSelection = () => {
         dispatch(setCitiesList(selectList))
-        closeAction(false)
+        closeHandler()
+    }
+    
+    function closeHandler() {
+        setTimeout(() => closeAction(false), 310)
+        modal_ref.current.classList.toggle('close-it_07')
     }
 
     return (
@@ -113,7 +118,7 @@ const CitySelectModal = ({ closeAction }) => {
                         <button className="btn btn-animate ok-btn_07" onClick={confirmSelection} >
                             تایید
                         </button>
-                        <button className="btn cancel-btn_07" onClick={() => closeAction(false)}>
+                        <button className="btn cancel-btn_07" onClick={closeHandler}>
                             انصراف
                         </button>
                     </div>

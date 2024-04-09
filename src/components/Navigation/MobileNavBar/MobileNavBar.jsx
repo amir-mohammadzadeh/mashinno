@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react'
+import { useState } from 'react'
 import './MobileNavBar.css' // Cose  23
-import SideBar from '../../SideBar/SideBar'
-import { BsPersonCircle, BsHouseDoor, BsBasket, BsGrid, BsPlus, BsPlusCircle } from "react-icons/bs";
+import { BsPersonCircle, BsHouseDoor, BsGrid, BsPlusCircle, BsChatText } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import BrandModal from '../../BrandModal/BrandModal';
 
 const MobileNavBar = () => {
-    const [openSideBar, setOpenSideBar] = useState(false)
+    const [openBrandModal, setOpenBrandModal] = useState(false)
     return (
         <>
             <nav className="mobile-navbar_container">
@@ -16,17 +16,17 @@ const MobileNavBar = () => {
                                 <BsHouseDoor />
                             </span>
                             <span className='lab-23'>
-                                صفحه اصلی
+                                اگهی ها
                             </span>
                         </Link>
                     </li>
                     <li className="mobile-nav-item">
-                        <div onClick={() => setOpenSideBar(true)}>
+                        <div onClick={() => setOpenBrandModal(true)}>
                             <span className="icon-23">
                                 <BsGrid />
                             </span>
                             <span className='lab-23'>
-                                دسته‌بندی
+                                برند خودرو‌ها
                             </span>
                         </div>
                     </li>
@@ -43,10 +43,10 @@ const MobileNavBar = () => {
                     <li className="mobile-nav-item">
                         <Link to={''}>
                             <span className="icon-23">
-                            <BsBasket />
+                                <BsChatText />
                             </span>
                             <span className='lab-23'>
-                                سبد خرید
+                                چت
                             </span>
                         </Link>
                     </li>
@@ -62,7 +62,7 @@ const MobileNavBar = () => {
                     </li>
                 </ul>
             </nav>
-            {openSideBar && <SideBar onClose={() => setOpenSideBar(false)} />}
+            {openBrandModal && <BrandModal onClose={setOpenBrandModal} />}
 
         </>
     )

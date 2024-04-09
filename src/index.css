@@ -385,7 +385,6 @@ body {
   overflow: hidden;
 }
 /*_____________ SideBars open & close animation _______________*/
-
 @keyframes open-animation {
   from { transform: translateX(-110%); }
   to { transform: translateX(0); }
@@ -393,4 +392,14 @@ body {
 @keyframes close-animation {
   from { transform: translateX(0); }
   to { transform: translateX(-110%); }
+}
+
+/*_____________ Modals open & close animation _______________*/
+@keyframes modal-open {
+  from{ transform: scale(0);  }
+  to{ transform:  scale(1);  }
+}
+@keyframes modal-close {
+  from{ transform:  scale(1);  }
+  to{ transform: scale(0);  }
 }

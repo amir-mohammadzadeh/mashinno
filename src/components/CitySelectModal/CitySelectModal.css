@@ -8,6 +8,13 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    animation: modal-open .4s forwards ;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.close-it_07{
+    animation: modal-close .3s forwards ;
+    animation-timing-function: cubic-bezier(0.600, -0.280, 0.735, 0.045);
 }
 
 .modal-header {
