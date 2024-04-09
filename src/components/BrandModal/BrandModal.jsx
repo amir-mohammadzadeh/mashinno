@@ -33,7 +33,7 @@ const BrandModal = ({ onClose }) => {
             </span>
           </div>
           <div className="brabds_18 no-scrollbar">
-          <BrandContent />
+            <BrandContent limit={false} />
           </div>
         </div>
       </ModalContainer>

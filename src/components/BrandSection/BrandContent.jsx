@@ -2,20 +2,19 @@ import { useState } from 'react'
 import Data from '../../assets/Data/Brands.json'
 import { Link } from 'react-router-dom'
 
-const BrandContent = ({ limitValue }) => {
+const BrandContent = ({ limit }) => {
     const [brandsList, setBrandsList] = useState(Data)
-    let itemCountToShow = limitValue || brandsList.length ;
-    const [limit, setLimit] = useState(itemCountToShow)
+    const [limitHeight, setLimitHeight] = useState(limit ? '16rem' : 'unset')
 
     const showMoreClick = () => {
-        limit == brandsList.length ? setLimit(itemCountToShow) : setLimit(brandsList.length);
+        limitHeight == 'unset' ? setLimitHeight('16rem') : setLimitHeight('unset');
     }
 
     return (
         <>
-            <ul className="brands-holder_16">
-                {brandsList.slice(0, limit).map(brand =>
-                    <li key={brand.id} className="">
+            <ul className="brands-holder_16" style={{ maxHeight: limitHeight }}>
+                {brandsList.map(brand =>
+                    <li key={brand.id} className="brand_16">
                         <Link to={'/brand/' + brand.slug} >
                             <div className="brand-image_16">
                                 <img src="/public/Images/no-image.webp" alt={brand.name} />
@@ -27,9 +26,9 @@ const BrandContent = ({ limitValue }) => {
                     </li>
                 )}
             </ul>
-            {limitValue &&
+            {limit &&
                 <button className="btn more-btn_11" onClick={showMoreClick}>
-                    {limit == brandsList.length ? 'نمایش کمتر' : 'نمایش بیشتر'}
+                    {limitHeight == 'unset' ? 'نمایش کمتر' : 'نمایش بیشتر'}
                 </button>
             }
         </>
