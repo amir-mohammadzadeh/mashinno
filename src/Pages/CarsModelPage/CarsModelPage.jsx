@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLocation, useParams, useRoutes } from 'react-router-dom'
-import Header from '../../components/CarsModelPage/Header'
+import { useLocation, useParams } from 'react-router-dom'
 import Category from '../../components/CarsModelPage/Category'
 import InformationBox from '../../components/CarsModelPage/InformationBox'
 import Data from '../../assets/Data/Brands.json'
@@ -14,15 +13,16 @@ const CarsModelPage = () => {
 
     useEffect(() => {
         window.scroll({ behavior: 'instant', top: 0, left: 0 })
-        document.title = 'لوازم یدکی ' + params.brandName + ' - فروشگاه آملاین لوازم یدکی کاپوت'
         setBrandInfo(Data.find(b => b.slug == params.brandName))
         return () => window.scroll({ behavior: 'instant', top: 0, left: 0 })
     }, [location])
 
 
     useEffect(() => {
-        brandInfo &&
+        if (brandInfo) {
+            document.title = 'لوازم یدکی ' + brandInfo.name + ' - فروشگاه آملاین لوازم یدکی کاپوت'
             setCarsList(brandInfo.cars)
+        }
     }, [brandInfo])
 
 
@@ -31,7 +31,6 @@ const CarsModelPage = () => {
         <>
             <UserLocation />
             <main>
-                <Header listOfCars={carsList} updateList={setCarsList} />
                 <Category valueList={carsList} brandName={brandInfo.name} />
                 <InformationBox />
             </main>
