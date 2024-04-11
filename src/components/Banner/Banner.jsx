@@ -38,22 +38,22 @@ const Banner = () => {
                 <SliderContent setting={BannerSlider_Settings}  >
                     <div className='banner-image_12'>
                         <a href="">
-                            <img src="/public/Banners/baner_1.webp" alt="" />
+                            <img src="/Banners/baner_1.webp" alt="" />
                         </a>
                     </div>
                     <div className='banner-image_12'>
                         <a href="">
-                            <img src="/public/Banners/baner_2.webp" alt="" />
+                            <img src="/Banners/baner_2.webp" alt="" />
                         </a>
                     </div>
                     <div className='banner-image_12'>
                         <a href="">
-                            <img src="/public/Banners/baner_3.webp" alt="" />
+                            <img src="/Banners/baner_3.webp" alt="" />
                         </a>
                     </div>
                     <div className='banner-image_12'>
                         <a href="">
-                            <img src="/public/Banners/baner_4.webp" alt="" />
+                            <img src="/Banners/baner_4.webp" alt="" />
                         </a>
                     </div>
                 </SliderContent>

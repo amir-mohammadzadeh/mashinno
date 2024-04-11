@@ -26,7 +26,7 @@ const StoryContainer = () => {
                     {storyList.map(story =>
                         <li key={story} className="story-item_11">
                             <span className="profile-img_11" onClick={openStoryBox}>
-                                <img src="/public/Images/NoPhoto.jpg" alt="" />
+                                <img src="/Images/NoPhoto.jpg" alt="" />
                             </span>
                             <span className="name_11 line-limit-1">
                                 نام فروشگاه

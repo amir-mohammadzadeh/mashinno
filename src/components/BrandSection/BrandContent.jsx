@@ -17,7 +17,7 @@ const BrandContent = ({ limit }) => {
                     <li key={brand.id} className="brand_16">
                         <Link to={'/brand/' + brand.slug} >
                             <div className="brand-image_16">
-                                <img src="/public/Images/no-image.webp" alt={brand.name} />
+                                <img src="/Images/no-image.webp" alt={brand.name} />
                             </div>
                             <span className="brand-name_16">
                                 {brand.name}

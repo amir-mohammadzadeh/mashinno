@@ -124,12 +124,12 @@ const Footer = () => {
                         </span>
                     </div>
                     <div className="footer-about-img">
-                        <a href="">
-                            <img src="/public/Images/footer-img_1.webp" alt="" />
-                        </a>
-                        <a href="">
-                            <img src="/public/Images/footer-img_2.webp" alt="" />
-                        </a>
+                        <span>
+                            <img src="/Images/footer-img_1.webp" alt="" />
+                        </span>
+                        <span>
+                            <img src="/Images/footer-img_2.webp" alt="" />
+                        </span>
                     </div>
                 </section>
                 <div className="footer-copy-write" >

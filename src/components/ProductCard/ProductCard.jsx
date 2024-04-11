@@ -24,7 +24,7 @@ const ProductCard = ({ noChange = false }) => {
             <LikeButton className='icon_31' type='bookmark' onClick={onBookmark} />
 
             <div className={`product-image_31 ${!noChange && 'card-R-2'}`}>
-                <img src="/public/Images/no-image.webp" alt="" />
+                <img src="/Images/no-image.webp" alt="" />
             </div>
             <div className="card-body_31">
                 <span className="card-title_31 line-limit-2">

@@ -1,7 +1,7 @@
-import React from 'react'
 import './SliderCard.css'
 import { CardTimer } from './CardTimer'
 import { BsArrowLeft, BsStarFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 const SliderCard = () => {
     return (
@@ -12,13 +12,13 @@ const SliderCard = () => {
                     <div className="timer-progress"></div>
                 </div>
                 <div className="card-image">
-                    <img src="/public/Images/no-image.webp" alt="" />
+                    <img src="/Images/no-image.webp" alt="" />
                 </div>
                 <div className="card-body">
                     <span className='title'>
-                        <a href="">
+                        <Link to=''>
                             بلبرینگ تسمه‌تایم شاخکدار ام‌وی‌ام
-                        </a>
+                        </Link>
                     </span>
                     <div className="berannd">
                         <small>

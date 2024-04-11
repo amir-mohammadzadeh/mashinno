@@ -3,7 +3,7 @@ import './ImageGallery.css' // Code => 51
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 
 export const ImageGallery = ({ productName, imageList, className, onImgClick = undefined }) => {
-    const frist_image = imageList.length != 0 ? imageList[0] : '/public/Images/no-image.webp' ;
+    const frist_image = imageList.length != 0 ? imageList[0] : '/Images/no-image.webp' ;
     const [currentImage, setCurrentImage] = useState(frist_image)
 
     const changeImg = (n) => {

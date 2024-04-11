@@ -1,5 +1,5 @@
 import './Category.css'//____________ Code =>  22
-import { FaMoneyBillTrendUp,FaWrench,FaScroll } from "react-icons/fa6";
+import { FaWrench,FaScroll } from "react-icons/fa6";
 import { Link } from 'react-router-dom'
 
 const Category = ({ valueList, brandName }) => {
@@ -12,7 +12,7 @@ const Category = ({ valueList, brandName }) => {
                         <li key={car.id} className="model-item_22">
                             <div className="card_22">
                                 <div className="image_22">
-                                    <img src="/public/Images/no-image.webp" alt="" />
+                                    <img src="/Images/no-image.webp" alt="" />
                                 </div>
 
                                 <span>

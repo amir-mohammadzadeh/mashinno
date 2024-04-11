@@ -38,7 +38,7 @@ const Header = () => {
                 <div className="container header_container">
                     <div className="header-logo_01">
                         <Link to='/' >
-                            <img src="/public/logo.webp" alt="kapoot" />
+                            <img src="/logo.webp" alt="kapoot" />
                         </Link>
                     </div>
 

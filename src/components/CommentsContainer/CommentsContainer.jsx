@@ -51,7 +51,7 @@ const CommentsContainer = ({ commentList = [1] }) => {
 export default CommentsContainer
 
 function CommentCard({ username, comment, image }) {
-    let user_image = image || '/public/Images/NoPhoto.jpg';
+    let user_image = image || '/Images/NoPhoto.jpg';
 
     return (
         <li className="comment-card_54">

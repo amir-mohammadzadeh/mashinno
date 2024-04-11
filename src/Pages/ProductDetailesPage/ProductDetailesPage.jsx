@@ -13,7 +13,7 @@ import CommentsContainer from '../../components/CommentsContainer/CommentsContai
 
 //__________ Fack product iamge list ................
 const exam = ['no-image.webp', 'footer-img_1.webp', 'footer-img_2.webp']
-const exampel_imageList = new Array(3).fill().map((e, i) => '/public/Images/' + exam[i])
+const exampel_imageList = new Array(3).fill().map((e, i) => '/Images/' + exam[i])
 const matchProductList = Array.from(Array(10).keys())
 
 const ProductDetailesPage = () => {

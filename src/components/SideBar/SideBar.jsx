@@ -5,6 +5,7 @@ import SubMenu from './SubMenu'
 import ModalContainer from '../../ModalContainer/ModalContainer'
 import { useOutClicker } from '../../Hook/useOutsideClick'
 import Data from '../../assets/Data/Brands.json'
+import { Link } from 'react-router-dom'
 
 //______ Create Fack Data for example ________________
 const SUBMENU_VALUES = n => new Array(n).fill().map((e, id) => ({ name: 'زیرمجموعه - ' + id, id }))
@@ -33,7 +34,7 @@ const SideBar = ({ onClose }) => {
                         </span>
                     </div>
                     <div className="sidebar-image-12">
-                        <img src="/public/logo.webp" alt="Site Logo" />
+                        <img src="/logo.webp" alt="Site Logo" />
                     </div>
                 </header>
                 <div>
@@ -68,19 +69,19 @@ const SideBar = ({ onClose }) => {
                             <SubMenu valueList={SUBMENU_VALUES(6)} onClick={onClose} />
                         </li>
                         <li className="sidebar-link-12">
-                            <a href="">
+                            <Link to='' >
                                 آیتم 4
-                            </a>
+                            </Link>
                         </li>
                         <li className="sidebar-link-12">
-                            <a href="">
+                            <Link to='' >
                                 آیتم 5
-                            </a>
+                            </Link>
                         </li>
                         <li className="sidebar-link-12">
-                            <a href="">
+                            <Link to='' >
                                 آیتم 6
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
