@@ -10,6 +10,8 @@ import UserLocation from '../../components/UserLocation/UserLocation'
 import ProductsDetailesCard from '../../components/ProductsDetailesCard/ProductsDetailesCard'
 import TextEditor from '../../components/TextEditor/TextEditor'
 import CommentsContainer from '../../components/CommentsContainer/CommentsContainer'
+import { TextArea } from '../../components/Inputs/Inputs'
+import { BsTrash3 } from 'react-icons/bs'
 
 //__________ Fack product iamge list ................
 const exam = ['no-image.webp', 'footer-img_1.webp', 'footer-img_2.webp']
@@ -19,6 +21,7 @@ const matchProductList = Array.from(Array(10).keys())
 const ProductDetailesPage = () => {
     const [openGallery, setOpenGallery] = useState(false)
     const [activeTab, setActiveTab] = useState(1)
+    const [userNot, setUserNot] = useState('')
     const params = useParams()
     const t = useLocation()
     useEffect(() => {
@@ -26,6 +29,17 @@ const ProductDetailesPage = () => {
         console.log(t)
         document.title = 'قیمت و خرید ' + '"نام محصول "' + ' | کاپوت'
     }, [])
+
+    const saveNot = (e) => {
+        e.currentTarget.parentElement.classList.add('done-5')
+        alert(`${userNot}\nاز طریق API در کاپوت کاربر ذخیره میشود`)
+    }
+
+    const removeNot = (e) => {
+        e.currentTarget.parentElement.classList.remove('done-5')
+        alert(`${userNot}\nاز طریق API در کاپوت کاربر حذف میشود`)
+        setUserNot('')
+    }
 
     return (
         <>
@@ -49,6 +63,9 @@ const ProductDetailesPage = () => {
                         <div className={`tab_5 ${activeTab == 2 && 'active-tab_5'}`} onClick={() => setActiveTab(2)}>
                             نظرات
                         </div>
+                        <div className={`tab_5 ${activeTab == 3 && 'active-tab_5'}`} onClick={() => setActiveTab(3)}>
+                            یاداشت
+                        </div>
                     </header>
 
                     {activeTab == 1 && <>
@@ -62,9 +79,36 @@ const ProductDetailesPage = () => {
                     {activeTab == 2 &&
                         <CommentsContainer />
                     }
+                    {activeTab == 3 && <>
+
+                        <div className="not-content_5">
+                            <TextArea
+                                className="not-atrea_5"
+                                name='not'
+                                helpText='یاداشت شما...'
+                                value={userNot}
+                                onChange={setUserNot}
+                            />
+                            {userNot &&
+                                <div className="not-btns_5 clean-5">
+                                    <span> ثبت شد </span>
+                                    <button className="btn" onClick={saveNot}>
+                                        &#10004;
+                                    </button>
+                                    <button className="btn" onClick={removeNot}>
+                                        <BsTrash3 />
+                                    </button>
+                                </div>
+                            }
+                            <span>
+                                یادداشت تنها برای شما قابل دیدن است!
+                            </span>
+                        </div>
+
+                    </>}
                 </div>
             </main>
-            
+
             <MultiSlider headerTitle='محصولات مشابه' headerBtnLink={false} >
                 {matchProductList.map(i =>
                     <div dir='rtl' key={i} className='test' >

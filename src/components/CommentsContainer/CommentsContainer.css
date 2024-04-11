@@ -43,7 +43,14 @@
     border-bottom: 1px dashed var(--slate-400);
     margin-bottom: 1rem;
 }
-
+.form-btns_54{
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+.reply-btn_54{
+    width: 8rem;
+}
 .comment-btn_54 {
     width: 8rem;
     background-color: var(--blue-700);
@@ -54,16 +61,34 @@
     background-color: var(--blue-900);
 }
 
+.on-reply_54{
+    margin-bottom: .75rem;
+    font-size: 1.15rem;
+
+}
+.on-reply_54 span{
+    font-weight: bold;
+}
 /*________ Comment Card ________________*/
 
-.comment-card_54 {
+.reply_54,
+.comment_54{
+    margin-bottom: .25rem;
     position: relative;
     padding: .5rem;
     border-radius: .5rem;
     border: 1px solid #d1d5db;
 }
-
-.user-info_54 {
+.reply_54{
+    margin-inline-start: 2rem;
+    border-style: dashed;
+    border-width: 2px;
+}
+.answer_54{
+    color: var(--gray-400);
+    transform: translateX(-.5rem);
+}
+.comment-header_54 {
     padding-block: .5rem;
     display: flex;
     align-items: center;
@@ -87,22 +112,20 @@
     object-position: center;
 }
 
-.comment-card_54 p {
+.comment_54 p {
     line-height: 1.4rem;
+    margin-bottom: .25rem;
 }
 
-.comment-like_54 {
-    position: absolute;
-    top: .5rem;
-    left: 1.85rem;
-    color: var(--gray-600 );
+.answer-btn_54{
+    display: inline-block;
+    padding: .25rem 1rem;
+    font-size: 1.15rem;
+    color: var(--slate-500);
+    cursor: pointer;
 }
-.like-count_54{
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    font-size: .85rem;
-    color: var(--gray-400 );
+.answer-btn_54 svg{
+    transform: translate(-.4rem , 5px);
 }
 
 /*____________ Make Responcive ______________*/

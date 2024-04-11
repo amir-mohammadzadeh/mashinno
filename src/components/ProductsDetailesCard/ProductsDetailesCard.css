@@ -47,6 +47,10 @@
     padding-block: .25rem ;
     font-size: 1.15rem;
 }
+.feature_52 a {
+    display: inline;
+    color: var(--blue-600 );
+}
 
 .feature_52 span:first-child {
     display: inline-block;
@@ -87,16 +91,28 @@
 .location-btn_52:hover{
     background-color: var(--sky-200 );
 }
+.footer-butons_52,
 .detaile-footer_52 {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: center;
+}
+
+.detaile-footer_52{
     gap: 1rem;
     padding: 1rem;
     border-top: 2px solid var(--gray-300 );
 }
 
+.footer-butons_52{
+    flex-wrap: wrap;
+    gap: .5rem;
+    color: var(--white);
+}
+
 .price_52 {
+    text-align: center;
+    flex-grow: 1;
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -108,40 +124,71 @@
     color: var(--gray-700 );
 }
 
-.cart-btn_52 {
-    background-color: var(--green-500 );
-    box-shadow: 0 2px 8px -1px var(--green-400 );
-    color: var(--white );
+.contact-btn_52 {
+    background-color: var(--orange-600 );
+    box-shadow: 0 2px 8px -1px var(--orange-600 );
+    color: inherit;
 }
 
-.cart-btn_52:hover {
+
+.link-btn_52{
+    background-color: var(--green-500 );
+    box-shadow: 0 2px 8px -1px var(--green-400 );
+}
+
+.contact-btn_52:hover,
+.link-btn_52:hover {
     box-shadow: none;
     transform: scale(.99);
 }
 
-.btn_52{
-    padding: .5rem 1rem;
-    border-radius: .35rem;
-    gap: .5rem;
-    display: flex;
-    align-items: center;
-    transition: .3s;
-    cursor: pointer;
-}
-.counter-holder_52{
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-}
-.counter_52{
-    width: 8.5rem;
-}
-.remove-btn_52{
-    cursor: pointer;
-    color: var(--red-700 );
-}
 
+
+.contact-card_52{
+    width: 20rem;
+    min-height: 8rem;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: .5rem;
+}
+.card-header_52{
+    position: relative;
+    padding-bottom: .5rem;
+    margin-bottom: .5rem;
+    border-bottom: 1px solid var(--gray-300);
+}
+.close-icon_52{
+    position: absolute;
+    top: -.5rem;
+    left: -.25rem;
+    font-size: 1.25rem;
+    color: var(--red-800);
+    cursor: pointer;
+}
+.contact-item_52{
+    background-color: var(--slate-100 );
+    padding: .25rem;
+    border-radius: .25rem;
+    margin-block: .25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@keyframes modal-openup {
+    from{transform: translateY(110%);}
+    to{transform: translateY(0);}
+}
 /*________ Make Responcive ________________________*/
+@media screen and (max-width: 568px) {
+    .contact-card_52{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 30%;
+        border-radius: .25rem;
+        animation: modal-openup .3s forwards;
+    }
+}
 @media screen and (max-width: 601px) {
     .detaile-body_52{
         flex-direction: column-reverse;
