@@ -1,40 +1,46 @@
-import React from 'react'
+import { forwardRef, useId } from 'react'
 import './Inputs.css' //Code => 04
 
-export const Input = ({ value, onChange, name, label, helpText, type = 'text',required=false, className='' }) => {
-
+export const Input = forwardRef(({ onChange, label, helpText, error, name='', type = 'text', required = false, className = '',readOnly=false }, ref) => {
+    const changeHandler = (e) => onChange && onChange(e)
+    const id = useId()
     return (
         <div className={`input-box_04 ${className}`}>
             <input
-                id={name + '_input'}
+                ref={ref}
+                id={id + name}
                 type={type}
                 placeholder={helpText}
-                value={value}
-                onChange={(e) => onChange(e.target.value)}
+                onChange={changeHandler}
                 required={required}
+                inputMode={type == 'numder'? 'numeric' : type}
+                readOnly={readOnly}
             />
-            <label htmlFor={name + "_input"}>
+            <label htmlFor={id + name}>
                 {label}
             </label>
+            {error && <span className="error_04"> {error} </span>}
         </div>
     )
-}
+})
 
-export const TextArea = ({ value, onChange, name, label, helpText,required=false,className='' }) => {
-
+export const TextArea = forwardRef(({ onChange,  label, helpText, error, name='',required = false, className = '',readOnly=false }, ref) => {
+    const changeHandler = (e) => onChange && onChange(e)
+    const id = useId()
     return (
         <div className={`input-box_04 ${className}`}>
             <textarea
-                id={name + '_textarea'}
+                ref={ref}
+                id={id + name}
                 placeholder={helpText}
-                value={value}
-                onChange={(e) => onChange(e.target.value)}
+                onChange={changeHandler}
                 required={required}
+                readOnly={readOnly}
             ></textarea>
-
-            <label htmlFor={name + '_textarea'}>
+            <label htmlFor={id + name}>
                 {label}
             </label>
+            {error && <span className="error_04"> {error} </span>}
         </div>
     )
-}
+})

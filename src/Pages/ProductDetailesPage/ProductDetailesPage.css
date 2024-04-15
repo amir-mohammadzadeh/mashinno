@@ -96,9 +96,9 @@
     width: 50%;
 }
 .not-atrea_5{
-    position: relative;
     height: 10rem;
     margin-bottom: .25rem;
+    padding-bottom: 0;
 }
 .not-btns_5{
     display: flex;

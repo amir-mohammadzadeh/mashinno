@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import './ProductDetailesPage.css'  //  Code =>  5
+import { useEffect, useRef, useState } from 'react'
 import { ImageGallery } from '../../components/ImageGallery/ImageGallery'
 import ModalContainer from '../../ModalContainer/ModalContainer'
 import { useLocation, useParams } from 'react-router-dom'
@@ -12,6 +11,7 @@ import TextEditor from '../../components/TextEditor/TextEditor'
 import CommentsContainer from '../../components/CommentsContainer/CommentsContainer'
 import { TextArea } from '../../components/Inputs/Inputs'
 import { BsTrash3 } from 'react-icons/bs'
+import './ProductDetailesPage.css'  //  Code =>  5
 
 //__________ Fack product iamge list ................
 const exam = ['no-image.webp', 'footer-img_1.webp', 'footer-img_2.webp']
@@ -21,7 +21,8 @@ const matchProductList = Array.from(Array(10).keys())
 const ProductDetailesPage = () => {
     const [openGallery, setOpenGallery] = useState(false)
     const [activeTab, setActiveTab] = useState(1)
-    const [userNot, setUserNot] = useState('')
+    const [notebookBtn, setNotebookBtn] = useState(false)
+    const userNote = useRef(null)
     const params = useParams()
     const t = useLocation()
     useEffect(() => {
@@ -32,13 +33,16 @@ const ProductDetailesPage = () => {
 
     const saveNot = (e) => {
         e.currentTarget.parentElement.classList.add('done-5')
-        alert(`${userNot}\nاز طریق API در کاپوت کاربر ذخیره میشود`)
+        alert(`${userNote.current.value}\nاز طریق API در کاپوت کاربر ذخیره میشود`)
     }
-
+    const noteAreaOnChange =(e)=>{
+        e.target.value == '' ? setNotebookBtn(false) : setNotebookBtn(true)
+    }
     const removeNot = (e) => {
         e.currentTarget.parentElement.classList.remove('done-5')
-        alert(`${userNot}\nاز طریق API در کاپوت کاربر حذف میشود`)
-        setUserNot('')
+        alert(`${userNote.current.value}\nاز طریق API در کاپوت کاربر حذف میشود`)
+        userNote.current.value = '';
+        setNotebookBtn(false)
     }
 
     return (
@@ -86,10 +90,10 @@ const ProductDetailesPage = () => {
                                 className="not-atrea_5"
                                 name='not'
                                 helpText='یاداشت شما...'
-                                value={userNot}
-                                onChange={setUserNot}
+                                ref={userNote}
+                                onChange={noteAreaOnChange}
                             />
-                            {userNot &&
+                            {notebookBtn &&
                                 <div className="not-btns_5 clean-5">
                                     <span> ثبت شد </span>
                                     <button className="btn" onClick={saveNot}>

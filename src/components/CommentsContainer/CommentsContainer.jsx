@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './CommentsContainer.css' // Code => 54
 import { Input, TextArea } from '../Inputs/Inputs'
 import RaittingToggle from '../RaittingToggle/RaittingToggle'
@@ -8,16 +8,35 @@ import { BsReplyAll } from 'react-icons/bs'
 const CommentsContainer = ({ commentList = [1] }) => {
     let user_image = '/Images/NoPhoto.jpg';
     const [raite, setRaite] = useState(0)
-    const [userNameValue, setUserNameValue] = useState("")
-    const [messageValue, setMessageValue] = useState("")
+    const [error, setError] = useState(0)
+    const userNameInput = useRef(null)
+    const messageInput = useRef(null)
     const [commentReply, setCommentReply] = useState({ value: false, commentID: 0, commentAuther: '' })
-    
+
+    const validetion = (obj) => {
+        let errors = {} ;
+        for (let [key, value] of Object.entries(obj)) {
+            if (!value) errors[key] = true ;
+        }
+        return Object.keys(errors).length == 0 ? null : errors;
+    }
+
     const sendComment = (e) => {
         e.preventDefault()
+        const data = {
+            username: userNameInput.current.value,
+            comment: messageInput.current.value
+        }
+        const errors = validetion(data)
+        if (errors) {
+            setError(errors)
+            return
+        } else setError(null)
+
         if (commentReply.value) {
-            alert(`پاسخ ${userNameValue} به نظر ${commentReply.commentAuther}\nاز طریق API  ثبت خواهد شد....`)
+            alert(`پاسخ ${data.username} به نظر ${commentReply.commentAuther}\nاز طریق API  ثبت خواهد شد....`)
         } else {
-            alert(`نظر ${userNameValue} از طریق API  ثبت خواهد شد....`)
+            alert(`نظر ${data.username} از طریق API  ثبت خواهد شد....`)
         }
     }
 
@@ -94,8 +113,21 @@ const CommentsContainer = ({ commentList = [1] }) => {
                 }
 
                 <form onSubmit={sendComment}>
-                    <Input value={userNameValue} onChange={setUserNameValue} helpText='نام' name='username' label='نام خود را وارد کنید' required={true} />
-                    <TextArea className="comment-msg_54" value={messageValue} onChange={setMessageValue} helpText='نظر خود را درباره این محصول بیان کنید' name='message' label='متن کامنت' required={true} />
+                    <Input
+                        ref={userNameInput}
+                        name='username'
+                        label='نام خود را وارد کنید'
+                        helpText='نام'
+                        error={error['username'] ? 'لطفا نام خود را وارد کنید' : null}
+                    />
+                    <TextArea
+                        className="comment-msg_54"
+                        ref={messageInput}
+                        label='متن کامنت'
+                        name='message'
+                        helpText='نظر خود را درباره این محصول بیان کنید'
+                        error={error['comment'] ? 'لطفا نظر خود را وارد کنید' : null}
+                    />
                     <div className="form-btns_54">
                         <button type="submit" className="btn btn-animate comment-btn_54">
                             {commentReply.value ? 'ثبت پاسخ' : "ثبت نظر"}
