@@ -1,20 +1,16 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Outlet, useNavigate } from 'react-router-dom'
 
-const PrivetRoute = ({ children }) => {
+const PrivetRoute = () => {
     const isLogin= useSelector((state) => state.userInfo.isLogin )
     const navigate = useNavigate()
     
     useEffect(()=>{
-        if (!isLogin) return navigate('/login')
+        if (!isLogin) return navigate('/login',{replace:true})
     },[])
 
-    return (
-        <>
-            {children}
-        </>
-    )
+    return <Outlet />
 }
 
 export default PrivetRoute
