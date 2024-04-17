@@ -1,0 +1,39 @@
+.my-post-grid_80{
+    grid-template-columns: 1fr;
+    place-items: center;
+}
+
+.my-post-header_80{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-btn_80{
+    background-color: var(--red-50);
+    border: 2px solid var(--red-300);
+}
+.header-btn_80:hover{
+    background-color: var(--red-100);
+    border-color: var(--red-500);
+}
+/*_______________ These styles are for My.Posts page ____________*/
+.my-post_85{
+    width: 100%;
+    max-width: 45rem;
+}
+
+.my-post_85 .price_85{
+    flex-grow: 1;
+}
+
+.post-status_85{
+    font-size: 1.1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-inline-end: 1.1rem;
+}
+
+.post-status_85 span:nth-child(2){
+    color: var(--red-600 );
+}

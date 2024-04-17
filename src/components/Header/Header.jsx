@@ -22,7 +22,7 @@ const Header = () => {
     const navigate = useNavigate()
 
     const profileClickHandler = () => {
-        navigate('/userdashbord')
+        navigate('/userdashbord/profile')
     }
     const addNewPostClick = () => {
         dispatch(openCartMenu())

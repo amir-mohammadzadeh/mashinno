@@ -7,6 +7,12 @@ import ProductDetailesPage from "./Pages/ProductDetailesPage/ProductDetailesPage
 import Login from "./Pages/LoginPage/Login";
 import Dashbord from './Pages/Dashbord/Dashbord'
 import PrivetRoute from "./Pages/PrivetRoute/PrivetRoute";
+import Profile from "./Pages/Dashbord.Profile/Profile";
+import Posts from "./Pages/Dashbord.Posts/Posts";
+import Favorites from "./Pages/Dashbord.Favorites/Favorites";
+import NotBook from "./Pages/Dashbord.NotBook/NotBook";
+import LastSeens from "./Pages/Dashbord.LastSeens/LastSeens";
+import StorePanel from "./Pages/Dashbord.StorePanel/StorePanel";
 
 
 const routes = createBrowserRouter([
@@ -35,8 +41,40 @@ const routes = createBrowserRouter([
                 element: <Login />
             },
             {
-                path: 'userdashbord',
-                element: <PrivetRoute><Dashbord /></PrivetRoute>
+                element: <PrivetRoute/>,
+                children:[
+                    {
+                        path: '/userdashbord/',
+                        element:<Dashbord />,
+                        children:[
+                            {
+                                path: 'profile',
+                                element: <Profile />
+                            },
+                            {
+                                path: 'user_posts',
+                                element: <Posts />
+                            },
+                            {
+                                path: 'favorites',
+                                element: <Favorites />
+                            },
+                            {
+                                path: 'user_nots',
+                                element: <NotBook />
+                            },
+                            {
+                                path: 'last_seen',
+                                element: <LastSeens />
+                            },
+                            {
+                                path: 'store_panel',
+                                element: <StorePanel />
+                            },
+
+                        ]
+                    },
+                ]
             },
             
         ]

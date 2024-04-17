@@ -1,0 +1,83 @@
+
+.card_85{
+    position: relative;
+    background-color: white;
+    box-shadow: var(--shadow-2);
+    border: 1px solid var(--gray-300);
+    padding: .5rem;
+    border-radius: .5rem;
+    width: auto;
+    min-width: 20rem;
+    height: auto;
+
+    display: flex;
+    gap: .5rem;
+}
+.image_85{
+    flex-shrinkl: 0;
+    width: 8rem;
+}
+.image_85 img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+}
+.body_85{
+    flex-grow: 1;
+    align-self: stretch;
+    padding: .25rem ;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    color: var(--gray-900);
+    font-size: 1rem;
+}
+
+.body_85:has(p){
+    padding-bottom: .7rem;
+}
+.body_85 p{
+    line-height: 1.4;
+}
+
+.title_85{
+    font-size: 1.15rem;
+}
+
+.date-loc_85{
+    color: var(--gray-500);
+    font-size: .9rem;
+}
+.price_85{
+    color: var(--red-900 );
+    font-weight: bold;
+}
+.price_85 span{
+    font-weight: 500;
+    padding-inline-start: .3rem;
+}
+.card-buttons_85{
+    position: absolute;
+    bottom: .5rem;
+    left: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.icon-btn_85{
+    height: 2rem;
+    width: 2rem;
+    padding: .4rem;
+    border-radius: 50%;
+    transition: .3s;
+}
+.icon-btn_85:hover{
+    cursor: pointer;
+    background-color: var(--slate-100);
+}
+
+
+/*___________________________*/
+
