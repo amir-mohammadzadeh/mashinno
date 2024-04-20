@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
-import './Selection.css' // Code =>  1
-import { BsChevronDown } from 'react-icons/bs'
+import { useState } from 'react'
+import './Selection.css' // Code => 06
+import { BsChevronRight } from 'react-icons/bs'
 import useOutsideClick from '../../Hook/useOutsideClick'
 
-const Selection = ({ optionList, onSelect, label,value, menuHeight = 'auto', className = '' }) => {
+const Selection = ({ optionList, onSelect, label, firstValue, value, error, children, menuHeight, className = '' }) => {
     const [openMenu, setOpenMenu] = useState(false)
     const menu_ref = useOutsideClick(setOpenMenu)
 
-    const MENU_SETTINGS = {
-        maxHeight: menuHeight
+    const SELECTION_SETTINGS = {
+        '--border-color': error ? 'var(--red-800)' : 'var(--gray-300)',
+        '--menu-max-height': menuHeight || 'auto',
+        zIndex: openMenu ? '20' : '5',
     }
     const selectHandler = (payload) => {
         setOpenMenu(false)
@@ -17,20 +19,25 @@ const Selection = ({ optionList, onSelect, label,value, menuHeight = 'auto', cla
 
     return (
         <>
-            <div className={`selection-wrapper-1 ${className}`} style={{zIndex: openMenu ? '6':'5'}} >
+            <div className={`selection-wrapper-1 ${className}`} style={SELECTION_SETTINGS} >
+                {label &&
+                    <label htmlFor="" className="label-1">
+                        {label}
+                    </label>
+                }
                 <div className="selection-head-1" onClick={() => setOpenMenu(!openMenu)} >
                     <span>
-                        {value|| label}
+                        {value || firstValue}
                     </span>
                     <span className="icon-1">
-                        <BsChevronDown />
+                        <BsChevronRight />
                     </span>
                 </div>
                 {openMenu &&
-                    <div ref={menu_ref} className="menu-1" style={MENU_SETTINGS}>
+                    <div ref={menu_ref} className="menu-1">
                         <ul className="options-1">
                             <li className="option-1" onClick={() => selectHandler(null)}>
-                                {label}
+                                {firstValue}
                             </li>
                             {optionList.map((item, index) =>
                                 <li key={index} className="option-1" onClick={() => selectHandler(item)}>
@@ -38,6 +45,11 @@ const Selection = ({ optionList, onSelect, label,value, menuHeight = 'auto', cla
                                 </li>
                             )}
                         </ul>
+                    </div>
+                }
+                {error && !openMenu &&
+                    <div className="error-1">
+                        {error}
                     </div>
                 }
             </div>

@@ -31,7 +31,7 @@ const ProductsDetailesCard = () => {
 
     return (
         <>
-            <div className="detailes-card_52">
+            <div className="card detailes-card_52">
                 <div className="title_52">
                     <h3>
                         عنوان محصول

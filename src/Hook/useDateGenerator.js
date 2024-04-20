@@ -18,7 +18,7 @@ export default function useDateGenerator(date) {
         hr: d.getHours(),
         min: d.getMinutes()
     }
-    console.log(prevent, now)
+    
     if (prevent.year == now.year && prevent.month == now.month && prevent.day == now.day) {
         let deltaT = 60 * (now.hr - prevent.hr) + (now.min - prevent.min);
         if (deltaT < 15) return 'دقایقی پیش';

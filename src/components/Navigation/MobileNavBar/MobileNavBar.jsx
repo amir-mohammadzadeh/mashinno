@@ -51,7 +51,7 @@ const MobileNavBar = () => {
                         </Link>
                     </li>
                     <li className="mobile-nav-item">
-                        <Link to={''}>
+                        <Link to={'/userdashbord/profile'}>
                             <span className="icon-23">
                                 <BsPersonCircle />
                             </span>

@@ -1,9 +1,7 @@
 .product-card_31{
     position: relative;
-    background-color: var(--white );
     padding: 1rem .25rem;
     border-radius: .5rem;
-    box-shadow: var(--shadow-3);
     z-index: 1;
     overflow: hidden;
     cursor: pointer;

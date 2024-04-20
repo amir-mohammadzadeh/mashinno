@@ -7,6 +7,7 @@ import { FiFilter } from "react-icons/fi";
 import ProductCard from '../../components/ProductCard/ProductCard'
 import UserLocation from '../../components/UserLocation/UserLocation'
 import Advertising from '../../components/Advertising/Advertising'
+import SupportWidget from '../../components/SupportWidget/SupportWidget'
 
 //_____ ساخت یک دیتای آزمایشی و اولیه برای دسته بندی ها ____________
 const categoryList = new Array(10).fill().map((e, id) => ({ title: 'دسته بندی - ' + id, id }))
@@ -30,39 +31,37 @@ const ShoppingPage = () => {
     console.log('This OBJ is selected :)\n', filterValue)
   }
 
-  return (
-    <>
-      <UserLocation />
-      <main className="container">
-        <div className="main_container_3">
+  return (<>
+    <UserLocation />
+    <main className="container">
+      <div className="main_container_3">
 
-          <aside className="sidemenu-holder_3">
-            <div className="filter-btn_3" onClick={() => setOpenFilterBox(!openFilterBox)}>
-              <span>
-                <FiFilter />
-              </span>
-              <span>
-                فیلتر
-              </span>
-            </div>
-            <Selection value={filterList[0]} optionList={filterList} onSelect={filterByPrice} className='filter-item_3' />
-            <SideMenu valueList={categoryList} openSideMenu={openFilterBox} closeAction={setOpenFilterBox} onSelect={filterByCategory} />
-          </aside>
-
-          <div className="products-wrapper_3">
-
-            {cardList.map((card, index) =>
-              (index + 1) % n == 0 ? <Advertising key={index + 0.5} />
-                : <ProductCard key={index} />
-
-            )}
-
+        <aside className="sidemenu-holder_3">
+          <div className="filter-btn_3" onClick={() => setOpenFilterBox(!openFilterBox)}>
+            <span>
+              <FiFilter />
+            </span>
+            <span>
+              فیلتر
+            </span>
           </div>
-        </div>
+          <Selection value={filterList[0]} optionList={filterList} onSelect={filterByPrice} className='filter-item_3' />
+          <SideMenu valueList={categoryList} openSideMenu={openFilterBox} closeAction={setOpenFilterBox} onSelect={filterByCategory} />
+        </aside>
 
-      </main>
-    </>
-  )
+        <div className="products-wrapper_3">
+
+          {cardList.map((card, index) =>
+            (index + 1) % n == 0 ? <Advertising key={index + 0.5} />
+              : <ProductCard key={index} />
+
+          )}
+
+        </div>
+      </div>
+    </main>
+    <SupportWidget />
+  </>)
 }
 
 export default ShoppingPage

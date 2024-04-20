@@ -19,7 +19,7 @@ const ProductCard = ({ noChange = false }) => {
     }
     
     return (
-        <div className={`product-card_31 ${!noChange && 'card-R-1'}`} onClick={cardClick}>
+        <div className={`card product-card_31 ${!noChange && 'card-R-1'}`} onClick={cardClick}>
 
             <LikeButton className='icon_31' type='bookmark' onClick={onBookmark} />
 

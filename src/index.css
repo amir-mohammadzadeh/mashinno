@@ -318,6 +318,12 @@ body {
   }
 }
 
+.card{
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-3);
+}
 
 .btn {
   min-width: max-content;

@@ -4,19 +4,14 @@ import Navigation from '../Navigation/Navigation';
 import { Link, useNavigate } from 'react-router-dom';
 import SearchBox from '../SearchBox/SearchBox';
 import { useDispatch, useSelector } from 'react-redux';
-import { openCartMenu } from '../../redux/CartReducer/CartSlice';
-import { useState } from 'react';
+import { openCityModal } from '../../redux/CityReducer/CitySlice';
 import CitySelectModal from '../CitySelectModal/CitySelectModal';
 
 const Header = () => {
-    const [openCityModal, setOpenCityModal] = useState(false)
-    const [name, isLogin, Cities_List] = useSelector((state) => {
-        return [
-            `${state.userInfo.name} ${state.userInfo.lastName}`,
-            state.userInfo.isLogin,
-            state.citiesList,
-        ]
-    })
+    const cityModalStatus = useSelector(state=> state.citySolector.value)
+    const isLogin = useSelector(state=> state.userInfo.isLogin)
+    const Cities_List = useSelector(state=> state.citiesList)
+     
     //const Cities_List = useSelector(st)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -25,11 +20,11 @@ const Header = () => {
         navigate('/userdashbord/profile')
     }
     const addNewPostClick = () => {
-        dispatch(openCartMenu())
+        navigate('/userdashbord/profile')
     }
 
     const citySelectorOpen = () => {
-        setOpenCityModal(true)
+        dispatch(openCityModal())
     }
 
     return (
@@ -49,7 +44,7 @@ const Header = () => {
                             {isLogin ? <>
                                 <BsPersonCheckFill size={22} />
                                 <span className='title_01'>
-                                    {name}
+                                    کاپوت من
                                 </span>
 
                             </> : <>
@@ -79,7 +74,7 @@ const Header = () => {
                 <Navigation />
             </header>
 
-            {openCityModal && <CitySelectModal closeAction={setOpenCityModal} />}
+            {cityModalStatus && <CitySelectModal />}
         </>
     )
 }

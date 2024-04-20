@@ -21,7 +21,7 @@ const Card = ({ postID, noteDate, noteText, className, share = true }) => {
 
     return (
         <>
-            <div className="card_85">
+            <div className="card card_85">
                 <div className="image_85">
                     <img src="/Images/no-image.webp" alt="" />
                 </div>

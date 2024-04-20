@@ -4,10 +4,10 @@ import './CitySelectModal.css' // Code => 07
 import { BsChevronLeft } from 'react-icons/bs'
 import ProvincesCities from '../../assets/Data/Provinces_and_Cities.json'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCitiesList } from '../../redux/CityReducer/CitySlice'
+import { closeCityModal, setCitiesList } from '../../redux/CityReducer/CitySlice'
 import { useOutClicker } from '../../Hook/useOutsideClick'
 
-const CitySelectModal = ({ closeAction }) => {
+const CitySelectModal = () => {
     const [modal_ref, outClicker] = useOutClicker(closeHandler)
     const dispatch = useDispatch()
     const Provinces_Cities_list = useRef(ProvincesCities)
@@ -42,14 +42,14 @@ const CitySelectModal = ({ closeAction }) => {
     }
     
     function closeHandler() {
-        setTimeout(() => closeAction(false), 310)
+        setTimeout(() => dispatch(closeCityModal()), 310)
         modal_ref.current.classList.toggle('close-it_07')
     }
 
     return (
         <>
             <ModalContainer onClick={outClicker}>
-                <div ref={modal_ref} className="modal_07">
+                <div ref={modal_ref} className="card modal_07">
                     <div className="modal-header">
                         <span className="h5">
                             انتخاب شهر

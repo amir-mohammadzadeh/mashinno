@@ -4,7 +4,7 @@ import BrandSection from '../../components/BrandSection/BrandSection'
 import StoryContainer from '../../components/StoryContainer/StoryContainer'
 import ProductsGridLayout from '../../components/ProductsGridLayout/ProductsGridLayout'
 import { NavItemsContent } from '../../components/Navigation/Navigation'
-
+import SupportWidget from '../../components/SupportWidget/SupportWidget'
 
 const Home = () => {
     
@@ -19,6 +19,7 @@ const Home = () => {
                     <ProductsGridLayout />
                 </div>
             </main>
+            <SupportWidget />
         </>
     )
 }

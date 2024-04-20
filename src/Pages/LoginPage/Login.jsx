@@ -3,6 +3,7 @@ import './Login.css' // Code => 7
 import { Input } from '../../components/Inputs/Inputs';
 import { Link, useNavigate } from 'react-router-dom';
 import Toast from '../../components/Toast/Toast';
+import SupportWidget from '../../components/SupportWidget/SupportWidget';
 
 const Login = () => {
    const navigate = useNavigate()
@@ -11,19 +12,19 @@ const Login = () => {
    const codeInput = useRef(null)
    const timer_ref = useRef(null)
    const phoneNumber = useRef(null)
-   const [error,setError] = useState(null)
+   const [error, setError] = useState(null)
    const [verificationCode, setVerificationCode] = useState(null)
    const [toast, setToast] = useState(null)//=> { header:'', msg:'', type:'', timer:0 }
 
    useEffect(() => {
-      document.title = 'ثبت نام و ورود | فروشگاه آنلاین کاپوت' ;
+      document.title = 'ثبت نام و ورود | فروشگاه آنلاین کاپوت';
       document.getElementById('MainFooter').style.display = 'none';
    }, [])
 
    const setTimer = () => {
       clearInterval(timerID.current)
       const [min_tag, sec_tag] = [timer_ref.current.children[0], timer_ref.current.children[1]]
-      let [min, sec] = [2,30]
+      let [min, sec] = [2, 30]
       timer_ref.current.style.display = 'block';
       min_tag.innerHTML = '02';
       sec_tag.innerHTML = '30';
@@ -48,9 +49,9 @@ const Login = () => {
    useEffect(() => { verificationCode && setTimer() }, [verificationCode])
 
    const sendCode = () => {
-      
+
    }
-   
+
    const firstStepClickHandler = () => {
       if (phoneNumber.current.value) {
          alert('شماره تلفن به سمت سرور ارسال میشود تا کد تایید برایش فرستاده شود\nو در پاسخ این درخواست کد تایید دریافت میشد تا در  یک state ذخیره شود.')
@@ -62,10 +63,10 @@ const Login = () => {
 
    }
    const secondStepClickHandler = () => {
-      if(codeInput.current.value == verificationCode){
+      if (codeInput.current.value == verificationCode) {
          alert('مجددا شماره به سرور ارسال میشود تا یک حساب کاربری برایش ثبت شده و یک توکن ایجاد شود')
          navigate('/')
-      }else{
+      } else {
          alert('کد وارد شده صحیح نمیباشد!')
       }
    }
@@ -88,7 +89,7 @@ const Login = () => {
                      <span>
                         برای استفاده از امکانات کاپوت لطفاً شمارهٔ موبایل خود را وارد کنید. کد تأیید به این شماره پیامک خواهد شد.
                      </span>
-                     <Input ref={phoneNumber} type='tel' helpText='مثال: 09141234567'  error={error} />
+                     <Input ref={phoneNumber} type='tel' helpText='مثال: 09141234567' error={error} />
                      <div className="ruls-content_7">
                         <Link>
                            شرایط استفاده از خدمات
@@ -126,6 +127,7 @@ const Login = () => {
                </div>
             </section>
          </div>
+         <SupportWidget scrollBtn={false} />
          {toast &&
             <Toast {...toast} onClose={() => setToast(null)} />
          }

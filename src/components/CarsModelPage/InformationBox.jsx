@@ -3,7 +3,7 @@ import './InformationBox.css'//____________ Code =>  23
 
 const InformationBox = () => {
     return (
-        <article className='description-box_23'>
+        <article className='container card description-box_23 my-2'>
             <section>
                 <h3>
                     لوازم یدکی کیا

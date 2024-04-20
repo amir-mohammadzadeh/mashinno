@@ -1,9 +1,5 @@
 .detailes-card_52 {
     flex: 1;
-    background-color: var(--white );
-    padding: 1rem;
-    border-radius: .95rem;
-    box-shadow: var(--shadow-2);
     display: flex;
     flex-direction: column;
 }
