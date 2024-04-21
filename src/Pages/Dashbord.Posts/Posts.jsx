@@ -3,7 +3,7 @@ import useDateGenerator from '../../Hook/useDateGenerator'
 import { useSeparate } from '../../Hook/useNumbers'
 import { BsTrash3Fill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
-import './Post.css'
+import './Post.css'// Code => 85
 
 
 const Posts = () => {
@@ -26,7 +26,7 @@ const Posts = () => {
 
         <div className='my-post_85' onClick={cardClickHandel} >
 
-          <div className="card_85">
+          <div className="card card_85">
             <div className="image_85">
               <img src="/Images/no-image.webp" alt="" />
             </div>

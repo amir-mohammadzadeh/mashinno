@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { FaUserTie, FaScroll, FaOutdent } from "react-icons/fa";
 import { IoExitOutline, IoStorefrontOutline, IoDocumentTextOutline, IoHeartOutline, IoReloadSharp } from "react-icons/io5";
+import SupportWidget from '../../components/SupportWidget/SupportWidget'
 
 const Dashbord = () => {
   const sidePanel_ref = useRef(null)
@@ -14,6 +15,7 @@ const Dashbord = () => {
   useEffect(() => {
     document.title = 'کاپوت من';
     document.getElementById('MainFooter').style.display = 'none';
+    return () => document.getElementById('MainFooter').style.display = 'block';
   }, [])
 
 
@@ -29,7 +31,7 @@ const Dashbord = () => {
   }
 
   const closePanel = (e) => {
-    let elem = e.currentTarget.children[0]
+    let elem = sidePanel_ref.current.children[0]
     if (e.target != elem && !elem.contains(e.target)) {
       openPanel()
     }
@@ -118,7 +120,7 @@ const Dashbord = () => {
               </li>
               <li className="panel-item_8">
                 <NavLink
-                  to={'/userdashbord/store_panel'}
+                  to={'/userdashbord/store_panel/edit'}
                   className={link => active_link(link)}
                   onClick={openPanel}
                 >
@@ -137,7 +139,7 @@ const Dashbord = () => {
           <Outlet />
         </main>
       </div>
-
+      <SupportWidget scrollBtn={false} />
     </>
   )
 }

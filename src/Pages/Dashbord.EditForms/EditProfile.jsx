@@ -3,7 +3,7 @@ import { MdAddAPhoto, MdNoPhotography } from "react-icons/md";
 import { Input } from '../../components/Inputs/Inputs';
 import ProvincesCities from '../../assets/Data/Provinces_and_Cities.json' //=> لیست استان ها و شهر ها
 import Selection from '../../components/Selection/Selection';
-import './EditProfile.css'
+import './EditForms.css'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserInfo } from '../../redux/UserReducer/userSlice';
@@ -93,8 +93,8 @@ const EditProfile = () => {
         }
         if (phoneNumber2_input.current.value) data.phoneNumber.push(phoneNumber2_input.current.value)
         const result = validation(data)
-        
-        
+
+
         if (result) {
             setError(result)
             return
@@ -106,30 +106,27 @@ const EditProfile = () => {
     }
 
     return (<>
-        <div className="main-container_82">
+        <div className="main-container_88">
 
-            <form className="form_82" onSubmit={submitHandler}>
-                <div className="profile-content_82">
+            <form className="form_88" onSubmit={submitHandler}>
 
-                    <div className="image_82">
-                        {profileImg ? <img src={URL.createObjectURL(profileImg)} alt="User Profile" /> :
-
-                            <div className="uloader">
-                                <input type="file" id="test" onChange={selectProfileImage} />
-                                <label htmlFor="test" className="img-btn_82">
-                                    <MdAddAPhoto size={40} />
-                                </label>
-                            </div>
-                        }
-                    </div>
-                    <div className="profile-body_82">
-                        <span> عکس پروفایل خودرا وارد کنید </span><br />
-                        {profileImg &&
-                            <span className="remove-profile_82" title=' حذف پروفایل' onClick={() => setProfileImg('')} >
-                                <MdNoPhotography size={22} />
+                <div className="image-input_88 col-s2_88 mb_88">
+                    <span> عکس پروفایل خودرا وارد کنید </span>
+                    <div className="upload-box_88">
+                        {profileImg ? <>
+                            <img src={URL.createObjectURL(profileImg)} alt="User Profile" />
+                            <span className="remove-img_88" onClick={() => setProfileImg('')} >
+                                حذف پروفایل
                             </span>
+                        </> : <>
+                            <input type="file" id="imageUploader82" onChange={selectProfileImage} />
+                            <label htmlFor="imageUploader82" className="uploader-btn_88">
+                                <MdAddAPhoto size={40} />
+                            </label>
+                        </>
                         }
                     </div>
+
                 </div>
 
                 <Input
@@ -185,19 +182,19 @@ const EditProfile = () => {
 
                 <Input
                     ref={address_input}
-                    className="form-item_82"
+                    className="col-s2_88"
                     label='آدرس'
                     helpText='آدرس خودرا وارد کنید'
                     name='phoneNum2'
                     error={error['address']}
                 />
 
-                <div className="form-buttons_82">
+                <div className="form-buttons_88">
 
-                    <button type="submit" className="btn btn-animate submit-btn_82">
+                    <button type="submit" className="btn btn-animate submit-btn_88">
                         ذخیره
                     </button>
-                    <Link to={'/userdashbord/profile'} className="btn cancel-btn_82">
+                    <Link to={'/userdashbord/profile'} className="btn cancel-btn_88">
                         انصراف
                     </Link>
                 </div>

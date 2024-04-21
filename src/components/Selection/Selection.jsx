@@ -8,7 +8,7 @@ const Selection = ({ optionList, onSelect, label, firstValue, value, error, chil
     const menu_ref = useOutsideClick(setOpenMenu)
 
     const SELECTION_SETTINGS = {
-        '--border-color': error ? 'var(--red-800)' : 'var(--gray-300)',
+        '--border-color': error ? 'var(--red-700)' : 'var(--gray-300)',
         '--menu-max-height': menuHeight || 'auto',
         zIndex: openMenu ? '20' : '5',
     }

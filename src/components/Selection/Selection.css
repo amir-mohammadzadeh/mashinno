@@ -98,3 +98,12 @@
         transform: rotateX(0deg);
     }
 }
+
+@media screen and (max-width:568px) {
+    .selection-head-1{
+        height: 3rem;
+    }
+    .menu-1{
+        top: 85%;
+    }
+}

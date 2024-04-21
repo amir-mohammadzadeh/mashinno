@@ -2,15 +2,20 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     id:1,
-    name:"",
-    lastName:"",
-    phoneNumber:"",
-    address:"",
+    name:"امیر",
+    lastName:"محمدزاده اسداغی",
+    image:'',
+    phoneNumber:["09141234567"],
+    address:{
+      ostan:'آذربایجان شرقی',
+      city:'مرند',
+      address:' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.'
+    },
     codeMelli:null,
     posts:[],
     favorites:[],
-    payments:[],
-    isLogin: false
+    notes:[],
+    isLogin: true
 }
 
 export const userSlice = createSlice({

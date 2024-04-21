@@ -1,0 +1,116 @@
+.man-container_84{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem ;
+    padding-inline: 1rem;
+}
+
+
+.header_84{
+    grid-column: span 2;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-block: .25rem 1rem;
+    border-bottom: 2px dashed var(--gray-300) ;
+}
+.logo-content_84{
+    flex-shrink: 0;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    box-shadow: -1px 3px 10px -1px var(--shadow-color-1);
+    overflow: hidden;
+}
+.logo-content_84 img{
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+.header-body_84{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.label_84{
+    color: var(--gray-500);
+    margin-inline-end: .5rem;
+}
+
+.edit-btn_84{
+    align-self: flex-start;
+    color: var(--red-500 );
+    border-bottom: 2px solid transparent;
+    transition: .3s;
+}
+.edit-btn_84:hover{
+    border-color: var(--blue-500 );
+    color: var(--blue-700 );
+}
+.edit-btn_84 a{
+    padding-bottom:.35rem ;
+    display: flex;
+    gap: .5rem;
+}
+
+.image-card_84,
+.card_84{
+    grid-column: span 2 ;
+    position: relative;
+    border-radius: .5rem;
+    padding-inline-start: 2.5rem;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .75rem;
+}
+
+.no-span_84{
+    grid-column: auto;
+}
+
+.image-card_84{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2rem 1rem;
+    gap: 1rem;
+}
+
+.image_84 img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+.card-icon_84{
+    position: absolute;
+    top: -1.35rem;
+    right: -.65rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .5rem;
+    border-radius: 50%;
+    background-color: var(--white);
+    box-shadow: var(--shadow-3);
+}
+.rotate_84{
+    transform: rotateY(180deg) rotateZ(90deg);
+}
+
+
+/*_________________ Make Responcive _________________________*/
+@media screen and (max-width:568px) {
+    .no-span_84{
+        grid-column: span 2;
+    }
+    .logo-content_84{
+        width: calc(3rem + 9vw);
+        height: calc(3rem + 9vw);
+    }
+    .image-card_84{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

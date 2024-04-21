@@ -1,9 +1,14 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import './Toast.css' // C0de => 006
+import { createPortal } from 'react-dom'
+
 
 const Toast = ({ type, onClose, timer, header, msg }) => {
     const Toast_Ref = useRef(null)
+    let Timer_ref = useRef(null)
     let toast_class, message, icon;
+    useEffect(() => { return () => clearTimeout(Timer_ref.current) }, [])
+    
     switch (type) {
         case 'success':
             toast_class = "success_006";
@@ -39,9 +44,9 @@ const Toast = ({ type, onClose, timer, header, msg }) => {
     }
 
     if (timer) {
-        setTimeout(() => closeToast(), (timer * 1000))
+        Timer_ref.current = setTimeout(() => closeToast(), (timer * 1000))
     }
-    return (
+    return createPortal (
         <div ref={Toast_Ref} className="toast-holder_006 show_006">
             <div className={`toast_006 ${toast_class}`}>
                 <span className="icon_006">
@@ -60,6 +65,7 @@ const Toast = ({ type, onClose, timer, header, msg }) => {
                 {timer && <div className="timer-progres_006" style={{ '--timer': `${timer}s` }}></div>}
             </div>
         </div>
+        , document.getElementById('modal_parent')
     )
 }
 

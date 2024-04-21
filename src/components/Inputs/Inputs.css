@@ -60,7 +60,7 @@
 
 .input-box_04:has(.error_04) textarea ,
 .input-box_04:has(.error_04) input {
-    border-color: var(--red-300);
+    border-color: var(--red-700);
 }
 
 .error_04{
@@ -70,4 +70,10 @@
     color: var(--red-600);
     font-size: .9rem;
     line-height: 1.25;
+}
+
+@media screen and (max-width:568px) {
+    .input-box_04 input{
+        height: 3rem;
+    }
 }

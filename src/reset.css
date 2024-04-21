@@ -81,9 +81,8 @@ pre {
 
 a:visited,
 a {
-    color: inherit;
+    color: unset;
     text-decoration: none;
-    background-color: transparent;
     display: block;
 }
 

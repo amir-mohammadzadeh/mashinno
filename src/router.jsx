@@ -10,10 +10,12 @@ import PrivetRoute from "./Pages/PrivetRoute/PrivetRoute";
 import Profile from "./Pages/Dashbord.Profile/Profile";
 import Posts from "./Pages/Dashbord.Posts/Posts";
 import Favorites from "./Pages/Dashbord.Favorites/Favorites";
-import NotBook from "./Pages/Dashbord.NotBook/NotBook";
-import LastSeens from "./Pages/Dashbord.LastSeens/LastSeens";
+import NoteBook from "./Pages/Dashbord.NoteBook/NoteBook";
 import StorePanel from "./Pages/Dashbord.StorePanel/StorePanel";
-
+import RecentlySeen from "./Pages/Dashbord.RecentlySeen/RecentlySeen";
+import MyPostDetailes from "./Pages/Dashbord.MyPostDetailes/MyPostDetailes";
+import EditProfile from "./Pages/Dashbord.EditForms/EditProfile";
+import EditStorePanel from "./Pages/Dashbord.EditForms/EditStorePanel";
 
 const routes = createBrowserRouter([
     {
@@ -52,8 +54,16 @@ const routes = createBrowserRouter([
                                 element: <Profile />
                             },
                             {
+                                path: 'profile/edit',
+                                element: <EditProfile />
+                            },
+                            {
                                 path: 'user_posts',
                                 element: <Posts />
+                            },
+                            {
+                                path: 'user_posts/preview/:postID',
+                                element: <MyPostDetailes />
                             },
                             {
                                 path: 'favorites',
@@ -61,15 +71,19 @@ const routes = createBrowserRouter([
                             },
                             {
                                 path: 'user_nots',
-                                element: <NotBook />
+                                element: <NoteBook />
                             },
                             {
                                 path: 'last_seen',
-                                element: <LastSeens />
+                                element: <RecentlySeen />
                             },
                             {
                                 path: 'store_panel',
                                 element: <StorePanel />
+                            },
+                            {
+                                path: 'store_panel/edit',
+                                element: <EditStorePanel />
                             },
 
                         ]
