@@ -1,13 +1,22 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import './EditForms.css'//Code => 86
 import { MdAddAPhoto } from 'react-icons/md'
 import { Input, TextArea } from '../../components/Inputs/Inputs'
 import Selection from '../../components/Selection/Selection'
 import ProvincesCities from '../../assets/Data/Provinces_and_Cities.json' //=> لیست استان ها و شهر ها
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { setStoreInfo } from '../../redux/StoreReducer/StoreSlice'
+import { setUserInfo } from '../../redux/UserReducer/userSlice'
 
 const EditStorePanel = () => {
+    const Store_Info = useSelector(state => state.storeInfo)
+    const UserID = useSelector(state => state.userInfo.id)
+    const dispath = useDispatch()
+    const navigate = useNavigate()
+
     const list = Array.from(Array(5).keys())
+    const [allowURL, setAllowURL] = useState(false)
     const [error, setError] = useState({})
     const provinces_cities_list = useRef(ProvincesCities)
     const [provincesList, setProvincesList] = useState([])
@@ -23,9 +32,18 @@ const EditStorePanel = () => {
     const address = useRef(null)
     const siteUrl = useRef(null)
     const aboutStore = useRef(null)
+    const ID = Store_Info.id || 1;
+
+    useLayoutEffect(() => {
+        storeName.current.value = Store_Info.storeName || ''
+        phoneNum1.current.value = Store_Info.phoneNumbers[0] || ''
+        phoneNum2.current.value = Store_Info.phoneNumbers[1] || ''
+        aboutStore.current.value = Store_Info.aboutStore || ''
+        address.current.value = Store_Info.storeAddress.address || ''
+
+    }, [])
 
     useEffect(() => {
-        setProvincesList(provinces_cities_list.current.map(item => item.ostan))
         provinces_cities_list.current.map(item => item.ostan == ostan && setCitiesList(item.cities))
         if (ostan == '') {
             setCitiesList([]);
@@ -33,28 +51,44 @@ const EditStorePanel = () => {
         }
     }, [ostan])
 
+    useEffect(() => {
+        setProvincesList(provinces_cities_list.current.map(item => item.ostan))
+        setOstan(Store_Info.storeAddress.ostan)
+        setCity(Store_Info.storeAddress.city)
+        setStoreImages(Store_Info.images)
+        setStoreLogo(Store_Info.logo)
+    }, [])
+
+    const addStoreImage = (e) => {
+        let list = Array.from(new Set([...storeImages, ...e.target.files]))
+        setStoreImages(list)
+    }
     const removeStoreImage = (index) => {
         setStoreImages(prevent => prevent.filter(file => file !== index))
     }
+
     const selectOstan = (value) => {
         let user_ostan = value || '';
         setOstan(user_ostan)
     }
+
     const selectCity = (value) => {
         let user_city = value || '';
         setCity(user_city)
     }
+
     const linkPaymentHandler = () => {
         alert('اتصال به درگاه پرداخت برای پرداخت هزینه مربوط به قرار دادن لینک سایت فروشگاه خود در کاپوت')
+        setAllowURL(true)
     }
+
     const validation = () => {
         let errors = {}
         if (!storeName.current.value) errors['name'] = 'این قسمت نباید خالی بماند!';
         if (!address.current.value) errors['address'] = 'این قسمت نباید خالی بماند!';
-        if (!aboutStore.current.value) errors['about'] = 'با معرفی فروشگاه خود اعتماد مشتری را جلب کنید';
-        if (!phoneNum1.current.value && !phoneNum2.current.value) {
-            errors['emptyPhone'] = 'حداقل یک شماره تلفن باید وارد شود!';
-        }
+        //if (!aboutStore.current.value) errors['about'] = 'با معرفی فروشگاه خود اعتماد مشتری را جلب کنید';
+        if(phoneNum1.current.value.length != 11) errors['phone1'] ='شماره تلفن صحیح نیست!';
+        if(phoneNum2.current.value && phoneNum2.current.value.length != 11) errors['phone2'] ='شماره تلفن صحیح نیست!';
         if (!ostan) errors['emptyOstan'] = 'لطفا استان خود را انتخاب کنید!';
         if (!city) errors['emptyCity'] = 'لطفا شهر خود را انتخاب کنید!';
 
@@ -63,6 +97,8 @@ const EditStorePanel = () => {
     const formSubmitHandler = (e) => {
         e.preventDefault()
         const data = {
+            id: ID, // =>  ID will be generated in the back-end?
+            userID: UserID,
             storeName: storeName.current.value,
             phoneNumbers: [phoneNum1.current.value],
             storeAddress: {
@@ -70,9 +106,10 @@ const EditStorePanel = () => {
                 city: city,
                 address: address.current.value
             },
-            siteURL: siteUrl.current.value,
+            siteURL: !allowURL ? siteUrl.current.value : '',
             logo: storeLogo,
-            images: storeImages
+            images: storeImages,
+            aboutStore: aboutStore.current.value
         }
         if (phoneNum2.current.value) data.phoneNumbers.push(phoneNum2.current.value);
 
@@ -82,8 +119,13 @@ const EditStorePanel = () => {
             setError(result)
             return
         } else setError({})
-        console.log(data)
+
+        alert('اطلاعات وارد شده پس از ذخیره شدن در redux \nاز طریق API به سمت سرور ارسال خواهد شد تا در دیتا بیس ذخیره گردد.')
+        dispath(setStoreInfo(data))
+        dispath(setUserInfo({ storeID: ID }))
+        navigate('/userdashbord/store_panel')
     }
+    console.log('render')
 
     return (<>
         <div className="main-container_88">
@@ -119,7 +161,7 @@ const EditStorePanel = () => {
                         <div className="image-content_88">
 
                             <div className="upload-box_88">
-                                <input type="file" multiple={true} id="imageUploader81" onChange={(e) => setStoreImages([...e.target.files])} />
+                                <input type="file" multiple={true} id="imageUploader81" onChange={addStoreImage} />
                                 <label htmlFor="imageUploader81" className="uploader-btn_88">
                                     <MdAddAPhoto size={40} />
                                 </label>
@@ -154,15 +196,15 @@ const EditStorePanel = () => {
                     ref={phoneNum1}
                     type='number'
                     label='شماره تماس ۱'
-                    name=''
-                    error={error['emptyPhone']}
-                />
+                    name='phoneNumber1'
+                    error={error['phone1']}
+                    />
                 <Input
                     ref={phoneNum2}
                     type='number'
                     label='شماره تماس ۲'
-                    name=''
-                    
+                    name='phoneNumber2'
+                    error={error['phone2']}
                 />
                 <Selection
                     className="col-row-13_88"
@@ -199,9 +241,8 @@ const EditStorePanel = () => {
                     ref={siteUrl}
                     className="link-input_88"
                     label='لینک سایت فروشگاه'
-                    name='address'
-                    error={''}
-                    readOnly={true}
+                    name='siteURL'
+                    readOnly={!allowURL}
                 />
 
                 <div className="link-dis_88">
@@ -230,7 +271,7 @@ const EditStorePanel = () => {
                     <button type="submit" className="btn btn-animate submit-btn_88">
                         ذخیره
                     </button>
-                    <Link to={'/userdashbord/profile'} className="btn cancel-btn_88">
+                    <Link to={'/userdashbord/store_panel'} className="btn cancel-btn_88">
                         انصراف
                     </Link>
                 </div>

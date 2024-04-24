@@ -9,7 +9,7 @@ const Profile = () => {
   const dispath = useDispatch()
   const user = useSelector(state => state.userInfo)
   const city_list = useSelector(state => state.citiesList)
-  const userName = user.name + '  ' + user.lastName || 'کاربر خالی';
+  const userName = (user.name && user.lastName) ? `${user.name} ${user.lastName}` : 'کاربر خالی';
   const profile_img = user.image || '/Images/NoPhoto.jpg';
 
 
@@ -44,16 +44,17 @@ const Profile = () => {
 
         </div>
       </section>
-
-      <address className="card address_81">
-        <span className="icon_81">  <ImLocation2 size={'100%'} />  </span>
-        <span>
-          {`${user.address.ostan} ، ${user.address.city} ؛ `}
-        </span>
-        <span>
-          {user.address.address}
-        </span>
-      </address>
+      {user.address.address &&
+        <address className="card address_81">
+          <span className="icon_81">  <ImLocation2 size={'100%'} />  </span>
+          <span>
+            {`${user.address.ostan} ، ${user.address.city} ؛ `}
+          </span>
+          <span>
+            {user.address.address}
+          </span>
+        </address>
+      }
       <div className="card my-cities_81">
         <div className="header_81">
           <span> شهر‌های انتخاب شده </span>

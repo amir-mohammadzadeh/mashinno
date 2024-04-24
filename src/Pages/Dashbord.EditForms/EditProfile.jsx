@@ -56,9 +56,8 @@ const EditProfile = () => {
         if (!name_input.current.value) errors['name'] = 'این قسمت نباید خالی بماند!';
         if (!lastName_input.current.value) errors['lastName'] = 'این قسمت نباید خالی بماند!';
         if (!address_input.current.value) errors['address'] = 'این قسمت نباید خالی بماند!';
-        if (!phoneNumber1_input.current.value && !phoneNumber2_input.current.value) {
-            errors['emptyPhone'] = 'حداقل یک شماره تلفن باید وارد شود!';
-        }
+        if(phoneNumber1_input.current.value.length != 11) errors['phone1'] ='شماره تلفن صحیح نیست!';
+        if(phoneNumber2_input.current.value && phoneNumber2_input.current.value.length != 11) errors['phone2'] ='شماره تلفن صحیح نیست!';
         if (!ostan) errors['emptyOstan'] = 'لطفا استان خود را انتخاب کنید!';
         if (!city) errors['emptyCity'] = 'لطفا شهر خود را انتخاب کنید!';
 
@@ -147,13 +146,14 @@ const EditProfile = () => {
                     label='شماره موبایل ۱'
                     name='phoneNum1'
                     ref={phoneNumber1_input}
-                    error={error['emptyPhone']}
-                />
+                    error={error['phone1']}
+                    />
                 <Input
                     type='number'
                     label='شماره موبایل ۲'
                     name='phoneNum2'
                     ref={phoneNumber2_input}
+                    error={error['phone2']}
                 />
 
 

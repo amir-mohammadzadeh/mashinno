@@ -21,9 +21,9 @@ const Selection = ({ optionList, onSelect, label, firstValue, value, error, chil
         <>
             <div className={`selection-wrapper-1 ${className}`} style={SELECTION_SETTINGS} >
                 {label &&
-                    <label htmlFor="" className="label-1">
+                    <span className="label-1">
                         {label}
-                    </label>
+                    </span>
                 }
                 <div className="selection-head-1" onClick={() => setOpenMenu(!openMenu)} >
                     <span>

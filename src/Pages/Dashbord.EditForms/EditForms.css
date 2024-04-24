@@ -176,10 +176,7 @@
         grid-template-columns: 1fr;
         gap: .5rem;
     }
-    .image-input_88{
-        flex-grow: unset;
-        flex-shrink: unset;
-    }
+
     .link-dis_88,
     .link-input_88,
     .col-s2_88 {

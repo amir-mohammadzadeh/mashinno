@@ -46,8 +46,8 @@ const CommentsContainer = ({ commentList = [1] }) => {
 
     const replyCancel = () => {
         setCommentReply({ value: false, commentID: 0, commentAuther: '' })
-        setMessageValue('')
-        setUserNameValue('')
+        userNameInput.current.value = ''
+        messageInput.current.value = ''
     }
 
     return (

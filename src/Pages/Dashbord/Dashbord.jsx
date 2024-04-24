@@ -1,16 +1,19 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './Dashbord.css' // Code => 8
 import { useEffect, useRef } from 'react'
-import { useState } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { FaUserTie, FaScroll, FaOutdent } from "react-icons/fa";
 import { IoExitOutline, IoStorefrontOutline, IoDocumentTextOutline, IoHeartOutline, IoReloadSharp } from "react-icons/io5";
 import SupportWidget from '../../components/SupportWidget/SupportWidget'
+import { setUserLogin } from '../../redux/UserReducer/userSlice';
 
 const Dashbord = () => {
+  const dispatch= useDispatch()
+  const navigate = useNavigate()
   const sidePanel_ref = useRef(null)
   const closeBtn_ref = useRef(null)
   const USER = useSelector(state => state.userInfo)
+  const STORE = useSelector(state => state.storeInfo)
 
   useEffect(() => {
     document.title = 'کاپوت من';
@@ -35,6 +38,11 @@ const Dashbord = () => {
     if (e.target != elem && !elem.contains(e.target)) {
       openPanel()
     }
+  }
+  const logOut=()=>{
+    dispatch(setUserLogin({value:false,tokan:null}))
+    localStorage.removeItem('tokan')
+    navigate('/')
   }
 
   return (
@@ -129,7 +137,7 @@ const Dashbord = () => {
                 </NavLink>
               </li>
             </ul>
-            <div className="panel-item_8 logout-btn_8" onClick={openPanel}>
+            <div className="panel-item_8 logout-btn_8" onClick={logOut}>
               <span className="icon_8"> <IoExitOutline size={25} /> </span>
               خروج از حساب کاربری
             </div>
