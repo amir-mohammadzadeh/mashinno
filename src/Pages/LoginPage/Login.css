@@ -53,6 +53,7 @@
 .btn_7{
     align-self: center;
     width: 75%;
+    height: 2.25rem;
     background-color: var(--green-500 );
     color: var(--white);
     box-shadow: 2px 2px 8px -1px var(--green-600 ) ;

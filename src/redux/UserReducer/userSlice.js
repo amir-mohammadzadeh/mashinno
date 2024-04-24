@@ -1,34 +1,38 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    id:1,
-    name:"امیر",
-    lastName:"محمدزاده اسداغی",
-    image:'',
-    phoneNumber:["09141234567"],
-    address:{
-      ostan:'آذربایجان شرقی',
-      city:'مرند',
-      address:' لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.'
-    },
-    codeMelli:null,
-    posts:[],
-    favorites:[],
-    notes:[],
-    isLogin: true
+  id: 1,
+  storeID: null,
+  name: "",
+  lastName: "",
+  image: '',
+  phoneNumber: [],
+  address: {
+    ostan: '',
+    city: '',
+    address: ''
+  },
+  codeMelli: null,
+  posts: [],
+  favorites: [],
+  notes: [],
+  isLogin: false,
+  tokan: null,
 }
 
 export const userSlice = createSlice({
   name: 'userInfo',
-  initialState: initialState ,
+  initialState: initialState,
   reducers: {
     setUserLogin: (state, action) => {
       return {
         ...state,
-        isLogin: action.payload
+        phoneNumber: [action.payload.phone],
+        isLogin: action.payload.value,
+        tokan: action.payload.tokan
       }
     },
-    setUserInfo: (state,action) => {
+    setUserInfo: (state, action) => {
       return {
         ...state,
         ...action.payload
@@ -58,21 +62,21 @@ export const userSlice = createSlice({
         favorites: state.favorites.filter(item => item.id != action.payload)
       }
     },
-    addUserPayment: (state, action) => {
+    addUserNote: (state, action) => {
       return {
         ...state,
-        payments: state.payments.push(action.payload)
+        notes: state.notes.push(action.payload)
       }
     },
-    removeUserPayment: (state, action) => {
+    removeUserNote: (state, action) => {
       return {
         ...state,
-        payments: state.payments.filter(item => item.id != action.payload)
+        notes: state.notes.filter(item => item.id != action.payload)
       }
     },
   },
 })
 
-export const { setUserLogin, setUserInfo,addUserPost ,removeUserPost ,addUserFavorites ,removeUserFavorites ,addUserPayment ,removeUserPayment  } = userSlice.actions ;
+export const { setUserLogin, setUserInfo, addUserPost, removeUserPost, addUserFavorites, removeUserFavorites, addUserNote, removeUserNote } = userSlice.actions;
 
 export default userSlice.reducer

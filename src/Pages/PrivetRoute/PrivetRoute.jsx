@@ -1,15 +1,10 @@
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { Outlet, useNavigate } from 'react-router-dom'
+import { Outlet, Navigate, useLocation } from 'react-router-dom'
 
 const PrivetRoute = () => {
-    const isLogin= useSelector((state) => state.userInfo.isLogin )
-    const navigate = useNavigate()
-    
-    useEffect(()=>{
-        if (!isLogin) return navigate('/login',{replace:true})
-    },[])
+    const location = useLocation()
+    const isLogin = localStorage.getItem('tokan')
 
+    if (!isLogin) return <Navigate to='/login' replace={true} state={location.pathname} />
     return <Outlet />
 }
 
