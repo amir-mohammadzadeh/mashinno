@@ -1,0 +1,111 @@
+.sidemenu_32 {
+    position: sticky;
+    top: 1rem;
+    width: 100%;
+    height: max-content;
+}
+
+.content_32{
+    background-color: var(--white);
+    color: var(--gray-900 );
+    box-shadow: 0 0 8px 1px var(--shadow-color-2);
+    padding: 1rem .5rem;
+    border-radius: 1rem;
+    max-height: 95vh;
+    overflow-y: auto;
+}
+
+.categories_32 {
+    margin-top: .75rem;
+    padding: .5rem;
+    border-top: 1px solid var(--gray-300 );
+    display: grid;
+    gap: .75rem;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.input_32 {
+    width: 1.1rem;
+    height: 1.1rem;
+    transform: translateY(4px);
+    cursor: pointer;
+    opacity: .4;
+    accent-color: var(--green-600 );
+}
+
+.item_32 {
+    font-size: 1.2rem;
+    width: 100%;
+    padding-inline-start: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.item_32:hover {
+    padding-inline-start: 10px;
+}
+
+.input_32:checked~ .item_32 {
+    font-weight: bold;
+}
+
+.input_32:checked {
+    opacity: 1;
+}
+
+/*_________ Make Responcive ________________*/
+
+@media screen and (max-width: 992px) {
+    .sidemenu_32 {
+        top: 4rem;
+        width: 100%;
+        z-index: 6;
+    }
+    .content_32{
+        padding: 1rem .5rem ;
+        border-radius: 0;
+        box-shadow: 0 -5px 8px 5px var(--body-bg);
+        background-color: var(--body-bg);
+    }
+    .content_32 > span{
+        display: none;
+    }
+
+    .categories_32{
+        border: 0;
+        margin: 0;
+        padding: 0 ;
+        grid-template-columns: repeat(3 , 1fr);
+        gap: .5rem;
+    }
+    .item_32{
+        display: block;
+        padding: .25rem .5rem;
+        border: 1px solid var(--gray-400 );
+        border-radius: .35rem;
+        text-align: center;
+    }
+    .input_32{
+        display: none;
+    }
+    .input_32:checked ~ .item_32{
+        border-color: var(--green-500 );
+        background-color: var(--green-100 );
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidemenu_32{
+        top: 3.45rem;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .categories_32{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .item_32{
+        font-size: 1rem;
+    }
+}

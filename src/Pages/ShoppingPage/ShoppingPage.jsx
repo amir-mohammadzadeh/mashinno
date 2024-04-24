@@ -1,34 +1,36 @@
-import React, { useEffect, useState } from 'react'
-import './ShoppingPage.css'// Code => 3
-import SideMenu from '../../components/ShoppingPage/SideMenu/SideMenu'
+import { useEffect, useState } from 'react'
+import SideMenu from '../../components/ShoppingPage.SideMenu/SideMenu'
 import { useParams } from 'react-router-dom'
 import Selection from '../../components/Selection/Selection'
-import { FiFilter } from "react-icons/fi";
-import ProductCard from '../../components/ProductCard/ProductCard'
 import UserLocation from '../../components/UserLocation/UserLocation'
-import Advertising from '../../components/Advertising/Advertising'
 import SupportWidget from '../../components/SupportWidget/SupportWidget'
-
-//_____ ساخت یک دیتای آزمایشی و اولیه برای دسته بندی ها ____________
-const categoryList = new Array(10).fill().map((e, id) => ({ title: 'دسته بندی - ' + id, id }))
-const filterList = ['محبوب ترین', 'جدید ترین', 'ارزان ترین', 'گران ترین', 'پر فروش ترین']
-const cardList = Array.from(Array(150).keys())
+import ProductsGridLayout from '../../components/ProductsGridLayout/ProductsGridLayout'
+import './ShoppingPage.css'// Code => 3
+import { getPosts } from '../../assets/Data/postGenerator'
 
 const ShoppingPage = () => {
-  const [openFilterBox, setOpenFilterBox] = useState(false)
+  const [postsList, setPostsList] = useState(getPosts(150))
+  const sortingList = ['جدید ترین', 'ارزان ترین', 'گران ترین', 'پر فروش ترین']
+  const [filterList, setFilterList] = useState([])
+  const [sortBy, setSortBy] = useState(sortingList[0])
   const params = useParams()
-  const n = getAdsIndex(21) // تعداد آگهی های قبل از هر تبلیغات 
 
   useEffect(() => {
     document.title = 'لوازم یدکی ' + params.carModel + " | فروشگاه آنلاین لوازم یدکی کاپوت"
   }, [])
 
-  const filterByPrice = (filterValue) => {
-    console.log(filterValue)
+  useEffect(() => {
+    console.log('Filter posts by this methods:', filterList)
+    console.log('Sorting by : ', sortBy)
+  }, [filterList, sortBy])
+
+  const sortingHandler = (payload) => {
+    setSortBy(payload)
   }
 
-  const filterByCategory = (filterValue) => {
-    console.log('This OBJ is selected :)\n', filterValue)
+  const filterByCategory = (payload, add) => {
+    add ? setFilterList(pre => [...pre, payload])
+      : setFilterList(pre => pre.filter(i => i != payload));
   }
 
   return (<>
@@ -36,28 +38,14 @@ const ShoppingPage = () => {
     <main className="container">
       <div className="main_container_3">
 
-        <aside className="sidemenu-holder_3">
-          <div className="filter-btn_3" onClick={() => setOpenFilterBox(!openFilterBox)}>
-            <span>
-              <FiFilter />
-            </span>
-            <span>
-              فیلتر
-            </span>
-          </div>
-          <Selection value={filterList[0]} optionList={filterList} onSelect={filterByPrice} className='filter-item_3' />
-          <SideMenu valueList={categoryList} openSideMenu={openFilterBox} closeAction={setOpenFilterBox} onSelect={filterByCategory} />
-        </aside>
+        <Selection value={sortBy} optionList={sortingList} onSelect={sortingHandler} className='filter-sort_3' />
 
-        <div className="products-wrapper_3">
+        <SideMenu className='sidemenu_3' onSelect={filterByCategory} />
 
-          {cardList.map((card, index) =>
-            (index + 1) % n == 0 ? <Advertising key={index + 0.5} />
-              : <ProductCard key={index} />
-
-          )}
-
+        <div className="posts_3">
+          <ProductsGridLayout itemList={postsList} />
         </div>
+
       </div>
     </main>
     <SupportWidget />
@@ -65,11 +53,3 @@ const ShoppingPage = () => {
 }
 
 export default ShoppingPage
-
-function getAdsIndex(n) {
-  (window.innerWidth <= 1200 && window.innerWidth >= 768) ?
-    n = n + 1
-    : n = n
-
-  return n
-}

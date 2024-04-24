@@ -5,21 +5,22 @@ import { LikeButton } from '../ToggleButtons/ToggleButtons'
 import { useSeparate } from '../../Hook/useNumbers'
 
 
-const ProductCard = ({ noChange = false }) => {
-    let count = 1; // اگر موجودی محصول 0 باشد به جای قیمت، عبارت " ناموجود " نمایش داده میشود 
-    const Product_Price = useSeparate('1230000',',') // => قیمت محصول را دریافت و ۳ رقم ۳ رقم جدا کرده و به فارسی بر میگرداند
+const ProductCard = ({ id, userID, title, price, noChange = false }) => {
+    const Product_Price = useSeparate(price, ',') // => قیمت محصول را دریافت و ۳ رقم ۳ رقم جدا کرده و به فارسی بر میگرداند
     const navigate = useNavigate()
-    const cardClick = (e) => {
-        navigate('/product-detailes/2', { preventScrollReset: true, state: 'test' })
+
+    const cardClick = (id) => {
+        navigate(`/product-detailes/${id}`, { preventScrollReset: true, state: 'test' })
     }
+
     const onBookmark = (event, payload) => {
         event.stopPropagation()
         // if payload is true => this product can added to bookmarks or favorites 
         console.log(payload)
     }
-    
+
     return (
-        <div className={`card product-card_31 ${!noChange && 'card-R-1'}`} onClick={cardClick}>
+        <div className={`card product-card_31 ${!noChange && 'card-R-1'}`} onClick={() => cardClick(id)}>
 
             <LikeButton className='icon_31' type='bookmark' onClick={onBookmark} />
 
@@ -28,19 +29,16 @@ const ProductCard = ({ noChange = false }) => {
             </div>
             <div className="card-body_31">
                 <span className="card-title_31 line-limit-2">
-                    عنوان محصول
+                    {title}
                 </span>
                 <span className="store-name_31" >
-                     فروشگاه فلان
+                    فروشگاه فلان
                 </span>
                 <div className="price_31">
-                    {count == 0 ? <span> ناموجود </span>
-                        : <>
-                            {Product_Price}
-                            <span>
-                                تومان
-                            </span>
-                        </>}
+                    {Product_Price}
+                    <span>
+                        تومان
+                    </span>
                 </div>
             </div>
             <div className="off-content_31">
