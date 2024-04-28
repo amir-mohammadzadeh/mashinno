@@ -3,8 +3,11 @@ import './Card.css' // Code => .85
 import { BsFillShareFill, BsTrash3Fill } from "react-icons/bs";
 import useDateGenerator from '../../Hook/useDateGenerator';
 import { useSeparate } from '../../Hook/useNumbers';
+import { useSelector } from 'react-redux';
 
 const Card = ({ postID, noteDate, noteText, className, share = true }) => {
+    const Post = useSelector(state => state.posts.find(p => p.id == postID))
+    const date = noteDate || Post.creatDate ;
     
     const shareHandel = (e) => {
         e.stopPropagation()
@@ -19,25 +22,24 @@ const Card = ({ postID, noteDate, noteText, className, share = true }) => {
         console.log('Deleting this card...')
     }
 
-    return (
-        <>
+    return (<>
             <div className="card card_85">
                 <div className="image_85">
                     <img src="/Images/no-image.webp" alt="" />
                 </div>
                 <div className="body_85">
                     <span className="title_85 line-limit-2">
-                        عنوان محصول
+                        {Post.title}
                     </span>
                     <span className="date-loc_85">
-                        <span> {useDateGenerator("3/29/2024, 11:00:12 AM")}</span>
+                        <span> {useDateGenerator(date)}</span> {/*=> 3/29/2024, 11:00:12 AM */}
                         {!noteText &&
                             <span> در {'تبریز'}</span>
                         }
                     </span>
                     {!noteText &&
                         <span className="price_85">
-                            {useSeparate('123000')}
+                            {useSeparate(Post.price)}
                             <span>تومان</span>
                         </span>
                     }
@@ -45,7 +47,7 @@ const Card = ({ postID, noteDate, noteText, className, share = true }) => {
                     {noteText &&
                         <p> {noteText} </p>
                     }
-                    
+
                 </div>
                 <div className="card-buttons_85">
                     {share &&
@@ -60,8 +62,7 @@ const Card = ({ postID, noteDate, noteText, className, share = true }) => {
 
                 </div>
             </div>
-        </>
-    )
+    </>)
 }
 
 export default Card

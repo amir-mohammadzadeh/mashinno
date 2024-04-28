@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { ImageGallery } from '../../components/ImageGallery/ImageGallery'
 import ModalContainer from '../../ModalContainer/ModalContainer'
-import { useLocation, useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { FaXmark } from "react-icons/fa6";
 import MultiSlider from '../../components/MultiSlider/MultiSlider'
 import ProductCard from '../../components/ProductCard/ProductCard'
-import UserLocation from '../../components/UserLocation/UserLocation'
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs'
 import ProductsDetailesCard from '../../components/ProductsDetailesCard/ProductsDetailesCard'
 import TextEditor from '../../components/TextEditor/TextEditor'
 import CommentsContainer from '../../components/CommentsContainer/CommentsContainer'
@@ -13,6 +13,8 @@ import { TextArea } from '../../components/Inputs/Inputs'
 import { BsTrash3 } from 'react-icons/bs'
 import './ProductDetailesPage.css'  //  Code =>  5
 import SupportWidget from '../../components/SupportWidget/SupportWidget';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUserNote, removeUserNote } from '../../redux/UserReducer/userSlice';
 
 //__________ Fack product iamge list ................
 const exam = ['no-image.webp', 'footer-img_1.webp', 'footer-img_2.webp']
@@ -20,35 +22,76 @@ const exampel_imageList = new Array(3).fill().map((e, i) => '/Images/' + exam[i]
 const matchProductList = Array.from(Array(10).keys())
 
 const ProductDetailesPage = () => {
-    const [openGallery, setOpenGallery] = useState(false)
-    const [activeTab, setActiveTab] = useState(1)
-    const [notebookBtn, setNotebookBtn] = useState(false)
-    const userNote = useRef(null)
     const params = useParams()
-    const t = useLocation()
+    const dispatch = useDispatch()
+    const POSTS_LIST = useSelector(state => state.posts)
+    const post = POSTS_LIST.find(p => p.id == params.productID)
+    const User = useSelector(state => state.userInfo)
+    const [openGallery, setOpenGallery] = useState(false)
+    const [activeTab, setActiveTab] = useState('T1D')
+    const userNote = useRef(null)
+    const { images, ...postInfo } = post ? post : {};
+    
+
+    const setToRecently = () => {
+        let local = localStorage.getItem('User_Recently_Seen');
+        if (!local) {
+            localStorage.setItem('User_Recently_Seen', JSON.stringify([params.productID]))
+        } else {
+            local = JSON.parse(local)
+            local = local.filter(i => i != params.productID)
+            localStorage.setItem('User_Recently_Seen', JSON.stringify([...local, params.productID]))
+        }
+    }
+
     useEffect(() => {
+        setToRecently()
         window.scroll({ behavior: 'instant', top: 0, left: 0 })
-        console.log(t)
-        document.title = 'قیمت و خرید ' + '"نام محصول "' + ' | کاپوت'
+        document.title = `قیمت و خرید ${post.title} | کاپوت`;
     }, [])
 
+    useEffect(() => {
+        if (activeTab == 'T3N') {
+            const note = User.notes.find(n => n.postID == post.id)
+            if (note) {
+                userNote.current.value = note.noteText;
+                noteAreaOnChange()
+            }
+        }
+    }, [activeTab])
+
     const saveNot = (e) => {
-        e.currentTarget.parentElement.classList.add('done-5')
-        alert(`${userNote.current.value}\nاز طریق API در کاپوت کاربر ذخیره میشود`)
+        if(localStorage.getItem('tokan')){
+            const date = new Date().toLocaleString()
+            dispatch(addUserNote({
+                postID: post.id,
+                noteDate: date,
+                noteText: userNote.current.value,
+            }))
+            e.currentTarget.parentElement.classList.add('done-5')
+            alert(`${userNote.current.value}\nاز طریق API در کاپوت کاربر ذخیره میشود`)
+        }
     }
-    const noteAreaOnChange = (e) => {
-        e.target.value == '' ? setNotebookBtn(false) : setNotebookBtn(true)
+
+    const noteAreaOnChange = () => {
+        if (userNote.current.value == '') {
+            userNote.current.parentElement.nextSibling.style.display = 'none'
+        } else {
+            userNote.current.parentElement.nextSibling.style.display = 'flex'
+        }
     }
+
     const removeNot = (e) => {
+        dispatch(removeUserNote(post.id))
         e.currentTarget.parentElement.classList.remove('done-5')
         alert(`${userNote.current.value}\nاز طریق API در کاپوت کاربر حذف میشود`)
         userNote.current.value = '';
         setNotebookBtn(false)
     }
 
-    return (<>
-
-        <UserLocation />
+    if (!post) return <Navigate to={'/'} />
+    else return (<>
+        <BreadCrumbs />
         <main className="container ">
 
             <div className="product-detailes-5">
@@ -58,56 +101,52 @@ const ProductDetailesPage = () => {
                     productName={'نام محصول'}
                     onImgClick={() => setOpenGallery(true)}
                 />
-                <ProductsDetailesCard />
+                <ProductsDetailesCard {...postInfo} />
             </div>
             <div className="dis-coment-container_5">
                 <header className="tab-wrapper_5">
-                    <div className={`tab_5 ${activeTab == 1 && 'active-tab_5'}`} onClick={() => setActiveTab(1)}>
+                    <div className={`tab_5 ${activeTab == 'T1D' && 'active-tab_5'}`} onClick={() => setActiveTab('T1D')}>
                         توضیحات
                     </div>
-                    <div className={`tab_5 ${activeTab == 2 && 'active-tab_5'}`} onClick={() => setActiveTab(2)}>
+                    <div className={`tab_5 ${activeTab == 'T2C' && 'active-tab_5'}`} onClick={() => setActiveTab('T2C')}>
                         نظرات
                     </div>
-                    <div className={`tab_5 ${activeTab == 3 && 'active-tab_5'}`} onClick={() => setActiveTab(3)}>
+                    <div className={`tab_5 ${activeTab == 'T3N' && 'active-tab_5'}`} onClick={() => setActiveTab('T3N')}>
                         یاداشت
                     </div>
                 </header>
 
-                {activeTab == 1 && <>
+                {activeTab == 'T1D' && <>
                     <div className="discreption-content_5">
-
                     </div>
                     <div className="isEmpty_5">توضیحی برای این محصول ارائه نشده است !</div>
 
                 </>}
 
-                {activeTab == 2 &&
-                    <CommentsContainer />
-                }
-                {activeTab == 3 && <>
+                {activeTab == 'T2C' && <CommentsContainer />}
+
+                {activeTab == 'T3N' && <>
 
                     <div className="not-content_5">
                         <TextArea
+                            label='یادداشت تنها برای شما قابل دیدن است!'
                             className="not-atrea_5"
                             name='not'
                             helpText='یاداشت شما...'
                             ref={userNote}
                             onChange={noteAreaOnChange}
                         />
-                        {notebookBtn &&
-                            <div className="not-btns_5 clean-5">
-                                <span> ثبت شد </span>
-                                <button className="btn" onClick={saveNot}>
-                                    &#10004;
-                                </button>
-                                <button className="btn" onClick={removeNot}>
-                                    <BsTrash3 />
-                                </button>
-                            </div>
-                        }
-                        <span>
-                            یادداشت تنها برای شما قابل دیدن است!
-                        </span>
+
+                        <div className="not-btns_5">
+                            <span> ثبت شد </span>
+                            <button className="btn" onClick={saveNot}>
+                                &#10004;
+                            </button>
+                            <button className="btn" onClick={removeNot}>
+                                <BsTrash3 />
+                            </button>
+                        </div>
+
                     </div>
 
                 </>}

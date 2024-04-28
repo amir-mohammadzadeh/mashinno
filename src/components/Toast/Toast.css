@@ -1,6 +1,6 @@
 .toast-holder_006 {
     position: fixed;
-    bottom: 10vh;
+    top: 10vh;
     right: 2vw;
     z-index: 100;
     max-width: 25rem;

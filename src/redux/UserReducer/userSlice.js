@@ -53,25 +53,25 @@ export const userSlice = createSlice({
     addUserFavorites: (state, action) => {
       return {
         ...state,
-        favorites: state.favorites.push(action.payload)
+        favorites: [...state.favorites,action.payload]
       }
     },
     removeUserFavorites: (state, action) => {
       return {
         ...state,
-        favorites: state.favorites.filter(item => item.id != action.payload)
+        favorites: state.favorites.filter(item => item != action.payload)
       }
     },
     addUserNote: (state, action) => {
       return {
         ...state,
-        notes: state.notes.push(action.payload)
+        notes: [...state.notes, action.payload]
       }
     },
     removeUserNote: (state, action) => {
       return {
         ...state,
-        notes: state.notes.filter(item => item.id != action.payload)
+        notes: state.notes.filter(item => item.postID != action.payload)
       }
     },
   },

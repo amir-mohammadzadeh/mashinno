@@ -1,0 +1,32 @@
+.about-main_18 {
+    margin-block: 2rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.about-main_18 {
+    padding-inline: 1rem;
+    font-size: 1.15rem;
+    color: var(--gray-800);
+    line-height: 1.55;
+}
+
+.about-main_18 a,
+.about-main_18 b,
+.about-main_18 strong {
+    display: ruby;
+    margin-inline: .25rem;
+}
+
+.about-main_18 a {
+    color: var(--blue-600);
+}
+
+@media screen and (max-width:568px) {
+    .about-main_18 {
+        margin-block: 1rem;
+    }
+    .about-main_18 {
+        font-size: 1rem;
+    }
+}

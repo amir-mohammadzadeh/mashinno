@@ -96,26 +96,25 @@
     width: 50%;
 }
 .not-atrea_5{
-    height: 10rem;
-    margin-bottom: .25rem;
-    padding-bottom: 0;
+    height: 12rem;
+    gap: .5rem;
+    padding: 1rem 0 0 0;
 }
 .not-btns_5{
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: end;
     gap: .25rem;
-    margin: 0 .5rem .5rem 1rem;
+    margin: .25rem .5rem .5rem 1rem;
 }
+
 .not-btns_5 span{
     display: none;
+    padding-inline-end: 1rem;
+    color: var(--green-600);
 }
 .done-5 span{
     display: block;
-}
-
-.not-content_5 span{
-    color: var(--gray-500);
 }
 
 /*_______ Make Responcive ___________*/
@@ -191,6 +190,4 @@
         padding: 0;
     }
 
- 
-    
 }

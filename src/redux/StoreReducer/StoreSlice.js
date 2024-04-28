@@ -5,8 +5,8 @@ const initialState = {
     storeName: '',
     phoneNumbers: [],
     storeAddress: {
-        ostan: 'اس',
-        city: 'شهر',
+        ostan: '',
+        city: '',
         address: ''
     },
     siteURL: '',

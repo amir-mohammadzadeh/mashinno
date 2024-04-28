@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { BsBookmarkHeartFill, BsHandThumbsUpFill, BsHeartFill, BsShare } from 'react-icons/bs'
 
-export const LikeButton = ({ onClick, className, type = 'heart' }) => {
-    const [checked, setChecked] = useState(false)
+export const LikeButton = ({ onClick, isChecked = false, className = '', type = 'heart' }) => {
+    const [checked, setChecked] = useState(isChecked)
     const iconAtr = {
         fill: checked ? type == 'heart' ? '#ef4444' : '#111827' : 'transparent',
         stroke: checked ? type == 'heart' ? '#ef4444' : '#111827' : 'currentColor'
     }
     const clickHandler = (e) => {
-        onClick(e, !checked)
+        onClick(e,!checked)
         setChecked(!checked)
     }
     return (
@@ -21,7 +21,6 @@ export const LikeButton = ({ onClick, className, type = 'heart' }) => {
         </div>
     )
 }
-
 
 export const ShareButton = ({ onShare, className }) => {
     return (

@@ -3,7 +3,7 @@ import { useLocation, useParams } from 'react-router-dom'
 import Category from '../../components/CarsModelPage/Category'
 import InformationBox from '../../components/CarsModelPage/InformationBox'
 import Data from '../../assets/Data/Brands.json'
-import UserLocation from '../../components/UserLocation/UserLocation'
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs'
 import SupportWidget from '../../components/SupportWidget/SupportWidget'
 
 const CarsModelPage = () => {
@@ -30,7 +30,7 @@ const CarsModelPage = () => {
     if (!brandInfo || !carsList) return <h1> Loading...</h1>
     return (
         <>
-            <UserLocation />
+            <BreadCrumbs />
             <main>
                 <Category valueList={carsList} brandName={brandInfo.name} />
                 <InformationBox />

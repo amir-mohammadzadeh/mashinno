@@ -16,6 +16,7 @@ import RecentlySeen from "./Pages/Dashbord.RecentlySeen/RecentlySeen";
 import MyPostDetailes from "./Pages/Dashbord.MyPostDetailes/MyPostDetailes";
 import EditProfile from "./Pages/Dashbord.EditForms/EditProfile";
 import EditStorePanel from "./Pages/Dashbord.EditForms/EditStorePanel";
+import AboutUs from "./Pages/AboutUs/AboutUs";
 
 const routes = createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const routes = createBrowserRouter([
             {
                 path: 'login',
                 element: <Login />
+            },
+            {
+                path: 'about-us',
+                element: <AboutUs />
             },
             {
                 element: <PrivetRoute/>,

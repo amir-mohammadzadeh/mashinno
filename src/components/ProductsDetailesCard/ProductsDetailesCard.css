@@ -141,7 +141,7 @@
 
 
 .contact-card_52{
-    width: 20rem;
+    width: 25rem;
     min-height: 8rem;
     background-color: var(--white);
     padding: 1rem;
@@ -163,9 +163,10 @@
 }
 .contact-item_52{
     background-color: var(--slate-100 );
-    padding: .25rem;
+    padding: .5rem;
     border-radius: .25rem;
     margin-block: .25rem;
+    font-size: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -175,16 +176,6 @@
     to{transform: translateY(0);}
 }
 /*________ Make Responcive ________________________*/
-@media screen and (max-width: 568px) {
-    .contact-card_52{
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 30%;
-        border-radius: .25rem;
-        animation: modal-openup .3s forwards;
-    }
-}
 @media screen and (max-width: 601px) {
     .detaile-body_52{
         flex-direction: column-reverse;
@@ -196,5 +187,19 @@
     .detaile-footer_52{
         flex-direction: column;
     }
+}
 
+@media screen and (max-width: 568px) {
+    .contact-card_52{
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 30%;
+        border-radius: .25rem;
+        animation: modal-openup .3s forwards;
+    }
+    .contact-item_52{
+        margin-block: .5rem;
+        font-size: 1.1rem;
+    }
 }

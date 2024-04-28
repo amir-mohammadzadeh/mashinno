@@ -82,7 +82,7 @@ export function NavItemsContent({className}) {
                     </Link>
                 </li>
                 <li className="nav_link_02">
-                    <Link to="">
+                    <Link to="/about-us">
                         <BsInfoCircle size={20} />
                         <span>
                             درباره ما
