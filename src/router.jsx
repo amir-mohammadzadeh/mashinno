@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./Pages/Home/Home";
 import CarsModelPage from "./Pages/CarsModelPage/CarsModelPage";
@@ -18,6 +18,7 @@ import EditProfile from "./Pages/Dashbord.EditForms/EditProfile";
 import EditStorePanel from "./Pages/Dashbord.EditForms/EditStorePanel";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
+import PageNotFound from "./Pages/404Page/PageNotFound";
 
 const routes = createBrowserRouter([
     {
@@ -33,17 +34,17 @@ const routes = createBrowserRouter([
                 element: <CarsModelPage />
             },
             {
-                path: 'shop/:brandName/:carModel',
+                path: 'posters/:brandName/:carModel',
                 element: <CategoryPage />
             },
             {
-                path: 'shop/:brandName/:carModel/category',
+                path: 'posters/:brandName/:carModel/category',
                 element: <AgahyhaPage />
             },
             {
                 path: 'product-detailes/:productID',
                 element: <ProductDetailesPage />
-            }, 
+            },
             {
                 path: 'login',
                 element: <Login />
@@ -53,12 +54,16 @@ const routes = createBrowserRouter([
                 element: <AboutUs />
             },
             {
-                element: <PrivetRoute/>,
-                children:[
+                path: 'page-not-found',
+                element: <PageNotFound />
+            },
+            {
+                element: <PrivetRoute />,
+                children: [
                     {
                         path: '/userdashbord/',
-                        element:<Dashbord />,
-                        children:[
+                        element: <Dashbord />,
+                        children: [
                             {
                                 path: 'profile',
                                 element: <Profile />
@@ -99,9 +104,12 @@ const routes = createBrowserRouter([
                         ]
                     },
                 ]
-            },
-            
+            }
         ]
+    },
+    {
+        path: '*',
+        element: <Navigate to='/page-not-found' />
     }
 ])
 export default routes

@@ -89,7 +89,7 @@ const ProductDetailesPage = () => {
         setNotebookBtn(false)
     }
 
-    if (!post) return <Navigate to={'/'} />
+    if (!post) return <Navigate to={'/page-not-found'} />
     else return (<>
         <BreadCrumbs />
         <main className="container ">

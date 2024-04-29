@@ -17,8 +17,6 @@ const Dashbord = () => {
 
   useEffect(() => {
     document.title = 'کاپوت من';
-    document.getElementById('MainFooter').style.display = 'none';
-    return () => document.getElementById('MainFooter').style.display = 'block';
   }, [])
 
 

@@ -13,7 +13,7 @@ const Card = ({ postID, noteDate, noteText, className, share = true }) => {
         e.stopPropagation()
         navigator.share({
             title: 'tilte',
-            url: `http://localhost:5173/product-detailes/${postID}`
+            url: `${window.location.origin}/product-detailes/${postID}`
         })
     }
 

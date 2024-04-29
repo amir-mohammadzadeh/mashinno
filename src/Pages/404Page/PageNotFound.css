@@ -1,0 +1,55 @@
+.main-content_00 {
+    height: 80vh;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--purple-800);
+}
+
+.image_00 {
+    max-width: 28rem;
+}
+
+.image_00 img {
+    max-width: 100%;
+    aspect-ratio: 14/9;
+    object-fit: cover;
+}
+
+.text_00 {
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+.text_00 span {
+    line-height: 1.75;
+    color: var(--gray-500);
+}
+
+.home-btn_00 {
+    width: max-content;
+    margin-top: .75rem;
+    margin-inline-start: auto;
+    background-color: var(--purple-200);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.home-btn_00:hover {
+    background-color: var(--purple-100);
+    transform: scale(.95);
+}
+
+/*_________ MAke Responcive __________________*/
+@media screen and (max-width: 568px) {
+    .main-content_00 {
+        height: 85dvh;
+        padding-top: 0;
+        justify-content: center;
+    }
+    .text_00 {
+        padding-inline: 1rem;
+        font-size: 1.1rem;
+    }
+}

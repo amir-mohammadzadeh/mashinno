@@ -49,8 +49,8 @@
 
 .menu-1 {
     position: absolute;
-    top: 2.6rem;
     left: 0;
+    margin-top: .25rem;
     width: 100%;
     padding: .5rem 0;
     border-radius: .25rem;
@@ -103,7 +103,5 @@
     .selection-head-1{
         height: 3rem;
     }
-    .menu-1{
-        top: 85%;
-    }
+    
 }

@@ -1,13 +1,9 @@
 .footer_container{
     margin-top: 2rem;
     background-color: var(--white);
-    color: #585858;
-    box-shadow: 0 -1px 10px 1px #00000020;
-}
-.footer_content{
-    padding: 2rem 2rem 4rem 2rem;
-    max-width: 90rem;
-    margin-inline: auto;   
+    color: var(--gray-600 );
+    box-shadow: 0 -1px 10px 1px var(--shadow-color-2);
+    padding: 2rem 2rem 4rem 2rem;     
 }
 
 .footer_grid{
@@ -28,7 +24,7 @@
     font-family: var(--main-font-b);
     margin-bottom: .85rem;
     font-size: 1.1rem;
-    color: #111111;
+    color: var(--gray-900 );
     display: flex;
     align-items: center;
     gap: .75rem;
@@ -47,7 +43,6 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(4 , 1fr);
-    
 }
 
 .links-content{
@@ -56,19 +51,20 @@
 }
 
 .col-title{
-    color: #111111;
+    color: var(--gray-900 );
     font-family: var(--main-font-b);
     font-size: 1.25rem;
     margin-bottom: .5rem;
     list-style-type: none;
 }
 
-
-.links-content .link{
+.link_05{
     line-height: 2rem;
+    width: max-content;
 }
-.links-content .link a:hover{
-    color: #111111;
+
+.link_05 a:hover{
+    color: var(--gray-900 );
     transition: .3s padding ;
     font-weight: 600;
     padding-inline: .35rem;
@@ -87,18 +83,17 @@
     line-height: 2rem;
 }
 .footer-about .about-body h3{
-    color: #111111;
+    color: var(--gray-900 );
 }
 .footer-about .about-body a{
     display: inline-block;
-    color: #0c6dc1;
+    color: var(--sky-600 );
     padding-inline: .5rem;
-    text-decoration: underline dashed 1px;
-    text-underline-offset: 6px;
+    
 }
 .footer-about .about-body a:hover{
     transition: .3s;
-    color: #0645f2;
+    color: var(--blue-700 );
 }
 
 .footer-about-img{
@@ -114,7 +109,7 @@
 .footer-copy-write{
     padding: 1rem 2rem;
     text-align: center;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--gray-200 );
 }
 
 /*_________ MAKE THEM RESPONSIVE __________*/

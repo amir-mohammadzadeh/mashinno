@@ -1,6 +1,7 @@
 import React from 'react'
-import './Footer.css'
+import './Footer.css' // Code => 05
 import { BsEnvelopeFill, BsFillGeoAltFill, BsFillTelephoneFill, BsGlobe2, BsWhatsapp, BsLinkedin, BsInstagram } from "react-icons/bs";
+import { Link, useMatch } from 'react-router-dom';
 
 function LinkWrapper({ data, title }) {
     return (
@@ -9,10 +10,10 @@ function LinkWrapper({ data, title }) {
                 {title}
             </li>
             {data.map((link, index) =>
-                <li key={index} className="link">
-                    <a href={link.url}>
+                <li key={index} className="link_05">
+                    <Link to={link.url}>
                         {link.title}
-                    </a>
+                    </Link>
                 </li>
             )}
         </ul>
@@ -20,6 +21,9 @@ function LinkWrapper({ data, title }) {
 }
 
 const Footer = () => {
+    const dashbord = useMatch('/userdashbord/*')
+    const p404 = useMatch('/page-not-found')
+    
     const Quick_access = [
         { title: 'تماس با ما', url: "" },
         { title: 'درباره کاپوت', url: "" },
@@ -40,9 +44,11 @@ const Footer = () => {
         { title: 'لوازم یدکی کیا', url: "" },
         { title: ' لوازم یدکی برلیانس', url: "" },
     ]
-    return (
+    
+    if (dashbord || p404) return null
+    else return (
         <footer id='MainFooter' className="footer_container">
-            <div className="footer_content">
+            <div className="container">
                 <address className='footer_grid'>
                     <div className="address-content">
                         <div className="title">
@@ -62,9 +68,9 @@ const Footer = () => {
                             </span>
                             ایمیل‌های ارتباطی
                         </div>
-                        <a href="mailto:info@mashinno.com" className='value'>
+                        <Link to="mailto:info@mashinno.com" className='value'>
                             info@kapoot.com
-                        </a>
+                        </Link>
                     </div>
                     <div className="address-content">
                         <div className="title">
@@ -112,23 +118,23 @@ const Footer = () => {
                         </h3>
                         <p>
                             در
-                            <a href="">
-                                فروشگاه اینترنتی لوازم یدکی کاپوت 
-                            </a>
+                            <Link to="/">
+                                 سایت لوازم یدکی کاپوت 
+                            </Link>
                             تمام قطعات مورد نیاز برای انواع مدل خودرو موجود در بازار با بهترین قیمت در دسترس شما قرار گرفته است. کافی است با توجه به مدل خودروی خود به دسته‌بندی مربوطه مراجعه کنید یا در کادر جستجوی سایت، قطعه مورد نیازتان را جستجو کنید.
                         </p>
                         <span>
-                            <a href="">
-                                نمایش بیشتر
-                            </a>
+                            <Link to="/adout-us">
+                                درباره ما بیشتر بدانید
+                            </Link>
                         </span>
                     </div>
                     <div className="footer-about-img">
                         <span>
-                            <img src="/Images/footer-img_1.webp" alt="" />
+                            <img src="/Images/footer-img_1.webp" alt="E-nemad" />
                         </span>
                         <span>
-                            <img src="/Images/footer-img_2.webp" alt="" />
+                            <img src="/Images/footer-img_2.webp" alt="KasboKar" />
                         </span>
                     </div>
                 </section>

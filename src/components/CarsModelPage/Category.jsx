@@ -20,13 +20,13 @@ const Category = ({ valueList, brandName }) => {
                                 </span>
                                 <div className="card-btn_22">
                                     
-                                    <Link to={`/shop/${brand_name}/${car.title}`}>
+                                    <Link to={`/posters/${brand_name}/${car.title}`}>
                                         <span className='icon'>
                                             <FaWrench />
                                         </span>
                                         مشخصات فنی
                                     </Link>
-                                    <Link to={`/shop/${brand_name}/${car.title}`} >
+                                    <Link to={`/posters/${brand_name}/${car.title}`} >
                                         <span className='icon'>
                                             <FaScroll />
                                         </span>
