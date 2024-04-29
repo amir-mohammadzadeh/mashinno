@@ -1,7 +1,7 @@
 import Banner from '../../components/Banner/Banner'
 import BrandSection from '../../components/BrandSection/BrandSection'
 import StoryContainer from '../../components/StoryContainer/StoryContainer'
-import ProductsGridLayout from '../../components/ProductsGridLayout/ProductsGridLayout'
+import PostsGridLayout from '../../components/PostsGridLayout/PostsGridLayout'
 import { NavItemsContent } from '../../components/Navigation/Navigation'
 import SupportWidget from '../../components/SupportWidget/SupportWidget'
 import { useSelector } from 'react-redux'
@@ -16,7 +16,7 @@ const Home = () => {
             <NavItemsContent className="navbar-on-mobile_02" />
             <BrandSection />
             <div className="container my-2">
-                <ProductsGridLayout itemList={Get_Posts} />
+                <PostsGridLayout itemList={Get_Posts} />
             </div>
         </main>
         <SupportWidget />

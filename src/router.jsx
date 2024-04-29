@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./Pages/Home/Home";
 import CarsModelPage from "./Pages/CarsModelPage/CarsModelPage";
-import ShoppingPage from "./Pages/ShoppingPage/ShoppingPage";
+import AgahyhaPage from "./Pages/AgahyhaPage/AgahyhaPage";
 import ProductDetailesPage from "./Pages/ProductDetailesPage/ProductDetailesPage";
 import Login from "./Pages/LoginPage/Login";
 import Dashbord from './Pages/Dashbord/Dashbord'
@@ -17,6 +17,7 @@ import MyPostDetailes from "./Pages/Dashbord.MyPostDetailes/MyPostDetailes";
 import EditProfile from "./Pages/Dashbord.EditForms/EditProfile";
 import EditStorePanel from "./Pages/Dashbord.EditForms/EditStorePanel";
 import AboutUs from "./Pages/AboutUs/AboutUs";
+import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 
 const routes = createBrowserRouter([
     {
@@ -33,7 +34,11 @@ const routes = createBrowserRouter([
             },
             {
                 path: 'shop/:brandName/:carModel',
-                element: <ShoppingPage />
+                element: <CategoryPage />
+            },
+            {
+                path: 'shop/:brandName/:carModel/category',
+                element: <AgahyhaPage />
             },
             {
                 path: 'product-detailes/:productID',

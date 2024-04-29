@@ -23,9 +23,7 @@ const SideMenu = ({ className, onSelect }) => {
                         </li>
                     )}
                 </ul>
-
             </div>
-
         </aside>
     )
 }

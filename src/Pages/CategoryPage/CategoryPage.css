@@ -1,0 +1,77 @@
+.main_container_3{
+    margin-block: 2rem;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 1rem 2rem;
+}
+
+.posts_3{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem;
+}
+
+.see-all_3{
+    width: max-content;
+    grid-column: 1 / -1;
+    color: var(--sky-700 );
+}
+.see-all_3:hover{
+    color: var(--blue-700 );
+}
+.see-all_3 a{
+    max-width: 18rem;
+}
+
+.post-card_3{
+    padding: .25rem;
+    border-radius: .5rem;
+    transition: .3s;
+}
+.post-card_3:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.card-img_3{
+    width: 100%;
+    border-radius: .25rem;
+    overflow: hidden;
+}
+
+.card-img_3 img{
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.card-title_3{
+    padding: .5rem;
+    margin-bottom: .5rem;
+}
+
+.store-count_3{
+    padding: .25rem;
+    text-align: center;
+    margin: .25rem 1rem;
+    border-radius: .25rem;
+    background-color: var(--emerald-100 );
+}
+
+/*_________ MAke Responcive __________________*/
+@media screen and (max-width: 1200px) {
+    .posts_3{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media screen and (max-width: 992px) {
+    .main_container_3{
+        margin: 0;
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 568px) {
+    .posts_3{
+        grid-template-columns: repeat(2,1fr);
+    }
+}

@@ -1,8 +1,7 @@
-
 .products-wrapper_30{
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fill , minmax(10rem,15rem));
+    grid-template-columns: repeat(auto-fill , minmax(10rem,16rem));
     gap: 1rem;
     justify-content: center;
 }
@@ -10,16 +9,18 @@
 /*_________ MAke Responcive __________________*//**/
 @media screen and (max-width: 1200px) {
     .products-wrapper_30{
-        grid-template-columns: repeat(auto-fill , minmax(10rem,12rem));
+        grid-template-columns: repeat(4,1fr);
+        padding-inline: 3rem;
     }
 }
 @media screen and (max-width: 992px) {
     .products-wrapper_30{
-        grid-template-columns: repeat(auto-fill , minmax(10rem,14rem));
+        grid-template-columns: repeat(3 , 1fr);
     }
 }
 @media screen and (max-width: 768px) {
     .products-wrapper_30{
+        padding-inline: 0;
         grid-template-columns: repeat(2,1fr);
     }
 }
