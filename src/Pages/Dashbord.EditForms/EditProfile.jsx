@@ -1,5 +1,5 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { MdAddAPhoto, MdNoPhotography } from "react-icons/md";
+import { useEffect, useRef, useState } from 'react'
+import { MdAddAPhoto } from "react-icons/md";
 import { Input } from '../../components/Inputs/Inputs';
 import ProvincesCities from '../../assets/Data/Provinces_and_Cities.json' //=> لیست استان ها و شهر ها
 import Selection from '../../components/Selection/Selection';
@@ -15,25 +15,16 @@ const EditProfile = () => {
     const provinces_cities_list = useRef(ProvincesCities)
     const [provincesList, setProvincesList] = useState([])
     const [citiesList, setCitiesList] = useState([])
+    const [error, setError] = useState({})
 
     const name_input = useRef(null)
     const lastName_input = useRef(null)
     const phoneNumber1_input = useRef(null)
     const phoneNumber2_input = useRef(null)
     const address_input = useRef(null)
-    const [profileImg, setProfileImg] = useState('')//  /Images/NoPhoto.jpg
-    const [ostan, setOstan] = useState('')
-    const [city, setCity] = useState('')
-    const [error, setError] = useState({})
-
-    useLayoutEffect(() => {
-        name_input.current.value = User_Info.name || ''
-        lastName_input.current.value = User_Info.lastName || ''
-        phoneNumber1_input.current.value = User_Info.phoneNumber[0] || ''
-        phoneNumber2_input.current.value = User_Info.phoneNumber[1] || ''
-        address_input.current.value = User_Info.address.address || ''
-
-    }, [])
+    const [profileImg, setProfileImg] = useState(User_Info.image || '')
+    const [ostan, setOstan] = useState(User_Info.address.ostan || '')
+    const [city, setCity] = useState(User_Info.address.city || '')
 
     useEffect(() => {
         provinces_cities_list.current.map(item => item.ostan == ostan && setCitiesList(item.cities))
@@ -45,40 +36,49 @@ const EditProfile = () => {
 
     useEffect(() => {
         setProvincesList(provinces_cities_list.current.map(item => item.ostan))
-        setOstan(User_Info.address.ostan)
-        setCity(User_Info.address.city)
+        name_input.current.value = User_Info.name || '';
+        lastName_input.current.value = User_Info.lastName || '';
+        phoneNumber1_input.current.value = User_Info.phoneNumber[0] || '';
+        phoneNumber2_input.current.value = User_Info.phoneNumber[1] || '';
+        address_input.current.value = User_Info.address.address || '';
     }, [])
 
-
-
-    const validation = () => {
-        let errors = {}
-        if (!name_input.current.value) errors['name'] = 'این قسمت نباید خالی بماند!';
-        if (!lastName_input.current.value) errors['lastName'] = 'این قسمت نباید خالی بماند!';
-        if (!address_input.current.value) errors['address'] = 'این قسمت نباید خالی بماند!';
-        if(phoneNumber1_input.current.value.length != 11) errors['phone1'] ='شماره تلفن صحیح نیست!';
-        if(phoneNumber2_input.current.value && phoneNumber2_input.current.value.length != 11) errors['phone2'] ='شماره تلفن صحیح نیست!';
-        if (!ostan) errors['emptyOstan'] = 'لطفا استان خود را انتخاب کنید!';
-        if (!city) errors['emptyCity'] = 'لطفا شهر خود را انتخاب کنید!';
-
-        return Object.keys(errors).length == 0 ? null : errors;
-    }
 
     const selectOstan = (value) => {
         let user_ostan = value || '';
         setOstan(user_ostan)
     }
+
     const selectCity = (value) => {
         let user_city = value || '';
         setCity(user_city)
     }
 
     const selectProfileImage = (e) => {
-        setProfileImg(e.target.files[0])
+        setProfileImg(URL.createObjectURL(e.target.files[0]))
     }
 
     const submitHandler = (e) => {
         e.preventDefault()
+        const form = new FormData(e.target)
+        if (profileImg == '') form.set('profileImg', '')
+        form.append('ostan', ostan)
+        form.append('city', city)
+
+        // صرفا جهت نمایش اطلاعات فرم است
+        for (const pair of form.entries()) {
+            console.log(pair[0], pair[1]);
+        }
+
+        // اعتبار سنجی فرم هم سمت بک‌اند انجام میشود.
+        // در پاسخ درخواست کل اطلاعات کاربر بازگشت داده شود و در استیت کاربر ذخیره شود
+        // درصورت خالی بودن فیلد نام فیلد به همراه متن خطا در یک آبجکت بازگشت داده شود
+        setUserData()
+    }
+
+
+    const setUserData = () => {// این تابع صرفا برای ثبت آزمایشی اطلاعات کاربر میباشد
+
         const data = {
             name: name_input.current.value,
             lastName: lastName_input.current.value,
@@ -90,17 +90,9 @@ const EditProfile = () => {
             },
             image: profileImg
         }
-        if (phoneNumber2_input.current.value) data.phoneNumber.push(phoneNumber2_input.current.value)
-        const result = validation(data)
-
-
-        if (result) {
-            setError(result)
-            return
-        } else setError({})
+        if (phoneNumber2_input.current.value) data.phoneNumber.push(phoneNumber2_input.current.value);
 
         dispath(setUserInfo(data))
-        alert('پس از ذخیره شدن این داده ها در state\nاطلاعات دریافت شده از طریق API به سرور ارسال میشوند تا در دیتابیس ذخیره شود...')
         navigate('/userdashbord/profile')
     }
 
@@ -109,53 +101,55 @@ const EditProfile = () => {
 
             <form className="form_88" onSubmit={submitHandler}>
 
-                <div className="image-input_88 col-s2_88 mb_88">
+                <div className="image-input_88 col-span_88 mb_88">
                     <span> عکس پروفایل خودرا وارد کنید </span>
                     <div className="upload-box_88">
-                        {profileImg ? <>
-                            <img src={URL.createObjectURL(profileImg)} alt="User Profile" />
+                        <div hidden={profileImg ? false : true} >
+                            <img src={profileImg} alt="User Profile" />
                             <span className="remove-img_88" onClick={() => setProfileImg('')} >
                                 حذف پروفایل
                             </span>
-                        </> : <>
-                            <input type="file" id="imageUploader82" onChange={selectProfileImage} />
-                            <label htmlFor="imageUploader82" className="uploader-btn_88">
+                        </div>
+
+                        <div hidden={profileImg ? true : false} >
+                            <input type="file" name='profileImg' id="proUploader82" onChange={selectProfileImage} />
+                            <label htmlFor="proUploader82" className="uploader-btn_88">
                                 <MdAddAPhoto size={40} />
                             </label>
-                        </>
-                        }
+                        </div>
                     </div>
-
                 </div>
 
                 <Input
                     ref={name_input}
                     label='نام'
-                    name='userName'
+                    name='name'
                     error={error['name']}
                 />
+
                 <Input
                     ref={lastName_input}
                     label='نام خانوادگی'
-                    name='userLastName'
+                    name='lastName'
                     error={error['lastName']}
 
                 />
+
                 <Input
                     type='number'
                     label='شماره موبایل ۱'
-                    name='phoneNum1'
+                    name='firstPhone'
                     ref={phoneNumber1_input}
-                    error={error['phone1']}
-                    />
+                    error={error['firstPhone']}
+                />
+
                 <Input
                     type='number'
                     label='شماره موبایل ۲'
-                    name='phoneNum2'
+                    name='secondPhone'
                     ref={phoneNumber2_input}
-                    error={error['phone2']}
+                    error={error['firstPhone']}
                 />
-
 
                 <Selection
                     label='استان خود را انتخاب کنید'
@@ -163,10 +157,9 @@ const EditProfile = () => {
                     value={ostan}
                     optionList={provincesList}
                     onSelect={selectOstan}
-                    error={error['emptyOstan']}
+                    error={error['ostan']}
                     menuHeight='15rem'
                 />
-
 
                 <Selection
                     label='شهر خود را انتخاب کنید'
@@ -174,23 +167,20 @@ const EditProfile = () => {
                     value={city}
                     optionList={citiesList}
                     onSelect={selectCity}
-                    error={error['emptyCity']}
+                    error={error['city']}
                     menuHeight='15rem'
                 />
 
-
-
                 <Input
                     ref={address_input}
-                    className="col-s2_88"
+                    className="col-span_88"
                     label='آدرس'
                     helpText='آدرس خودرا وارد کنید'
-                    name='phoneNum2'
+                    name='address'
                     error={error['address']}
                 />
 
                 <div className="form-buttons_88">
-
                     <button type="submit" className="btn btn-animate submit-btn_88">
                         ذخیره
                     </button>

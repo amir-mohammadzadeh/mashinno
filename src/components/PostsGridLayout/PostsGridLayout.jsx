@@ -11,6 +11,9 @@ const PostsGridLayout = ({ itemList }) => {
     return n
   }
 
+  
+  ///   <Advertising  />    <=  کامپوننت مربوط به قسمت قرار گیری تبلیغات 
+
   useEffect(() => {
     const screenResizeHandler = () => {
       const idx = getAdsIndex(21)
@@ -24,9 +27,7 @@ const PostsGridLayout = ({ itemList }) => {
   return (
     <div className="products-wrapper_30">
 
-      {itemList.map((card, index) => (index + 1) % adsIndex == 0 ?
-        <Advertising key={index + 0.5} />
-        :
+      {itemList.map((card, index) => 
         <ProductCard key={card.id} {...card} />
       )}
 

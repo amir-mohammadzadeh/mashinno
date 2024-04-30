@@ -49,9 +49,7 @@
     gap: .5rem;
     flex-wrap: wrap;
 }
-.reply-btn_54{
-    width: 8rem;
-}
+
 .comment-btn_54 {
     width: 8rem;
     background-color: var(--blue-700);
@@ -62,14 +60,6 @@
     background-color: var(--blue-900);
 }
 
-.on-reply_54{
-    margin-bottom: .75rem;
-    font-size: 1.15rem;
-
-}
-.on-reply_54 span{
-    font-weight: bold;
-}
 /*________ Comment Card ________________*/
 
 .reply_54,
@@ -78,7 +68,7 @@
     position: relative;
     padding: .5rem;
     border-radius: .5rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid var(--gray-300 );
 }
 .reply_54{
     margin-inline-start: 2rem;
@@ -102,7 +92,6 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
-    background-color: azure;
     overflow: hidden;
 }
 
@@ -127,6 +116,32 @@
 }
 .answer-btn_54 svg{
     transform: translate(-.4rem , 5px);
+}
+
+/*______________ Reply Moadal _______*/
+.reply-card_54{
+    width: 100%;
+    max-width: 30rem;
+}
+
+.reply-btn_54{
+    width: 8rem;
+}
+
+.reply-btn_54:hover{
+    background-color: var(--gray-200);
+    transform: scale(.97);
+}
+
+.reply-header_54{
+    margin-bottom: .75rem;
+    font-size: 1.15rem;
+    border-bottom: 1px solid var(--blue-300);
+    padding-bottom: .75rem;
+}
+
+.reply-header_54 span{
+    font-weight: bold;
 }
 
 /*____________ Make Responcive ______________*/

@@ -25,14 +25,18 @@ const ProductDetailesPage = () => {
     const params = useParams()
     const dispatch = useDispatch()
     const POSTS_LIST = useSelector(state => state.posts)
-    const post = POSTS_LIST.find(p => p.id == params.productID)
     const User = useSelector(state => state.userInfo)
     const [openGallery, setOpenGallery] = useState(false)
     const [activeTab, setActiveTab] = useState('T1D')
     const userNote = useRef(null)
+
+    const post = POSTS_LIST.find(p => p.id == params.productID)
     const { images, ...postInfo } = post ? post : {};
     
+    // در صورت پیدا نکردن آی‌دی آگهی به صفحه 404 منتقل میشود
+    if(!post) return <Navigate to={'/page-not-found'} />
 
+    // آی‌دی آگهی را در حافظه ذخیری میکند 
     const setToRecently = () => {
         let local = localStorage.getItem('User_Recently_Seen');
         if (!local) {
@@ -50,6 +54,7 @@ const ProductDetailesPage = () => {
         document.title = `قیمت و خرید ${post.title} | کاپوت`;
     }, [])
 
+    // اگر کاربر یاداشتی برای این آگهی نوشته باشد در اینجا مدیریت میشود
     useEffect(() => {
         if (activeTab == 'T3N') {
             const note = User.notes.find(n => n.postID == post.id)
@@ -84,13 +89,12 @@ const ProductDetailesPage = () => {
     const removeNot = (e) => {
         dispatch(removeUserNote(post.id))
         e.currentTarget.parentElement.classList.remove('done-5')
-        alert(`${userNote.current.value}\nاز طریق API در کاپوت کاربر حذف میشود`)
         userNote.current.value = '';
-        setNotebookBtn(false)
+        
+        alert(`${userNote.current.value}\nاز طریق API در کاپوت کاربر حذف میشود`)
     }
 
-    if (!post) return <Navigate to={'/page-not-found'} />
-    else return (<>
+    return (<>
         <BreadCrumbs />
         <main className="container ">
 
@@ -123,7 +127,7 @@ const ProductDetailesPage = () => {
 
                 </>}
 
-                {activeTab == 'T2C' && <CommentsContainer />}
+                {activeTab == 'T2C' && <CommentsContainer commentList={['sdf']} />}
 
                 {activeTab == 'T3N' && <>
 

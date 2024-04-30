@@ -1,4 +1,3 @@
-import React from 'react'
 import './StorePanel.css' // Code => 84
 import { Link } from 'react-router-dom'
 import { ImPencil2, ImPhone, ImLocation2, ImSphere, ImFilePicture } from 'react-icons/im'
@@ -8,12 +7,14 @@ import { useSelector } from 'react-redux'
 const StorePanel = () => {
   const Store_Info = useSelector(state => state.storeInfo)
 
+
   return (<>
     <div className="man-container_84">
       <div className="header_84">
         <div className="logo-content_84">
-          <img src={Store_Info.logo ? URL.createObjectURL(Store_Info.logo) : '/Images/no-image.webp'}  />
+          <img src={Store_Info.LPKimage[0] ? Store_Info.LPKimage[0] : '/Images/no-image.webp'} />
         </div>
+
         <div className="header-body_84">
           <div>
             <span className="label_84">
@@ -29,13 +30,15 @@ const StorePanel = () => {
               ویرایش پروفایل
             </Link>
           </div>
-
         </div>
+
       </div>
+
       <div dir='ltr' className="card card_84 no-span_84">
         <span className="card-icon_84 rotate_84"> <ImPhone size='100%' /> </span>
-        {Store_Info.phoneNumbers.map(phone =>
-          <a href={`tel:+98${phone.replace('0', '')}`}>
+
+        {Store_Info.phoneNumbers.map((phone,idx) =>
+          <a key={idx} href={`tel:+98${phone.replace('0', '')}`}>
             {phone.split('').slice(0, 4)} - {phone.split('').slice(4, 7)} - {phone.split('').slice(7, 11)}
           </a>
         )}
@@ -66,9 +69,18 @@ const StorePanel = () => {
       {Store_Info.images.length > 0 &&
         <div className="card card_84 image-card_84">
           <span className="card-icon_84"> <ImFilePicture size='100%' /> </span>
+
+          <div className="image_84">
+            <img src={Store_Info.LPKimage[2]} alt="" />
+          </div>
+
+          <div className="image_84">
+            <img src={Store_Info.LPKimage[1]} alt="" />
+          </div>
+
           {Store_Info.images.map((img, idx) =>
             <div key={idx} className="image_84">
-              <img src={URL.createObjectURL(img)} alt="" />
+              <img src={img} alt="" />
             </div>
           )}
 

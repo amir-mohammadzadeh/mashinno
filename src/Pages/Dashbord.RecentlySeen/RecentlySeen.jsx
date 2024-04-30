@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const RecentlySeen = () => {
   const navigate = useNavigate()
   let recently_list = localStorage.getItem('User_Recently_Seen')
-  recently_list = JSON.parse(recently_list)
+  recently_list = recently_list ? JSON.parse(recently_list) : []
 
   const cardClickHandel = (id) => {
     navigate(`/product-detailes/${id}`)

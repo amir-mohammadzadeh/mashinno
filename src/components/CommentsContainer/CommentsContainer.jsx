@@ -3,58 +3,74 @@ import './CommentsContainer.css' // Code => 54
 import { Input, TextArea } from '../Inputs/Inputs'
 import RaittingToggle from '../RaittingToggle/RaittingToggle'
 import { BsReplyAll } from 'react-icons/bs'
+import ModalContainer from '../../ModalContainer/ModalContainer'
+import { useOutClicker } from '../../Hook/useOutsideClick'
+import { useParams } from 'react-router-dom'
 // Comments List will came from " Detales Page "
 
-const CommentsContainer = ({ commentList = [1] }) => {
+const CommentsContainer = ({commentList}) => {
     let user_image = '/Images/NoPhoto.jpg';
+    const postID = useParams().productID
+    const [reply_ref, closeAction] = useOutClicker(replyCancel)
     const [raite, setRaite] = useState(0)
-    const [error, setError] = useState(0)
-    const userNameInput = useRef(null)
-    const messageInput = useRef(null)
-    const [commentReply, setCommentReply] = useState({ value: false, commentID: 0, commentAuther: '' })
+    const [error, setError] = useState({})
+    const [commentReply, setCommentReply] = useState(false)
+    const replyTo = useRef('')
+    const commentId = useRef('')
+
 
     const validetion = (obj) => {
-        let errors = {} ;
-        for (let [key, value] of Object.entries(obj)) {
-            if (!value) errors[key] = true ;
-        }
+        let errors = {};
+        obj.map(item => {
+            if (!item[1]) errors[item[0]] = 'این قسمت نباید خالی بماند!';
+        })
         return Object.keys(errors).length == 0 ? null : errors;
     }
 
-    const sendComment = (e) => {
+    const commentFormSubmit = (e) => {
         e.preventDefault()
-        const data = {
-            username: userNameInput.current.value,
-            comment: messageInput.current.value
-        }
-        const errors = validetion(data)
+        const form = new FormData(e.target)
+        form.append('postId', postID)
+
+        const errors = validetion([...form.entries()])
         if (errors) {
             setError(errors)
             return
-        } else setError(null)
+        } else setError({})
 
-        if (commentReply.value) {
-            alert(`پاسخ ${data.username} به نظر ${commentReply.commentAuther}\nاز طریق API  ثبت خواهد شد....`)
-        } else {
-            alert(`نظر ${data.username} از طریق API  ثبت خواهد شد....`)
-        }
+    }
+
+    const replyFormSubmit = (e) => {
+        e.preventDefault()
+        const form = new FormData(e.target)
+        form.append('postId', postID)
+        form.append('commentId', commentId.current)
+
+        const errors = validetion([...form.entries()])
+        if (errors) {
+            setError(errors)
+            return
+        } else setError({})
+
     }
 
     const replyActive = (id, name) => {
-        setCommentReply({ value: true, commentID: id, commentAuther: name })
+        replyTo.current = name
+        commentId.current = id
+        setCommentReply(true)
     }
 
-    const replyCancel = () => {
-        setCommentReply({ value: false, commentID: 0, commentAuther: '' })
-        userNameInput.current.value = ''
-        messageInput.current.value = ''
+    function replyCancel() {
+        replyTo.current = ''
+        commentId.current = ''
+        setCommentReply(false)
     }
 
-    return (
+    return (<>
         <div className="container_54">
             <div className="comments-content_54 no-scrollbar">
                 <ul>
-                    {commentList.map((cmt, index) =>
+                    {commentList && commentList.map((cmt, index) =>
                         <li key={index}>
                             <div className="comment_54">
                                 <div className="comment-header_54">
@@ -106,44 +122,63 @@ const CommentsContainer = ({ commentList = [1] }) => {
                     </div>
                 </div>
 
-                {commentReply.value &&
-                    <div className="on-reply_54">
-                        پاسخ به نظر <span> {commentReply.commentAuther} </span>
-                    </div>
-                }
-
-                <form onSubmit={sendComment}>
+                <form onSubmit={commentFormSubmit}>
                     <Input
-                        ref={userNameInput}
                         name='username'
                         label='نام خود را وارد کنید'
                         helpText='نام'
-                        error={error['username'] ? 'لطفا نام خود را وارد کنید' : null}
+                        error={error['username']}
                     />
                     <TextArea
                         className="comment-msg_54"
-                        ref={messageInput}
                         label='متن کامنت'
                         name='message'
                         helpText='نظر خود را درباره این محصول بیان کنید'
-                        error={error['comment'] ? 'لطفا نظر خود را وارد کنید' : null}
+                        error={error['message']}
                     />
                     <div className="form-btns_54">
                         <button type="submit" className="btn btn-animate comment-btn_54">
-                            {commentReply.value ? 'ثبت پاسخ' : "ثبت نظر"}
+                            ثبت نظر
                         </button>
-
-                        {commentReply.value &&
-                            <button className="btn reply-btn_54" onClick={replyCancel}>
-                                انصراف
-                            </button>
-                        }
                     </div>
                 </form>
             </div>
 
         </div>
-    )
+        {commentReply &&
+            <ModalContainer onClick={closeAction}>
+                <div ref={reply_ref} className="card reply-card_54">
+                    <div className="reply-header_54">
+                        پاسخ به نظر <span> {replyTo.current} </span>
+                    </div>
+                    <form onSubmit={replyFormSubmit}>
+                        <Input
+                            name='username'
+                            label='نام خود را وارد کنید'
+                            helpText='نام'
+                            error={error['username']}
+                        />
+                        <TextArea
+                            className="comment-msg_54"
+                            label='پاسخ شما'
+                            name='message'
+                            helpText={`در پاسخ به نظر ${replyTo.current} ...`}
+                            error={error['message']}
+                        />
+                        <div className="form-btns_54">
+                            <button type="submit" className="btn btn-animate comment-btn_54">
+                                ثبت پاسخ
+                            </button>
+                            <button className="btn reply-btn_54" onClick={replyCancel}>
+                                انصراف
+                            </button>
+
+                        </div>
+                    </form>
+                </div>
+            </ModalContainer>
+        }
+    </>)
 }
 
 export default CommentsContainer

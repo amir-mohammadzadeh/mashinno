@@ -9,6 +9,7 @@ export const Input = forwardRef(({ onChange, label, helpText, error, name='', ty
             <input
                 ref={ref}
                 id={id + name}
+                name={name}
                 type={type}
                 placeholder={helpText}
                 onChange={changeHandler}
@@ -32,6 +33,7 @@ export const TextArea = forwardRef(({ onChange,  label, helpText, error, name=''
             <textarea
                 ref={ref}
                 id={id + name}
+                name={name}
                 placeholder={helpText}
                 onChange={changeHandler}
                 required={required}

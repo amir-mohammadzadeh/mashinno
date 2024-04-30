@@ -10,8 +10,8 @@ const initialState = {
         address: ''
     },
     siteURL: '',
-    logo: null,
-    images: [],
+    LPKimage:[],
+    images: ['/Images/NoPhoto.jpg','/Images/no-image.webp'],
     aboutStore:''
 };
 
