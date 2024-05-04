@@ -1,4 +1,4 @@
-.selection-wrapper-1 {
+.selection-wrapper_06 {
     position: relative;
     padding-bottom: 1.15rem;
     z-index: 5;
@@ -6,14 +6,14 @@
     -webkit-user-select: none;
 }
 
-.label-1{
+.label_06{
     color: var(--gray-500);
     display: inline-block;
     padding-bottom: .2rem;
     padding-inline-start: .5rem;
 }
 
-.error-1{
+.error_06{
     position: absolute;
     font-size: .9rem;
     bottom: 0;
@@ -21,11 +21,11 @@
     color: var(--red-600);
 }
 
-.selection-wrapper-1w:has(.error-1) > .selection-head-1{
+.selection-wrapper_06w:has(.error_06) > .selection-head_06{
     border-color: var(--red-700);
 }
 
-.selection-head-1 {
+.selection-head_06 {
     width: 100%;
     display: flex;
     align-items: center;
@@ -39,15 +39,15 @@
     transition: .3s;
 }
 
-.icon-1 {
+.icon_06 {
     transition: .3s;
     transform: translateY(2px);
 }
-.selection-wrapper-1:has(.menu-1) .icon-1{
+.selection-wrapper_06:has(.menu_06) .icon_06{
     transform: rotate(90deg) translateY(2px);
 }
 
-.menu-1 {
+.menu_06 {
     position: absolute;
     left: 0;
     margin-top: .25rem;
@@ -56,12 +56,12 @@
     border-radius: .25rem;
     background-color: var(--white );
     border: 1px solid var(--gray-300);
-    box-shadow: 0 3px 8px -1px var(--shadow-color-3);
+    box-shadow: 0 3px 8px _06px var(--shadow-color-3);
     animation: .3s dropDown-animation normal;
     transform-origin: top;
 }
 
-.options-1 {
+.options_06 {
     display: flex;
     flex-direction: column;
     gap: .25rem;
@@ -70,38 +70,47 @@
     scrollbar-width: none;
 }
 
-.options-1::-webkit-scrollbar {
+.options_06::-webkit-scrollbar {
     width: 0;
 }
 
-.option-1 {
+.option_06 {
     padding: .25rem .5rem;
     line-height: 1.5rem;
     cursor: pointer;
     transition: .3s;
 }
 
-.option-1:hover {
-    background-color: var(--slate-100 );
+.option_06:hover {
+    background-color: var(--slate_0600 );
 }
 
-.option-1:nth-child(1) {
+.option_06:nth-child(1) {
     opacity: .8;
+}
+
+.search-box_06{
+    width: 95%;
+    margin-inline: auto;
+    margin-bottom: .25rem;
+    border-bottom: 1px solid var(--gray-300);
+}
+.search-input_06{
+    padding-bottom: .5rem;
 }
 
 @keyframes dropDown-animation {
     from {
         transform: rotateX(90deg);
     }
-
     to {
         transform: rotateX(0deg);
     }
 }
 
 @media screen and (max-width:568px) {
-    .selection-head-1{
+    .selection-head_06{
         height: 3rem;
     }
-    
 }
+

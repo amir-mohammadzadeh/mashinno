@@ -1,16 +1,16 @@
 /*_________ Open Nav Menu ____________*/
-.nav-menu_container:hover,
-.menu-button_02:hover .nav-menu_container {
+.menu_container_21:hover,
+.menu-button_02:hover .menu_container_21 {
     display: block;
 }
 
-.nav-menu_container {
+.menu_container_21 {
     display: none;
     position: absolute;
     top: 3rem;
     left: 2%;
     width: 96%;
-    padding-top: .93rem;
+    padding-top: .75rem;
     border-radius: .25rem;
     color: var(--gray-900);
     overflow: hidden;
@@ -18,39 +18,25 @@
     z-index: 10;
 }
 
-.menu-content_21 {
-    /*ul*/
+.content_21 {/*ul*/
     position: relative;
-    max-height: 20rem;
-    min-height: 20rem;
-    background-color: var(--gray-200);
+    height: 20rem;
+    background-color: var(--slate-300 );
 }
 
 .menu-item_21 {
     transition: .3s;
-    width: max-content;
-}
-
-.menu-item_21:hover {
     cursor: pointer;
-    background-color: #ffa41b30;/*  ffa41b30  */
-    padding-inline-start: .5rem;
-}
-
-.menu-title {
-    /*li*/
+    border-bottom: 1px dashed var(--gray-500 );
     width: 12rem;
-    display: block;
-    padding: 1rem .5rem;
-    border-bottom: 1px dashed #d2d2d2d9;
-    transition: .3s;
 }
 
+.title_21 {
+    padding: 1rem .5rem;
+}
 
-/* ul inside of li of frist ul */
-.nav-sub-menu-grid,
-.nav-sub-menu {
-    /*ul ul*/
+/*________________ Sub-Menu (ul inside of li) _______________*/
+.sub-menu_21{
     position: absolute;
     right: 12rem;
     top: 0;
@@ -58,87 +44,54 @@
     width: calc(100% - 12rem);
     height: 100%;
     padding: 1rem;
+    display: grid;
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: max-content;
+    grid-auto-flow: column;
+    place-items: center start;
+    gap: 0 1rem;
+    transition: .1s ease-in;
+    overflow-x: auto;
+    cursor: default;
     opacity: 0;
     visibility: hidden;
-    cursor: default;
-    transition: .1s ease-in;
 }
 
-.sub-menu-active,
-.nav-sub-menu-grid:hover,
-.nav-sub-menu:hover,
-.menu-title:hover+.nav-sub-menu-grid,
-.menu-title:hover+.nav-sub-menu {
-    opacity: 1;
-    visibility: visible;
-}
-
-.sub-menu-item {
-    /*ul li*/
+.sub-item_21 {
     position: relative;
     padding-block: .5rem;
     text-align: start;
-    min-width: 8rem;
+    min-width: 10rem;
+    max-width: max-content;
     font-size: 1rem;
     transition: .3s;
     cursor: pointer;
 }
 
-.nav-sub-menu::-webkit-scrollbar {
-    height: 8px;
-    width: 8px;
-}
-
-.nav-sub-menu::-webkit-scrollbar-thumb {
-    background-color: #24395a;
-    border-radius: 10px;
-}
-
-/*________________ Sub-Menu with Flex _______________*/
-.nav-sub-menu {
-    overflow-y: auto;
-}
-
-.nav-sub-menu .sub-menu-item {
-    padding-inline: 1rem;
-    margin-bottom: .5rem;
-    width: max-content;
-    font-weight: 700;
-}
-
-.nav-sub-menu .sub-menu-item:hover {
-    margin-inline-start: .25rem;
-}
-
-.nav-sub-menu .sub-menu-item::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 5%;
-    width: 4px;
-    height: 90%;
-    border-radius: 10px 0 0 10px;
-    background-color: #1d2126;
-}
-
-/*__________________ Sub-Menu with Grid _______________*/
-.nav-sub-menu-grid {
-    display: grid;
-    grid-template-rows: repeat(5, auto);
-    grid-auto-flow: column;
-    row-gap: 1rem;
-    column-gap: .5rem;
-    overflow-x: auto;
-}
-
-.nav-sub-menu-grid .sub-menu-item:hover {
+.sub-item_21:hover {
     cursor: pointer;
-    background-color: #d2d2d2d9;
+    background-color: var(--slate-200 );
     padding-inline-start: .5rem;
+    border-radius: .25rem;
 }
 
-/*___________________________*/
+.sub-menu_21::-webkit-scrollbar {
+    height: 8px;
+}
 
-@media screen and (max-width:992px) {
-    
+.sub-menu_21::-webkit-scrollbar-thumb {
+    background-color: var(--gray-900 );
+    border-radius: 10px;
+    cursor:  grab;
+}
+
+/*_________________ When menu item is hover... ____________*/
+.active_21{
+    background-color: var(--yellow-200 );
+    padding-inline-start: .75rem;
+}
+
+.active_21 > .sub-menu_21{
+    opacity: 1;
+    visibility: visible;
 }

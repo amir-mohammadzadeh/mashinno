@@ -13,10 +13,10 @@ const EditProfile = () => {
     const dispath = useDispatch()
     const navigate = useNavigate()
     const provinces_cities_list = useRef(ProvincesCities)
-    const [provincesList, setProvincesList] = useState([])
-    const [citiesList, setCitiesList] = useState([])
-    const [error, setError] = useState({})
+    const provincesList = useRef([])
+    const citiesList = useRef([])
 
+    const [error, setError] = useState({})
     const name_input = useRef(null)
     const lastName_input = useRef(null)
     const phoneNumber1_input = useRef(null)
@@ -26,16 +26,9 @@ const EditProfile = () => {
     const [ostan, setOstan] = useState(User_Info.address.ostan || '')
     const [city, setCity] = useState(User_Info.address.city || '')
 
-    useEffect(() => {
-        provinces_cities_list.current.map(item => item.ostan == ostan && setCitiesList(item.cities))
-        if (ostan == '') {
-            setCitiesList([]);
-            setCity('')
-        }
-    }, [ostan])
+    provincesList.current = provinces_cities_list.current.map(item => item.ostan)
 
     useEffect(() => {
-        setProvincesList(provinces_cities_list.current.map(item => item.ostan))
         name_input.current.value = User_Info.name || '';
         lastName_input.current.value = User_Info.lastName || '';
         phoneNumber1_input.current.value = User_Info.phoneNumber[0] || '';
@@ -45,8 +38,14 @@ const EditProfile = () => {
 
 
     const selectOstan = (value) => {
-        let user_ostan = value || '';
-        setOstan(user_ostan)
+        if (value) {
+            citiesList.current = provinces_cities_list.current.find(item => item.ostan == value).cities
+            setOstan(value)
+        } else {
+            citiesList.current = []
+            setCity('')
+            setOstan('')
+        }
     }
 
     const selectCity = (value) => {
@@ -155,7 +154,7 @@ const EditProfile = () => {
                     label='استان خود را انتخاب کنید'
                     firstValue='انتخاب استان'
                     value={ostan}
-                    optionList={provincesList}
+                    optionList={provincesList.current}
                     onSelect={selectOstan}
                     error={error['ostan']}
                     menuHeight='15rem'
@@ -165,7 +164,7 @@ const EditProfile = () => {
                     label='شهر خود را انتخاب کنید'
                     firstValue='انتخاب شهر'
                     value={city}
-                    optionList={citiesList}
+                    optionList={citiesList.current}
                     onSelect={selectCity}
                     error={error['city']}
                     menuHeight='15rem'

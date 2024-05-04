@@ -18,11 +18,11 @@ const EditStorePanel = () => {
 
     const list = Array.from(Array(5).keys())
     const [allowURL, setAllowURL] = useState(false)
-    const [error, setError] = useState({})
     const provinces_cities_list = useRef(ProvincesCities)
-    const [provincesList, setProvincesList] = useState([])
-    const [citiesList, setCitiesList] = useState([])
+    const provincesList = useRef([])
+    const citiesList = useRef([])
 
+    const [error, setError] = useState({})
     const [storeImages, setStoreImages] = useState([])
     const [storeLogo, setStoreLogo] = useState(Store_Info.LPKimage[0] || '')
     const [parvaneImg, setParvaneImg] = useState(Store_Info.LPKimage[1] || '')
@@ -35,24 +35,16 @@ const EditStorePanel = () => {
     const address = useRef(null)
     const siteUrl = useRef(null)
     const aboutStore = useRef(null)
+
+    provincesList.current = provinces_cities_list.current.map(item => item.ostan)
     const ID = Store_Info.id || 1;
 
-    useEffect(() => {
-        provinces_cities_list.current.map(item => item.ostan == ostan && setCitiesList(item.cities))
-        if (ostan == '') {
-            setCitiesList([]);
-            setCity('')
-        }
-    }, [ostan])
-    
     useEffect(() => {
         storeName.current.value = Store_Info.storeName || ''
         phoneNum1.current.value = Store_Info.phoneNumbers[0] || ''
         phoneNum2.current.value = Store_Info.phoneNumbers[1] || ''
         aboutStore.current.value = Store_Info.aboutStore || ''
         address.current.value = Store_Info.storeAddress.address || ''
-        
-        setProvincesList(provinces_cities_list.current.map(item => item.ostan))
         setStoreImages(createImageList(Store_Info.images))
     }, [])
 
@@ -65,7 +57,7 @@ const EditStorePanel = () => {
             }
         })
     }
-    
+
     const addStoreLogo = (e) => {
         setStoreLogo(URL.createObjectURL(e.target.files[0]))
     }
@@ -87,14 +79,21 @@ const EditStorePanel = () => {
     }
 
     const selectOstan = (value) => {
-        let user_ostan = value || '';
-        setOstan(user_ostan)
+        if (value) {
+            citiesList.current = provinces_cities_list.current.find(item => item.ostan == value).cities
+            setOstan(value)
+        } else {
+            citiesList.current = []
+            setCity('')
+            setOstan('')
+        }
     }
 
     const selectCity = (value) => {
         let user_city = value || '';
         setCity(user_city)
     }
+
 
     const linkPaymentHandler = () => {
         alert('اتصال به درگاه پرداخت برای پرداخت هزینه مربوط به قرار دادن لینک سایت فروشگاه خود در کاپوت')
@@ -106,25 +105,25 @@ const EditStorePanel = () => {
         const form = new FormData(e.target)
         form.append('ostan', ostan)
         form.append('city', city)
-        if(!allowURL) form.set('siteURL',null)
+        if (!allowURL) form.set('siteURL', null)
 
-        storeImages.map(i=>{
-            i.file ?  form.append('storeImages',i.file) : form.append('storeImages',i.url)
+        storeImages.map(i => {
+            i.file ? form.append('storeImages', i.file) : form.append('storeImages', i.url)
         })
-        
+
         // صرفا جهت نمایش اطلاعات فرم است
         for (const pair of form.entries()) {
-           console.log(pair[0], pair[1]);
-       }
-       
+            console.log(pair[0], pair[1]);
+        }
+
         // اعتبار سنجی فرم هم سمت بک‌اند انجام میشود.
         // درصورت خالی بودن فیلد نام فیلد به همراه متن خطا در یک آبجکت بازگشت داده شود
 
         setStoreData()
     }
-    
+
     const setStoreData = () => {// این تابع صرفا برای ثبت آزمایشی اطلاعات فروشگاه میباشد
-        
+
         const data = {
             id: ID, // =>  ID will be generated in the back-end?
             userID: UserID,
@@ -136,8 +135,8 @@ const EditStorePanel = () => {
                 address: address.current.value
             },
             siteURL: !allowURL ? siteUrl.current.value : '',
-            LPKimage:[storeLogo,parvaneImg,kartMelliImg],
-            images: storeImages.map(i => i.url ),
+            LPKimage: [storeLogo, parvaneImg, kartMelliImg],
+            images: storeImages.map(i => i.url),
             aboutStore: aboutStore.current.value
         }
         if (phoneNum2.current.value) data.phoneNumbers.push(phoneNum2.current.value);
@@ -145,9 +144,9 @@ const EditStorePanel = () => {
 
         dispath(setStoreInfo(data))
         dispath(setUserInfo({ storeID: ID }))
-        navigate('/userdashbord/store_panel' ,{preventScrollReset:true})
+        navigate('/userdashbord/store_panel', { preventScrollReset: true })
     }
-    
+
 
     return (<>
         <div className="main-container_88">
@@ -276,7 +275,7 @@ const EditStorePanel = () => {
                     label='استان خود را انتخاب کنید'
                     firstValue='انتخاب استان'
                     value={ostan}
-                    optionList={provincesList}
+                    optionList={provincesList.current}
                     onSelect={selectOstan}
                     error={error['emptyOstan']}
                     menuHeight='15rem'
@@ -286,7 +285,7 @@ const EditStorePanel = () => {
                     label='شهر خود را انتخاب کنید'
                     firstValue='انتخاب شهر'
                     value={city}
-                    optionList={citiesList}
+                    optionList={citiesList.current}
                     onSelect={selectCity}
                     error={error['emptyCity']}
                     menuHeight='15rem'

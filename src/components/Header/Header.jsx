@@ -20,7 +20,7 @@ const Header = () => {
         navigate('/userdashbord/profile')
     }
     const addNewPostClick = () => {
-        navigate('/userdashbord/profile')
+        navigate('/new-post')
     }
 
     const citySelectorOpen = () => {

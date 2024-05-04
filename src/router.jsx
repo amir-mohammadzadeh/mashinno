@@ -19,6 +19,7 @@ import EditStorePanel from "./Pages/Dashbord.EditForms/EditStorePanel";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import PageNotFound from "./Pages/404Page/PageNotFound";
+import AddNewPost from "./Pages/AddNewPost/AddNewPost";
 
 const routes = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const routes = createBrowserRouter([
             {
                 path: 'product-detailes/:productID',
                 element: <ProductDetailesPage />
+            },
+            {
+                path: 'new-post',
+                element: <AddNewPost />
             },
             {
                 path: 'login',

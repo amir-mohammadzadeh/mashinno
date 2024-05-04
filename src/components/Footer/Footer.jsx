@@ -23,6 +23,7 @@ function LinkWrapper({ data, title }) {
 const Footer = () => {
     const dashbord = useMatch('/userdashbord/*')
     const p404 = useMatch('/page-not-found')
+    const newpost = useMatch('/new-post')
     
     const Quick_access = [
         { title: 'تماس با ما', url: "" },
@@ -45,7 +46,7 @@ const Footer = () => {
         { title: ' لوازم یدکی برلیانس', url: "" },
     ]
     
-    if (dashbord || p404) return null
+    if (dashbord || p404 || newpost) return null
     else return (
         <footer id='MainFooter' className="footer_container">
             <div className="container">

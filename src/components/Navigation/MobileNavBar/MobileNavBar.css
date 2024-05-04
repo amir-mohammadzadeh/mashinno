@@ -1,6 +1,6 @@
 .mobile-navbar_container{
     display: none;
-    background-color: white;
+    background-color: var(--white );
     position: fixed;
     bottom: 0;
     left: 0;
@@ -11,7 +11,7 @@
     box-shadow: 0 -1px 8px -1px var(--shadow-color-3);
 }
 
-.lab-23{
+.lab_23{
     font-size: .9rem;
 }
 .mobile-navbar{
@@ -19,9 +19,11 @@
     height: 100%;
     display: flex;
     align-items: start;
-    justify-content: space-around;
+    justify-content: center;
+    padding-inline: .75rem;
+    gap: 5%;
 }
-.mobile-nav-item .icon-23{
+.mobile-nav-item .icon_23{
     display: block;
     margin-inline: auto;
     width: 1.5rem ;
@@ -30,16 +32,16 @@
     font-size: 1.4rem;
     cursor: pointer;
 }
+.mobile-nav-item{
+    text-align: center;
+    flex: 1 0 auto;
+    cursor: pointer;
+}
 
 /*__________________*/
 
 @media screen and (max-width:992px) {
     .mobile-navbar_container{
         display: block;
-    }
-}
-@media screen and (max-width:568px) {
-    .lab-23{
-        font-size: .75rem;
     }
 }

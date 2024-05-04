@@ -122,12 +122,14 @@ const ProductDetailesPage = () => {
 
                 {activeTab == 'T1D' && <>
                     <div className="discreption-content_5">
+                        <TextEditor readOnly={true} value={'<h3>توضیحات</h3>'} />
                     </div>
+                    
                     <div className="isEmpty_5">توضیحی برای این محصول ارائه نشده است !</div>
 
                 </>}
 
-                {activeTab == 'T2C' && <CommentsContainer commentList={['sdf']} />}
+                {activeTab == 'T2C' && <CommentsContainer commentList={[1]} />}
 
                 {activeTab == 'T3N' && <>
 

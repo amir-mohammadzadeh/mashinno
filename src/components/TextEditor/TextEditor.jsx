@@ -1,23 +1,31 @@
-import React, { useState } from 'react'
-import './TextEditor.css' // Code =>53
+import { useEffect, useState } from 'react'
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import './TextEditor.css' // Code =>53
 
-const TextEditor = () => {
-    const [value,setValue]=useState('')
-    const modules = {
-        toolbar:[
-            [{}]
-        ]
-    }
-  return (
-    <>
-    <div dir='ltr'>
-        <ReactQuill className='' theme='snow' value={value} 
-        onChange={setValue}/>
+const TextEditor = ({ onChange, value, defaultText, className = '', readOnly }) => {
+  const [text, setText] = useState(defaultText || '')
+  
+  const modules = {
+    toolbar: [
+      [{ 'size': ['small', false, 'large', 'huge'] }], 
+      ['bold', 'underline', 'strike'],
+      ['link'],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }], 
+      [{ 'align': [] }],
+      [{ 'script': 'sub' }, { 'script': 'super' }],
+    ]
+  }
+
+  useEffect(() => {
+    if(!readOnly) onChange(text)
+  }, [text])
+
+  if (readOnly) return <div dangerouslySetInnerHTML={{ __html: value }} />
+  else return (
+    <div dir='ltr' className={className}>
+      <ReactQuill className='editor_53' modules={modules} theme='snow' value={text}
+        onChange={setText} />
     </div>
-    <div dangerouslySetInnerHTML={{__html:value}} />
-    </>
   )
 }
 

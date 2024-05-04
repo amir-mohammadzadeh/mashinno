@@ -1,16 +1,13 @@
-import React from 'react'
 import { Link } from 'react-router-dom';
 
-const SubNav = ({ list, grid = false, active = false }) => {
-    let isActive;
-    active ? isActive = 'sub-menu-active' : ''
-    
+const SubNav = ({ list }) => {
+
     return (
-        <ul className={grid ? `nav-sub-menu-grid ${isActive}` : `nav-sub-menu ${isActive}`}>
+        <ul className="sub-menu_21">
             {list.map((item, index) =>
-                <li key={index} className="sub-menu-item">
-                    <Link to={`/brand/${item.slug}`}>
-                        {item.name} 
+                <li key={index} className="sub-item_21">
+                    <Link to={item.link}>
+                        {item.title} 
                     </Link>
                 </li>
             )}
