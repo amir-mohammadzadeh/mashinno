@@ -27,11 +27,12 @@
 }
 
 .post-status_85{
+    align-self: flex-end;
     font-size: 1.1rem;
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
-    margin-inline-end: 1.1rem;
+    margin-inline-end: .5rem;
 }
 
 .post-status_85 span:nth-child(2){

@@ -1,4 +1,3 @@
-
 .card_85{
     position: relative;
     border: 1px solid var(--gray-300);
@@ -7,12 +6,16 @@
     width: auto;
     min-width: 20rem;
     height: auto;
-
     display: flex;
     gap: .5rem;
+    transition: .3s;
 }
+.card_85:hover{
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
 .image_85{
-    flex-shrinkl: 0;
     width: 8rem;
 }
 .image_85 img{
@@ -75,7 +78,3 @@
     cursor: pointer;
     background-color: var(--slate-100);
 }
-
-
-/*___________________________*/
-

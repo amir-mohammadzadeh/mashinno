@@ -13,7 +13,7 @@ const ProductCard = ({ id, userID, title, price, noChange = false }) => {
     const dispatch=useDispatch()
 
     const cardClick = (id) => {
-        navigate(`/product-detailes/${id}`)
+        navigate(`/pd/${id}`)
     }
 
     const onBookmark = (event, payload) => {

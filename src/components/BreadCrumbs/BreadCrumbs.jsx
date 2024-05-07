@@ -35,7 +35,7 @@ const BreadCrumbs = () => {
                     }])
 
                 break
-            case 'product-detailes':
+            case 'pd':
                 setItemsList([home_page])
                 /*
                 let b = location.state.brandName || '';
@@ -43,7 +43,7 @@ const BreadCrumbs = () => {
                 setItemsList([home_page,
                     {
                         title: `لوازم یدکی ${b.replaceAll('_', ' ')} ${m}`,
-                        url: `/shop/${location.state.brandName}/${location.state.carModel}`
+                        url: `/posters/${location.state.brandName}/${location.state.carModel}`
                     },
                     {
                         title: location.state.postTitle,

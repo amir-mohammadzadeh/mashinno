@@ -1,15 +1,15 @@
 import React from 'react'
 import useDateGenerator from '../../Hook/useDateGenerator'
 import { useSeparate } from '../../Hook/useNumbers'
-import { BsTrash3Fill } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import './Post.css'// Code => 85
 
 
 const Posts = () => {
+  const navigate = useNavigate()
 
   const cardClickHandel = () => {
-    console.log('card clicked!')
+    navigate('/userdashbord/user_posts/management/2/preview')
   }
 
   return (
@@ -50,11 +50,7 @@ const Posts = () => {
                 </span>
               </div>
             </div>
-            <div className="card-buttons_85">
-              <span className="icon-btn_85"  >
-                <BsTrash3Fill size={'100%'} />
-              </span>
-            </div>
+            
           </div>
 
         </div>

@@ -9,7 +9,7 @@ const NoteBook = () => {
   const User_Notes = useSelector(state => state.userInfo.notes)
 
   const cardClickHandel = () => {
-    navigate(`/product-detailes/${id}`)
+    navigate(`/pd/${id}`)
   }
 
   return (<>

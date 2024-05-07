@@ -7,11 +7,13 @@ import TextEditor from '../../components/TextEditor/TextEditor';
 import SupportWidget from '../../components/SupportWidget/SupportWidget';
 import ProvincesCities from '../../assets/Data/Provinces_and_Cities.json' //=> لیست استان ها و شهر ها
 import Brands from '../../assets/Data/Brands.json'
+import { useOutletContext } from 'react-router-dom';
 
 const Category_List = ['گیربکس', 'جلوبندی', 'لوازم برقی', 'لوازم موتور', 'بدنه', 'لاستیک و رینک']
 const Exampel_ImageList = Array.from(Array(3).keys())
 
 const AddNewPost = () => {
+   const [POST] = useOutletContext()
    const [error, stError] = useState({})
    const provinces_cities_list = useRef(ProvincesCities)
    const brands_list = useRef(Brands)
@@ -354,7 +356,8 @@ const AddNewPost = () => {
 
          </div>
       </main>
-      <SupportWidget />
+      {!POST && <SupportWidget />}
+
    </>)
 }
 

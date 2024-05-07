@@ -9,7 +9,7 @@ const RecentlySeen = () => {
   recently_list = recently_list ? JSON.parse(recently_list) : []
 
   const cardClickHandel = (id) => {
-    navigate(`/product-detailes/${id}`)
+    navigate(`/pd/${id}`)
   }
 
   return (<>

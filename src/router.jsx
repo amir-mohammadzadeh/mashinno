@@ -13,13 +13,16 @@ import Favorites from "./Pages/Dashbord.Favorites/Favorites";
 import NoteBook from "./Pages/Dashbord.NoteBook/NoteBook";
 import StorePanel from "./Pages/Dashbord.StorePanel/StorePanel";
 import RecentlySeen from "./Pages/Dashbord.RecentlySeen/RecentlySeen";
-import MyPostDetailes from "./Pages/Dashbord.MyPostDetailes/MyPostDetailes";
 import EditProfile from "./Pages/Dashbord.EditForms/EditProfile";
 import EditStorePanel from "./Pages/Dashbord.EditForms/EditStorePanel";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import PageNotFound from "./Pages/404Page/PageNotFound";
 import AddNewPost from "./Pages/AddNewPost/AddNewPost";
+import PostManagement from "./Pages/PostManagement/PostManagement";
+import PostPreview from "./Pages/PostManager.preview/PostPreview";
+import PellePromote from "./Pages/PostManager.pelleTab/PellePromote";
+import PostUpgrate from "./Pages/PostManager.PostUpgrate/PostUpgrate";
 
 const routes = createBrowserRouter([
     {
@@ -43,7 +46,7 @@ const routes = createBrowserRouter([
                 element: <AgahyhaPage />
             },
             {
-                path: 'product-detailes/:productID',
+                path: 'pd/:productID',
                 element: <ProductDetailesPage />
             },
             {
@@ -82,8 +85,27 @@ const routes = createBrowserRouter([
                                 element: <Posts />
                             },
                             {
-                                path: 'user_posts/preview/:postID',
-                                element: <MyPostDetailes />
+                                path: 'user_posts/management/:postID/',
+                                element: <PostManagement />,
+                                children:[
+                                    {
+                                        path: 'preview',
+                                        element: <PostPreview />
+                                    },
+                                    {
+                                        path: 'pelle-promote',
+                                        element: <PellePromote />
+                                    },
+                                    {
+                                        path: 'promote',
+                                        element: <PostUpgrate />
+                                    },
+                                    {
+                                        path: 'edit',
+                                        element: <AddNewPost />
+                                    },
+
+                                ]
                             },
                             {
                                 path: 'favorites',

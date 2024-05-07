@@ -8,7 +8,7 @@ const Favorites = () => {
   const User_Favorite = useSelector(state => state.userInfo.favorites)
 
   const cardClickHandel = (id) => {
-    navigate(`/product-detailes/${id}`)
+    navigate(`/pd/${id}`)
   }
 
   return (<>
