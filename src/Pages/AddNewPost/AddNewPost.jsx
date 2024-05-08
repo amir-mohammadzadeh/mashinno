@@ -7,13 +7,17 @@ import TextEditor from '../../components/TextEditor/TextEditor';
 import SupportWidget from '../../components/SupportWidget/SupportWidget';
 import ProvincesCities from '../../assets/Data/Provinces_and_Cities.json' //=> لیست استان ها و شهر ها
 import Brands from '../../assets/Data/Brands.json'
-import { useOutletContext } from 'react-router-dom';
+import { useMatch, useOutletContext } from 'react-router-dom';
+import MapModal from '../../components/MapModal/MapModal';
 
 const Category_List = ['گیربکس', 'جلوبندی', 'لوازم برقی', 'لوازم موتور', 'بدنه', 'لاستیک و رینک']
 const Exampel_ImageList = Array.from(Array(3).keys())
 
 const AddNewPost = () => {
-   const [POST] = useOutletContext()
+   const editPage = useMatch('/userdashbord/user_posts/management/:postID/edit')
+
+   const POST =  editPage ? useOutletContext() :  [] ;
+   
    const [error, stError] = useState({})
    const provinces_cities_list = useRef(ProvincesCities)
    const brands_list = useRef(Brands)
@@ -30,6 +34,7 @@ const AddNewPost = () => {
    const [phoneCall, setPhoneCall] = useState(true)
    const [linkAllow, setLinkAllow] = useState(false)
    const postDiscription = useRef('')
+   const postLocation = useRef(null)
 
    provincesList.current = provinces_cities_list.current.map(item => item.ostan)
    brandList.current = brands_list.current.map(item => item.name)
@@ -76,6 +81,9 @@ const AddNewPost = () => {
    const setDiscription = (payload) => {
       postDiscription.current = payload
    }
+   const getLocation=(payload)=>{
+      postLocation.current = payload;
+   }
 
    const formSubmitHandler = (e) => {
       e.preventDefault()
@@ -87,6 +95,7 @@ const AddNewPost = () => {
       form.append('category', category)
       form.append('discription', postDiscription.current)
       form.append('allowCall', phoneCall)
+      form.append('location', postLocation.current)
 
       // صرفا جهت نمایش اطلاعات فرم است
       for (const pair of form.entries()) {
@@ -153,9 +162,10 @@ const AddNewPost = () => {
                   <span className="field-title_9"> موقعیت مکانی آگهی</span>
                   <div className="map_9">
 
+                     <MapModal getLatLng={getLocation} markerPosition={postLocation.current} readOnly={false} />
+
                   </div>
-                  <input type="hidden" name="" />
-                  <input type="hidden" name="" />
+                  
                </div>
 
                <div className="my-1">
@@ -356,9 +366,11 @@ const AddNewPost = () => {
 
          </div>
       </main>
-      {!POST && <SupportWidget />}
+      {!editPage && <SupportWidget />}
 
    </>)
 }
 
 export default AddNewPost
+
+//

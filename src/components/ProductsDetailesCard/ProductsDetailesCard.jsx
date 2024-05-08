@@ -1,6 +1,7 @@
-import { BsShieldFillCheck, BsStarFill } from 'react-icons/bs'
 import React, { useState } from 'react'
+import { BsShieldFillCheck, BsStarFill } from 'react-icons/bs'
 import { GrMapLocation } from "react-icons/gr";
+import { FaArrowRightLong } from 'react-icons/fa6';
 import { LikeButton, ShareButton } from '../ToggleButtons/ToggleButtons';
 import { useSeparate } from '../../Hook/useNumbers';
 import './ProductsDetailesCard.css' // Code => 52
@@ -16,7 +17,8 @@ const ProductsDetailesCard = ({ category, id, price, title, userID }) => {
     const User_Favorites = useSelector(state => state.userInfo.favorites)//favorites
     const [showContactInfo, setShowContactInfo] = useState(false)
     const [showMapModal, setShowMapModal] = useState(false)
-    const [modal_ref, closeAction] = useOutClicker(setShowContactInfo)
+    const [contactModal_ref, contactCloseAction] = useOutClicker(setShowContactInfo)
+    const [mapModal_ref, mapCloseAction] = useOutClicker(setShowMapModal)
     const isFavorite = User_Favorites.find(i => i == id) ? true : false;
 
     const addToFavorites = (e, payload) => {
@@ -145,11 +147,11 @@ const ProductsDetailesCard = ({ category, id, price, title, userID }) => {
                 </div>
 
                 <div className="footer-butons_52">
-                    <button className="btn contact-btn_52" onClick={showContactModal}>
+                    <button className="btn btn-animate contact-btn_52" onClick={showContactModal}>
                         اطلاعات تماس
                     </button>
 
-                    <Link to={''} target='_blank' className="btn link-btn_52">
+                    <Link to={''} target='_blank' className="btn btn-animate link-btn_52">
                         خرید از سایت فروشنده
                     </Link>
                 </div>
@@ -157,10 +159,26 @@ const ProductsDetailesCard = ({ category, id, price, title, userID }) => {
 
             </div>
         </div>
-        {showMapModal && <MapModal onClose={openMap} />}
+        {showMapModal &&
+            <ModalContainer onClick={mapCloseAction}>
+                <div ref={mapModal_ref} className="map-wrapper_52">
+                    <div className="map-close_52">
+                        <div onClick={() => openMap(false)}>
+                            <FaArrowRightLong />
+                            <span> بازگشت </span>
+                        </div>
+                    </div>
+                    <div className="map_52">
+                        <MapModal markerPosition={{ lat: 38.062391953497155, lng: 46.29003524780274 }} />
+                    </div>
+
+                </div>
+            </ModalContainer>
+        }
+
         {showContactInfo &&
-            <ModalContainer onClick={closeAction}>
-                <div ref={modal_ref} className="contact-card_52">
+            <ModalContainer onClick={contactCloseAction}>
+                <div ref={contactModal_ref} className="contact-card_52">
                     <div className="card-header_52">
                         <span className="h6"> اطلاعات تماس </span>
                         <span className="close-icon_52" onClick={showContactModal}> &#10006; </span>

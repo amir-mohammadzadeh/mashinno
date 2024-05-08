@@ -2,6 +2,7 @@ import './PostPreview.css' //Code => 83
 import { Link, useOutletContext } from 'react-router-dom'
 import { BsCopy } from 'react-icons/bs'
 import TextEditor from '../../components/TextEditor/TextEditor'
+import MapModal from '../../components/MapModal/MapModal'
 
 const PostPreview = () => {
   const [Post_data] = useOutletContext()
@@ -16,14 +17,24 @@ const PostPreview = () => {
         <h4>
           عنوان آگهی
         </h4>
-        <ul className="info-content_83">
+        <ul>
+
           <li className="info-item_83">
             یک روز پیش در تبریز
           </li>
 
           <li className="info-item_83">
 
-            <span className="label_83">
+            <span>
+              آمار بازدید
+            </span>
+            <span className="value_83">
+              ۵۶ بازدید تا امروز
+            </span>
+          </li>
+          <li className="info-item_83">
+
+            <span>
               لینک آگهی
             </span>
             <span className="value_83 info-link_83 txt-red_83">
@@ -36,7 +47,7 @@ const PostPreview = () => {
             </span>
           </li>
           <li className="info-item_83">
-            <span className="label_83">
+            <span>
               خودرو
             </span>
             <span className="value_83">
@@ -44,7 +55,7 @@ const PostPreview = () => {
             </span>
           </li>
           <li className="info-item_83">
-            <span className="label_83">
+            <span>
               دسته بندی
             </span>
             <span className="value_83 txt-red_83">
@@ -52,14 +63,13 @@ const PostPreview = () => {
             </span>
           </li>
           <li className="info-item_83">
-            <span className="label_83">
+            <span>
               قیمت
             </span>
             <span className="value_83">
               ۱۵۶۳۸ تومان
             </span>
           </li>
-
 
         </ul>
         <div className="demo-discription_83">
@@ -70,8 +80,12 @@ const PostPreview = () => {
         </div>
       </div>
       <div className="map-amar_83">
-        <div className="map_83"></div>
-        <div className="amar_83"></div>
+        <div className="map_83">
+          <MapModal markerPosition={{ lat: 38.062391, lng: 46.29003 }} />
+        </div>
+        <div className="amar_83">
+          نمودار بازدید
+        </div>
       </div>
     </div>
   )

@@ -17,7 +17,7 @@ const Posts = () => {
       <header className="main-header_80 my-post-header_80">
         <h4>آگهی‌های من</h4>
         <div className="btn header-btn_80">
-          <Link to=''>
+          <Link to='/new-post'>
             آگهی جدید
           </Link>
         </div>

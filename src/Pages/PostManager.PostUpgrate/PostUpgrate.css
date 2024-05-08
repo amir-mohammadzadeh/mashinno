@@ -72,13 +72,11 @@
     border-color: var(--green-600 );
 }
 
-
 .card_87:has(input:disabled) .card-content_87 > .head_87 ,
 .card_87:has(input:disabled) .card-content_87 > .card-text_87 {
     opacity: .4;
     cursor: default;
 }
-
 .card_87:has(input:disabled) .gift-btn_87{
     display: none;
 }
@@ -98,6 +96,7 @@
     color: var(--gray-900 );
 }
 
+/*__________________________ Left Panel _______________*/
 .payment-panel_87{
     width: 18rem;
     font-size: 1.25rem;
@@ -109,6 +108,7 @@
     place-items: center;
     gap: 2rem;
 }
+
 .payment-btn_87{
     width: 100%;
     background-color: var(--blue-500);
@@ -129,8 +129,7 @@
     color: var(--gray-500);
     font-size: .9rem;
 }
-
-
+/*____________________ Gift Modal _________________*/
 .gift-modal_87{
     width: 100%;
     max-width: 25rem;
@@ -164,7 +163,6 @@
 .cl-btn_87:hover{
     border-color: var(--green-600);
 }
-
 
 /*_______ Make Responcive ___________*/
 @media screen and (max-width: 768px) {

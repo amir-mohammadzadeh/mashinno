@@ -1,14 +1,20 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './PostManagement.css' // Code 83
-import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom'
+import { NavLink, Navigate, Outlet, useLocation, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import DeleteModule from '../../components/DeleteModule/DeleteModule'
 
 const PostManagement = () => {
     const User_Posts = useSelector(state => state.userInfo.posts)
+    const [deleteAlert, setDeletAlert] = useState(false)
     const params = useParams()
     const location = useLocation()
     const tab_content = useRef(null)
     let status_color = 'green_87' || 'red_87' || 'orange_87';
+
+    const Post = User_Posts.find(post => post.id == params.postID)
+
+    //if(!Post) return <Navigate to={'/page-not-found'} />
 
     const isActiveLink = (link) => {
         return link.isActive ? 'active-tab_83' : 'tab_83'
@@ -44,6 +50,8 @@ const PostManagement = () => {
 
     const deletPost = () => {
         console.log('حذف کردن آگهی')
+
+        setDeletAlert(false)
     }
 
     return (<>
@@ -57,7 +65,7 @@ const PostManagement = () => {
                 </span>
             </div>
             <div className="h-btn_83">
-                <button className="btn delete-btn_83" onClick={deletPost}>
+                <button className="btn delete-btn_83" onClick={() => setDeletAlert(true)}>
                     حذف آگهی
                 </button>
             </div>
@@ -86,9 +94,15 @@ const PostManagement = () => {
                     </span>
                 </NavLink>
             </div>
-
-            <Outlet context={[params.postID]} />
+            <Outlet context={[Post]} />
         </div>
+        
+        {deleteAlert && <DeleteModule
+            onYes={deletPost}
+            onCancel={() => setDeletAlert(false)}
+            message='این آگهی حذف شود؟'
+        />}
+
     </>)
 }
 

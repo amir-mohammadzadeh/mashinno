@@ -32,7 +32,7 @@ const ProductDetailesPage = () => {
 
     const post = POSTS_LIST.find(p => p.id == params.productID)
     const { images, ...postInfo } = post ? post : {};
-    
+    console.log(post)
     // در صورت پیدا نکردن آی‌دی آگهی به صفحه 404 منتقل میشود
     if(!post) return <Navigate to={'/page-not-found'} />
 
