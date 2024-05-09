@@ -5,8 +5,8 @@ import { Link, useMatch } from 'react-router-dom';
 
 function LinkWrapper({ data, title }) {
     return (
-        <ul className="links-content">
-            <li className="col-title">
+        <ul className="links_05">
+            <li className="col-head_05">
                 {title}
             </li>
             {data.map((link, index) =>
@@ -24,20 +24,16 @@ const Footer = () => {
     const dashbord = useMatch('/userdashbord/*')
     const p404 = useMatch('/page-not-found')
     const newpost = useMatch('/new-post')
-    
+
     const Quick_access = [
-        { title: 'تماس با ما', url: "" },
         { title: 'درباره کاپوت', url: "" },
         { title: ' قوانین و مقررات', url: "" },
-        { title: 'شرایط بازگشت کالا', url: "" },
-        { title: 'وبلاگ', url: "" },
-    ]
-    const Quick_links = [
         { title: ' فرصت های شغلی', url: "" },
         { title: ' فروشنده شو', url: "" },
         { title: ' خدمات خودرویی', url: "" },
 
     ]
+
     const Yadaki_links = [
         { title: 'لوازم یدکی سانگ یانگ', url: "" },
         { title: 'لوازم یدکی جیلی', url: "" },
@@ -45,53 +41,62 @@ const Footer = () => {
         { title: 'لوازم یدکی کیا', url: "" },
         { title: ' لوازم یدکی برلیانس', url: "" },
     ]
-    
+
     if (dashbord || p404 || newpost) return null
     else return (
         <footer id='MainFooter' className="footer_container">
             <div className="container">
-                <address className='footer_grid'>
-                    <div className="address-content">
-                        <div className="title">
-                            <span className="icon">
+                <address className='footer_grid font-lg'>
+
+                    <div className="contact-card_05">
+                        <div className="title_05">
+                            <span className="icon_05">
                                 <BsFillTelephoneFill size={22} />
                             </span>
                             شماره‌های ارتباطی
                         </div>
-                        <a href="tel:02191301374" className='value'>
-                            02191301374
-                        </a>
+                        <div className="list_05">
+                            <a href="tel:02191301374">
+                                02191301374
+                            </a>
+                            <a href="tel:02191301374">
+                                02191301374
+                            </a>
+                        </div>
                     </div>
-                    <div className="address-content">
-                        <div className="title">
-                            <span className="icon">
+
+                    <div className="contact-card_05">
+                        <div className="title_05">
+                            <span className="icon_05">
                                 <BsEnvelopeFill size={22} />
                             </span>
                             ایمیل‌های ارتباطی
                         </div>
-                        <Link to="mailto:info@mashinno.com" className='value'>
-                            info@kapoot.com
-                        </Link>
+                        <div className="list_05">
+                            <Link to="mailto:info@mashinno.com">
+                                info@kapoot.com
+                            </Link>
+                        </div>
                     </div>
-                    <div className="address-content">
-                        <div className="title">
-                            <span className="icon">
+                    <div className="contact-card_05">
+                        <div className="title_05">
+                            <span className="icon_05">
                                 <BsFillGeoAltFill size={22} />
                             </span>
-                            ایمیل‌های ارتباطی
+                            آدرس
                         </div>
-                        <span className='value'>
-                            آدرس : تهران ،خیابان جمهوری ، نرسیده به خیابان ملت ، کوچه مراغه ای ، بن بست یاس شرقی پلاک ۱۱
-                        </span>
+                        <address>
+                            تهران ،خیابان جمهوری ، نرسیده به خیابان ملت ، کوچه مراغه ای ، بن بست یاس شرقی پلاک ۱۱
+                        </address>
                     </div>
-                    <div className="address-content">
-                        <div className="title">
-                            <span className="icon">
+                    <div className="contact-card_05">
+                        <div className="title_05">
+                            <span className="icon_05">
                                 <BsGlobe2 size={22} />
                             </span>
                             مارا در شبکه‌های اجتماعی دنبال کنید
                         </div>
-                        <div className="socials">
+                        <div className="socials_05">
                             <a href="">
                                 <BsWhatsapp size={25} />
                             </a>
@@ -109,20 +114,19 @@ const Footer = () => {
 
                     <LinkWrapper data={Quick_access} title={'دسترسی سریع'} />
                     <LinkWrapper data={Yadaki_links} title={'لوازم یدکی'} />
-                    <LinkWrapper data={Quick_links} title={'لینک های سریع'} />
 
                 </div>
                 <section className="footer-about">
                     <div className="about-body">
                         <h3>
-                            خرید اینترنتی لوازم یدکی خودرو
+                            قطعات همه خودرو‌ها هست
                         </h3>
                         <p>
                             در
                             <Link to="/">
-                                 سایت لوازم یدکی کاپوت 
+                                سایت لوازم یدکی کاپوت
                             </Link>
-                            تمام قطعات مورد نیاز برای انواع مدل خودرو موجود در بازار با بهترین قیمت در دسترس شما قرار گرفته است. کافی است با توجه به مدل خودروی خود به دسته‌بندی مربوطه مراجعه کنید یا در کادر جستجوی سایت، قطعه مورد نیازتان را جستجو کنید.
+                            تمام قطعات مورد نیاز برای انواع مدل خودرو موجود در بازار با بهترین قیمت می‌توانید پیدا کنید. کافی است با توجه به مدل خودروی خود به دسته‌بندی مربوطه مراجعه کنید یا در کادر جستجوی سایت، قطعه مورد نیازتان را جستجو کنید.
                         </p>
                         <span>
                             <Link to="/adout-us">

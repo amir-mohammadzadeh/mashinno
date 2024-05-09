@@ -74,7 +74,7 @@ pre {
 
 a:visited,
 a {
-    color: unset;
+    color: inherit;
     text-decoration: none;
     display: block;
 }
@@ -229,6 +229,10 @@ details {
 
 summary {
     display: list-item;
+}
+
+address{
+    font-style: normal;
 }
 
 template {

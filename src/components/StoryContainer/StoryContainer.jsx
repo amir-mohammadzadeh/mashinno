@@ -35,7 +35,7 @@ const StoryContainer = () => {
                             <img src="/Images/NoPhoto.jpg" alt="" />
                         </div>
                         <span className="name_11 line-limit-1">
-                            نام {story}
+                            نام فروشگاه
                         </span>
                     </li>
                 )}
