@@ -14,7 +14,7 @@ const ModalContainer = ({ onClick, clasName = '', children }) => {
         height: '100dvh',
         backgroundColor: "#00000040",
         backdropFilter: "blur(2px)",
-        zIndex: '11',
+        zIndex: '20',
         display: 'grid',
         placeItems: 'center'
     }

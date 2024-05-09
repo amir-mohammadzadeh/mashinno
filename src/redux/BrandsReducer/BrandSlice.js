@@ -7,9 +7,7 @@ const BrandsSlice = createSlice({
     initialState: initialState,
     reducers: {
         setBrands:(state, action)=>{
-            return [...state,
-                ...action.payload
-            ]
+            return [...action.payload]
         }
     },
 })

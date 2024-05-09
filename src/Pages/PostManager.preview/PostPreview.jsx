@@ -3,6 +3,7 @@ import { Link, useOutletContext } from 'react-router-dom'
 import { BsCopy } from 'react-icons/bs'
 import TextEditor from '../../components/TextEditor/TextEditor'
 import MapModal from '../../components/MapModal/MapModal'
+import { useSeparate } from '../../Hook/useNumbers'
 
 const PostPreview = () => {
   const [Post_data] = useOutletContext()
@@ -11,7 +12,7 @@ const PostPreview = () => {
     navigator.clipboard.writeText('لینک آگهی')
   }
 
-  return (
+  return (<>
     <div className="card demo-content_83">
       <div className="demo-info_83">
         <h4>
@@ -67,7 +68,7 @@ const PostPreview = () => {
               قیمت
             </span>
             <span className="value_83">
-              ۱۵۶۳۸ تومان
+              {useSeparate(250000)} تومان
             </span>
           </li>
 
@@ -88,7 +89,20 @@ const PostPreview = () => {
         </div>
       </div>
     </div>
-  )
+    <div className="card post-images_83">
+      <span className="h5">
+        عکس آگهی
+      </span>
+      <ul className="image-content_83">
+        <li className="image_83">
+          <img src="/Images/no-image.webp" alt="" />
+        </li>
+        <li className="image_83">
+          <img src="/Images/no-image.webp" alt="" />
+        </li>
+      </ul>
+    </div>
+  </>)
 }
 
 export default PostPreview

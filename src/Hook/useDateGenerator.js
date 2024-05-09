@@ -25,8 +25,8 @@ export default function useDateGenerator(date) {
         else if (deltaT >= 15 && deltaT <= 45) return 'نیم‌ساعت پیش';
         else if (deltaT > 45 && deltaT <= 75) return 'یک ساعت پیش';
         else {
-            let m = String(Math.ceil(deltaT / 60)).split();
-            m = m.map(i => persian[i]).join()
+            let m = String(Math.ceil(deltaT / 60)).split('');
+            m = m.map(i => persian[i]).join('')
             return `${m} ساعت پیش`;
         }
 
@@ -36,8 +36,8 @@ export default function useDateGenerator(date) {
         if (deltaD < 7) return `${persian[deltaD]} روز پیش`;
         else if (deltaD >= 7 && deltaD < 30) return `${persian[Math.round(deltaD / 7)]} هفته پیش`;
         else if (deltaD >= 30 && deltaD < 365) {
-            let m = String(Math.round(deltaD / 30)).split();
-            m = m.map(i => persian[i]).join()
+            let m = String(Math.round(deltaD / 30)).split('');
+            m = m.map(i => persian[i]).join('')
             return `${m} ماه پیش`;
         } else return `${persian[Math.round(deltaD / 365)]} سال پیش`;
 

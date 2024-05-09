@@ -67,6 +67,35 @@
     padding: .5rem;
 }
 
+/*____________________ Post Images Card ______________*/
+.post-images_83{
+    margin-top: 1rem;
+    border-radius: .5rem;
+}
+
+.image-content_83{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill , 15rem);
+    gap: 1rem;
+    justify-content: center;
+    place-items: center;
+
+}
+.image_83{
+    max-width: 15rem;
+    border: 1px solid var(--gray-200);
+    border-radius: .5rem;
+    overflow: hidden;
+}
+.image_83 img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    object-position: center;
+}
 /*_______________ Make Responcive __________________*/
 @media screen and (max-width: 768px) {
   .demo-content_83{
@@ -79,4 +108,9 @@
   .map_83{
     height: 20rem;
   }
+}
+@media screen and (max-width: 568px) {
+    .image-content_83{
+        grid-template-columns: repeat(auto-fill , minmax(9rem , 1fr));
+    }
 }

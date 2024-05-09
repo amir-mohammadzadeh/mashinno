@@ -9,6 +9,7 @@ import ProvincesCities from '../../assets/Data/Provinces_and_Cities.json' //=> �
 import Brands from '../../assets/Data/Brands.json'
 import { useMatch, useOutletContext } from 'react-router-dom';
 import MapModal from '../../components/MapModal/MapModal';
+import { useSeparate } from '../../Hook/useNumbers';
 
 const Category_List = ['گیربکس', 'جلوبندی', 'لوازم برقی', 'لوازم موتور', 'بدنه', 'لاستیک و رینک']
 const Exampel_ImageList = Array.from(Array(3).keys())
@@ -16,8 +17,8 @@ const Exampel_ImageList = Array.from(Array(3).keys())
 const AddNewPost = () => {
    const editPage = useMatch('/userdashbord/user_posts/management/:postID/edit')
 
-   const POST =  editPage ? useOutletContext() :  [] ;
-   
+   const POST = editPage ? useOutletContext() : [];
+
    const [error, stError] = useState({})
    const provinces_cities_list = useRef(ProvincesCities)
    const brands_list = useRef(Brands)
@@ -81,8 +82,19 @@ const AddNewPost = () => {
    const setDiscription = (payload) => {
       postDiscription.current = payload
    }
-   const getLocation=(payload)=>{
+   const getLocation = (payload) => {
       postLocation.current = payload;
+   }
+
+   const handelPersionPrice = (e) => {
+      let elem = e.target.parentElement.nextSibling
+      if (e.target.value == '') {
+         elem.style.display = 'none';
+         elem.textContent = '';
+      } else {
+         elem.style.display = 'block';
+         elem.textContent = useSeparate(e.target.value) + ' تومان';
+      }
    }
 
    const formSubmitHandler = (e) => {
@@ -158,14 +170,14 @@ const AddNewPost = () => {
 
                </div>
 
-               <div className="">
+               <div>
                   <span className="field-title_9"> موقعیت مکانی آگهی</span>
                   <div className="map_9">
 
                      <MapModal getLatLng={getLocation} markerPosition={postLocation.current} readOnly={false} />
 
                   </div>
-                  
+
                </div>
 
                <div className="my-1">
@@ -207,7 +219,7 @@ const AddNewPost = () => {
                   </span>
                </div>
 
-               <div className="">
+               <div>
                   <span className="field-title_9">
                      عنوان آگهی
                   </span>
@@ -219,7 +231,7 @@ const AddNewPost = () => {
                   />
                </div>
 
-               <div className="">
+               <div>
 
                   <span className="field-title_9">
                      دسته بندی
@@ -234,7 +246,7 @@ const AddNewPost = () => {
                   />
                </div>
 
-               <div className="">
+               <div className="relative">
                   <span className="field-title_9 m-0">
                      قیمت
                   </span>
@@ -243,7 +255,9 @@ const AddNewPost = () => {
                      type='number'
                      name='price'
                      error={error['price']}
+                     onChange={handelPersionPrice}
                   />
+                  <span className="price-show_9"></span>
                   <div className="checkbox_9 ">
                      <input type="checkbox" name="tavafogy" id="p:price:t" />
                      <label htmlFor="p:price:t">
@@ -252,7 +266,7 @@ const AddNewPost = () => {
                   </div>
                </div>
 
-               <div className="">
+               <div>
                   <span className="field-title_9">
                      لینک محصول آگهی
                   </span>
@@ -291,7 +305,7 @@ const AddNewPost = () => {
 
                </div>
 
-               <div className="">
+               <div>
                   <span className="field-title_9">
                      تایید هویت
                   </span>
@@ -312,7 +326,7 @@ const AddNewPost = () => {
 
                </div>
 
-               <div className="">
+               <div>
                   <span className="field-title_9">
                      چت کاپوت
                   </span>
@@ -327,7 +341,7 @@ const AddNewPost = () => {
                   </div>
                </div>
 
-               <div className="">
+               <div>
                   <span className="field-title_9">
                      تماس تلفنی
                   </span>
@@ -351,7 +365,6 @@ const AddNewPost = () => {
                <div>
                   <input type="hidden" name="createDate" value={new Date().toLocaleString()} />
                </div>
-
 
                <div className="buttons-group_9">
                   <button type="submit" className="btn btn-animate sub-btn_9">

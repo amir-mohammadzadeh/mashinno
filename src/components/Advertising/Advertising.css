@@ -11,6 +11,16 @@
     place-items: center;
     gap: .25rem;
 }
+.ads_004{
+    width: 100%;
+    border-radius: .25rem;
+    overflow: hidden;
+}
+.ads_004 img{
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+}
 
 @media screen and (max-width: 566px) {
     .advertising_004{

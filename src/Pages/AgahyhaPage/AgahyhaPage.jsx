@@ -3,7 +3,6 @@ import { useLocation, useParams } from 'react-router-dom'
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs'
 import SupportWidget from '../../components/SupportWidget/SupportWidget'
 import PostsGridLayout from '../../components/PostsGridLayout/PostsGridLayout'
-import './AgahyhaPage.css'// Code => 4
 import { useSelector } from 'react-redux'
 
 const AgahyhaPage = () => {

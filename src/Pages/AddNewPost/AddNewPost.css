@@ -1,11 +1,13 @@
 .main-content_9{
     max-width: 45rem;
     margin-inline: auto;
-    background-colory: aqua;
     margin-bottom: 5rem;
 }
 
 /*____________ Global Class ____________________*/
+.relative{
+    position: relative;
+}
 
 .field-title_9{
     margin-bottom: .75rem;
@@ -201,6 +203,15 @@
 
 .m-0{  margin: 0; }
 
+.price-show_9{
+    position: absolute;
+    left: .5rem;
+    top: 0;
+    display: none;
+    text-align: end;
+    color: var(--blue-700);
+    font-family: var(--main-font-b);
+}
 /*_________________ Make Responcive _________________________*/
 @media screen and (max-width:568px) {
     .main-content_9{

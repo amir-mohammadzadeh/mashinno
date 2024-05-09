@@ -26,15 +26,16 @@ const ProductDetailesPage = () => {
     const dispatch = useDispatch()
     const POSTS_LIST = useSelector(state => state.posts)
     const User = useSelector(state => state.userInfo)
+    const same_posts = POSTS_LIST.slice(0, 10)
     const [openGallery, setOpenGallery] = useState(false)
     const [activeTab, setActiveTab] = useState('T1D')
     const userNote = useRef(null)
 
     const post = POSTS_LIST.find(p => p.id == params.productID)
     const { images, ...postInfo } = post ? post : {};
-    console.log(post)
+
     // در صورت پیدا نکردن آی‌دی آگهی به صفحه 404 منتقل میشود
-    if(!post) return <Navigate to={'/page-not-found'} />
+    if (!post) return <Navigate to={'/page-not-found'} />
 
     // آی‌دی آگهی را در حافظه ذخیری میکند 
     const setToRecently = () => {
@@ -66,7 +67,7 @@ const ProductDetailesPage = () => {
     }, [activeTab])
 
     const saveNot = (e) => {
-        if(localStorage.getItem('tokan')){
+        if (localStorage.getItem('tokan')) {
             const date = new Date().toLocaleString()
             dispatch(addUserNote({
                 postID: post.id,
@@ -90,7 +91,7 @@ const ProductDetailesPage = () => {
         dispatch(removeUserNote(post.id))
         e.currentTarget.parentElement.classList.remove('done-5')
         userNote.current.value = '';
-        
+
         alert(`${userNote.current.value}\nاز طریق API در کاپوت کاربر حذف میشود`)
     }
 
@@ -124,7 +125,7 @@ const ProductDetailesPage = () => {
                     <div className="discreption-content_5">
                         <TextEditor readOnly={true} value={'<h3>توضیحات</h3>'} />
                     </div>
-                    
+
                     <div className="isEmpty_5">توضیحی برای این محصول ارائه نشده است !</div>
 
                 </>}
@@ -160,12 +161,13 @@ const ProductDetailesPage = () => {
         </main>
 
         <MultiSlider headerTitle='محصولات مشابه' headerBtnLink={false} >
-            {matchProductList.map(i =>
-                <div dir='rtl' key={i} className='test' >
-                    <ProductCard noChange={true} />
+            {same_posts.reverse().map(post =>
+                <div dir='rtl' key={post.id} className='test' >
+                    <ProductCard noChange={true} {...post} />
                 </div>
             )}
         </MultiSlider>
+
         {openGallery &&
             <ModalContainer >
                 <div className="gallery-close-5" onClick={() => setOpenGallery(false)}>

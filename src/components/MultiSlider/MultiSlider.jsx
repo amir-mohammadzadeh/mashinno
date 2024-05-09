@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 const WeblogSection = ({ headerTitle, headerBtnLink, children }) => {
 
-
     const responsive = [
         {
             breakpoint: 1440,
@@ -29,7 +28,7 @@ const WeblogSection = ({ headerTitle, headerBtnLink, children }) => {
             breakpoint: 660,
             settings: {
                 slidesToShow: 2,
-                arrows:false
+                arrows: false
             }
         },
         {
@@ -37,7 +36,7 @@ const WeblogSection = ({ headerTitle, headerBtnLink, children }) => {
             settings: {
                 slidesToShow: 1,
                 centerMode: true,
-                arrows:false
+                arrows: false
             }
         }
     ]
@@ -71,14 +70,11 @@ const WeblogSection = ({ headerTitle, headerBtnLink, children }) => {
                     </div>
                 }
             </div>
-            <div className="weblog-slider_contaner-33">
-
+            <div dir='rtl' className="weblog-slider_contaner-33">
                 <SliderContent setting={Slider_setting} >
                     {children}
                 </SliderContent>
-
             </div>
-
         </div>
     )
 }
@@ -91,19 +87,15 @@ function Next({ onClick, currentSlide, slideCount, breakpoints }) {
         if (i.breakpoint >= window.innerWidth) n = i.settings.slidesToShow;
     })
     return (
-        <>
-            <div className={`custom-next-btn_33 ${currentSlide == slideCount - n && 'slider-btn-disable'}`} onClick={onClick} >
-                <BsChevronRight size={25} />
-            </div>
-        </>
+        <div className={`custom-next-btn_33 ${currentSlide == slideCount - n && 'slider-btn-disable'}`} onClick={onClick} >
+            <BsChevronRight size={25} />
+        </div>
     )
 }
 function Prev({ onClick, currentSlide }) {
     return (
-        <>
-            <div className={`custom-prevent-btn_33 ${currentSlide == 0 && 'slider-btn-disable'}`} onClick={onClick} >
-                <BsChevronLeft size={25} />
-            </div>
-        </>
+        <div className={`custom-prevent-btn_33 ${currentSlide == 0 && 'slider-btn-disable'}`} onClick={onClick} >
+            <BsChevronLeft size={25} />
+        </div>
     )
 }

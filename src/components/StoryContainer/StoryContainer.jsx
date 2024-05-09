@@ -2,11 +2,12 @@ import { useRef, useState } from 'react'
 import './StoryContainer.css' // Code => 11
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import ModalContainer from '../../ModalContainer/ModalContainer'
+import { useHorizontalScroll } from '../../Hook/useHorizontalScroll'
 
 const StoryContainer = () => {
     const storyList = Array.from(Array(20).keys())
     const [showStory, setShowStory] = useState(false)
-    const scrollArea_ref = useRef(null)
+    const scrollArea_ref = useHorizontalScroll()
 
     const arrowClickHandler = (n) => {
         const scroll_val = (scrollArea_ref.current.offsetWidth / 2) - 100;
@@ -34,7 +35,7 @@ const StoryContainer = () => {
                             <img src="/Images/NoPhoto.jpg" alt="" />
                         </div>
                         <span className="name_11 line-limit-1">
-                            نام فروشگاه
+                            نام {story}
                         </span>
                     </li>
                 )}

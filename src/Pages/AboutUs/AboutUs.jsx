@@ -6,7 +6,7 @@ const AboutUs = () => {
         <BreadCrumbs />
         <div className="container about-main_18">
             <section className="card"  >
-                
+                <h3> درباره ما </h3>
             </section>
         </div>
     </>)

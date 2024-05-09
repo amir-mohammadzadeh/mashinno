@@ -82,7 +82,7 @@
 }
 
 .option_06:hover {
-    background-color: var(--slate_0600 );
+    background-color: var(--slate-100 );
 }
 
 .option_06:nth-child(1) {

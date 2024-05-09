@@ -15,7 +15,7 @@ const Loading = () => {
 
 export default Loading
 
-export const ButtonLoader = ({ color1 = '#b3d4fc', color2 = '#6793fb', duration = 1.5, size = 10 }) => {
+export const ButtonLoader = ({ color1 = '#fca5a5', color2 = '#dc2626', duration = 1.5, size = 10 }) => {
     const styles = {
         '--dot-size': `${size || 10}px`,
         '--dot-bg-1': `${color1}`,

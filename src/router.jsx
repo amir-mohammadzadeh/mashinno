@@ -23,6 +23,7 @@ import PostManagement from "./Pages/PostManagement/PostManagement";
 import PostPreview from "./Pages/PostManager.preview/PostPreview";
 import PellePromote from "./Pages/PostManager.pelleTab/PellePromote";
 import PostUpgrate from "./Pages/PostManager.PostUpgrate/PostUpgrate";
+import SpecifitionsPage from "./Pages/SpecifitionsPage/SpecifitionsPage";
 
 const routes = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const routes = createBrowserRouter([
             {
                 path: 'pd/:productID',
                 element: <ProductDetailesPage />
+            },
+            {
+                path: 'specifications/:brandName/:carModel',
+                element: <SpecifitionsPage />
             },
             {
                 path: 'new-post',
@@ -81,33 +86,6 @@ const routes = createBrowserRouter([
                                 element: <EditProfile />
                             },
                             {
-                                path: 'user_posts',
-                                element: <Posts />
-                            },
-                            {
-                                path: 'user_posts/management/:postID/',
-                                element: <PostManagement />,
-                                children:[
-                                    {
-                                        path: 'preview',
-                                        element: <PostPreview />
-                                    },
-                                    {
-                                        path: 'pelle-promote',
-                                        element: <PellePromote />
-                                    },
-                                    {
-                                        path: 'promote',
-                                        element: <PostUpgrate />
-                                    },
-                                    {
-                                        path: 'edit',
-                                        element: <AddNewPost />
-                                    },
-
-                                ]
-                            },
-                            {
                                 path: 'favorites',
                                 element: <Favorites />
                             },
@@ -126,6 +104,33 @@ const routes = createBrowserRouter([
                             {
                                 path: 'store_panel/edit',
                                 element: <EditStorePanel />
+                            },
+                            {
+                                path: 'user_posts',
+                                element: <Posts />
+                            },
+                            {
+                                path: 'user_posts/management/:postID/',
+                                element: <PostManagement />,
+                                children: [
+                                    {
+                                        path: 'preview',
+                                        element: <PostPreview />
+                                    },
+                                    {
+                                        path: 'pelle-promote',
+                                        element: <PellePromote />
+                                    },
+                                    {
+                                        path: 'promote',
+                                        element: <PostUpgrate />
+                                    },
+                                    {
+                                        path: 'edit',
+                                        element: <AddNewPost />
+                                    },
+
+                                ]
                             },
 
                         ]

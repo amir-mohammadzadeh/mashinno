@@ -26,6 +26,7 @@
 
 .card_22:hover {
     transform: translateY(-5px);
+    box-shadow: 0 5px 10px 1px var(--shadow-color-3);
 }
 
 .image_22 {
@@ -33,9 +34,10 @@
 }
 
 .image_22 img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     aspect-ratio: 150 / 90;
+    object-fit: cover;
 }
 
 .card-btn_22 a {
@@ -44,8 +46,9 @@
     margin-block: .5rem;
     border-radius: .5rem;
     display: flex;
-    background-color: var(--slate-100);
     gap: .5rem;
+    color: var(--gray-700);
+    background-color: var(--slate-100);
     cursor: pointer;
     transition: .3s;
 }
@@ -55,12 +58,7 @@
 
 }
 
-.card-btn_22 span {
-    color: var(--gray-700);
-}
-
 /*__________ Make Responcive ____________*/
-
 @media screen and (max-width: 650px) {
     .content_22 {
         padding: 0;

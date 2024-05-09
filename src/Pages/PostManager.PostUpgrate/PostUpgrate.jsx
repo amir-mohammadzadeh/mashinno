@@ -49,7 +49,7 @@ const PostUpgrate = () => {
                   <div className="head_87">
                      <span>نردبان</span>
                      <span className="price_87">
-                        ۶۵٬۰۰۰ تومان
+                        {useSeparate(65000)} تومان
                      </span>
                   </div>
                   <div className="card-text_87">
@@ -70,7 +70,7 @@ const PostUpgrate = () => {
                   <div className="head_87">
                      <span>تمدید</span>
                      <span className="price_87">
-                        ۶۵٬۰۰۰ تومان
+                     {useSeparate(65000)} تومان
                      </span>
                   </div>
                   <div className="card-text_87">

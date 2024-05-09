@@ -1,6 +1,6 @@
 .s-product-card {
     direction: rtl;
-    background-color: #ffffff;
+    background-color: var(--white );
     width: 100%;
     height: 100%;
     padding: 1rem 0;
@@ -31,13 +31,13 @@
     left: 0;
     width: 100%;
     height: 1.5px;
-    background-color: #b8b8b8;
+    background-color: var(--slate-400 );
 }
 
 .timer-progress::after {
     content: '';
     top: 0;
-    background-color: #111111;
+    background-color: var(--slate-900 );
 }
 
 .slick-active .timer-progress::after {
@@ -57,16 +57,15 @@
 /*_______________________________*/
 
 .card-image {
-    background-color: #ffffff;
-    /* #f6f6f6*/
+    background-color: var(--white );
     width: 100%;
 }
 
 .card-image img {
-    width: 100%;
-    height: 12vw;
-    max-height: 10.75rem;
-    object-fit: contain;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+    object-fit: cover;
 }
 
 .card-body {
@@ -91,18 +90,18 @@
     display: flex;
     align-items: center;
     gap: .25rem;
-    color: #FBC02A;
+    color: var(--yellow-400 );
 }
 
 .card-body .raitting span {
-    color: #6f6f6f;
+    color: var(--gray-500 );
     font-size: .9rem;
 }
 
 /*_____________________________________*/
 
 .card-action {
-    background-color: #F7F7F7;
+    background-color: var(--slate-200 );
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -118,7 +117,7 @@
 
 .card-action .price del {
     font-weight: 400;
-    color: #575757;
+    color: var(--gray-500 );
 }
 
 .card-action .button {
