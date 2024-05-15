@@ -86,76 +86,21 @@
     max-width: 25rem;
     user-select: none;
     -webkit-user-select: none;
-}
-.story-preview_11:hover > .story-avatar_11{
-    opacity: 1;
-}
-.image-content_11{
-    width: 100%;
-    height: 100%;
-    padding-top: 3rem;
-    display: grid;
-    place-items: center;
-}
-.image-content_11 img{
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-}
-.story-avatar_11{
-    position: absolute;
-    top: .25rem;
-    right: .25rem;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    opacity: .4;
-    transition: .3s;
-}
-.avatar-img_11{
-    width: 3rem;
-    height: 3rem;
-    padding: 0;
-}
-.avatar-img_11 img{
-    border-color: var(--black );
-}
-
-.story-p-arrow_11,
-.stpry-n-arrow_11{
-    position: absolute;
-    top: 0;
-    width: 3rem;
-    height: 100%;
-    cursor: pointer;
-    opacity: .25;
-    transition: .3s;
-    display: grid;
-    place-items: center;
-    z-index: 2;
-}
-.story-p-arrow_11:hover,
-.stpry-n-arrow_11:hover{
-    opacity: 1;
-}
-
-.story-p-arrow_11{
-    right: -3rem;
-}
-.stpry-n-arrow_11{
-    left: -3rem;
+    overflow: hidden;
 }
 
 .close-story_11{
+    display: none;
     position: absolute;
     top: .25rem;
-    left: 0;
+    right:  0;
     font-size: 1.5rem;
     padding: .25rem .5rem;
     color: var(--red-700);
     cursor: pointer;
-    z-index: 3;
+    z-index: 1000;
+    background-color: #ffffffbe;
+    border-radius: 50%;
 }
 
 /*________________ Make Responcive _____________________*/
@@ -169,22 +114,10 @@
         background-color: var(--body-bg);
         box-shadow: 0 1px 15px 1px var(--shadow-color-1);
     }
-
-    .next-arrow_11,
-    .prevent-arrow_11 {
-        display: none;
-    }
     .stories_11 {
         margin-inline: 1rem;
     }
-    .story-preview_11{
-        height: 100%;
-        max-width: 35rem;
-    }
-    .story-p-arrow_11,
-    .stpry-n-arrow_11{
-        width: 20%;
-    }
+
 }
 
 @media screen and (max-width: 568px) {
@@ -192,24 +125,9 @@
         max-width: 100%;
         height: 100%;
     }
-    .story-p-arrow_11,
-    .stpry-n-arrow_11{
-        width: 20%;
-        opacity: 0;
-    }
-    .story-p-arrow_11:hover,
-    .stpry-n-arrow_11:hover{
-        opacity: 0;
-    }
-    
-    .story-p-arrow_11{
-        right: 0;
-    }
-    .stpry-n-arrow_11{
-        left: 0;
-    }
     .close-story_11{
-        top: .5rem;
-        left: .5rem;
+        display: block;
+        top: .75rem;
+        right: .75rem;
     }
 }

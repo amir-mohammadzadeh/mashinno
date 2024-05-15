@@ -8,9 +8,9 @@ const BreadCrumbs = () => {
     let brand;
     const params = useParams()
     const location = useLocation()
-    const [itemsList, setItemsList] = useState([])
     const Brands = useSelector(state => state.brands)
     const home_page = { title: 'صفحه اصلی', url: '/' };
+    const [itemsList, setItemsList] = useState([home_page])
     const patchs = location.pathname.split('/').filter(i => i !== '')
 
     useEffect(() => {

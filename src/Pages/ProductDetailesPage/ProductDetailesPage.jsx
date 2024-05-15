@@ -160,6 +160,14 @@ const ProductDetailesPage = () => {
             </div>
         </main>
 
+        <MultiSlider headerTitle='آگهی‌های دیگر فروشگاه' headerBtnLink={false} >
+            {same_posts.reverse().map(post =>
+                <div dir='rtl' key={post.id} className='test' >
+                    <ProductCard noChange={true} {...post} />
+                </div>
+            )}
+        </MultiSlider>
+        <br />    
         <MultiSlider headerTitle='محصولات مشابه' headerBtnLink={false} >
             {same_posts.reverse().map(post =>
                 <div dir='rtl' key={post.id} className='test' >

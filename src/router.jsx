@@ -24,6 +24,10 @@ import PostPreview from "./Pages/PostManager.preview/PostPreview";
 import PellePromote from "./Pages/PostManager.pelleTab/PellePromote";
 import PostUpgrate from "./Pages/PostManager.PostUpgrate/PostUpgrate";
 import SpecifitionsPage from "./Pages/SpecifitionsPage/SpecifitionsPage";
+import CartPage from "./Pages/CartPage/CartPage";
+import OrderDetails from "./Pages/CartPage/OrderDetails/OrderDetails";
+import CartContent from "./Pages/CartPage/CartContent/CartContent";
+import Stores from "./Pages/StoresPage/Stores";
 
 const routes = createBrowserRouter([
     {
@@ -69,6 +73,14 @@ const routes = createBrowserRouter([
             {
                 path: 'page-not-found',
                 element: <PageNotFound />
+            },
+            {
+                path: 'store',
+                element: <Stores />
+            },
+            {
+                path: 'store/:storeID/panel',
+                element: <StorePanel />
             },
             {
                 element: <PrivetRoute />,

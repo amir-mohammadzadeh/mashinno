@@ -10,9 +10,10 @@ import Brands from '../../assets/Data/Brands.json'
 import { useMatch, useOutletContext } from 'react-router-dom';
 import MapModal from '../../components/MapModal/MapModal';
 import { useSeparate } from '../../Hook/useNumbers';
+import { ImageUploader_Multi } from '../../components/FileUploader/FileUploader';
 
 const Category_List = ['گیربکس', 'جلوبندی', 'لوازم برقی', 'لوازم موتور', 'بدنه', 'لاستیک و رینک']
-const Exampel_ImageList = Array.from(Array(3).keys())
+const Exampel_ImageList = new Array(3).fill().map((e, i) => ({ id: i, url: 'Images/no-image.webp' }))
 
 const AddNewPost = () => {
    const editPage = useMatch('/userdashbord/user_posts/management/:postID/edit')
@@ -82,6 +83,7 @@ const AddNewPost = () => {
    const setDiscription = (payload) => {
       postDiscription.current = payload
    }
+
    const getLocation = (payload) => {
       postLocation.current = payload;
    }
@@ -95,6 +97,10 @@ const AddNewPost = () => {
          elem.style.display = 'block';
          elem.textContent = useSeparate(e.target.value) + ' تومان';
       }
+   }
+
+   const imageRemoveHandel = (payload) => {
+      console.log('Not Ready...')
    }
 
    const formSubmitHandler = (e) => {
@@ -188,32 +194,16 @@ const AddNewPost = () => {
                      افزودنِ عکس بازدید آگهی شما را تا سه برابر افزایش می‌دهد.
                   </span>
 
-                  <div className="image-content_9 my-1">
-                     <div className="image-uploader_9">
-                        <input type="file" name="postImage" multiple accept='image/jpeg,image/png' autoComplete='off' id="postIMGUploader9" />
-                        <label htmlFor="postIMGUploader9"> <BiImageAdd size={42} /> </label>
-                     </div>
+                  <ImageUploader_Multi
+                     className="my-1"
+                     name='postImage'
+                     accept='image/jpeg,image/png'
+                     imageList={Exampel_ImageList}
+                     deleteAction={imageRemoveHandel}
+                     multiple
+                     error={''}
+                  />
 
-                     {Exampel_ImageList.map(img =>
-
-                        <div key={img} className="image_9">
-                           <img src="/Images/no-image.webp" alt="" />
-                           <span className="remove-img_9">
-                              &#10006;
-                           </span>
-                        </div>
-
-                     )}
-
-                     {error['images'] &&
-                        <div className="img-error_9">
-                           <span> <BiSolidMessageSquareError /> </span>
-                           فایل بارگذاری نشد
-                           {error['images']}
-                        </div>
-                     }
-
-                  </div>
                   <span className="subtext_9">
                      تعداد عکس‌های انتخاب شده نباید بیشتر از ۱۰ باشد.
                   </span>
@@ -385,5 +375,3 @@ const AddNewPost = () => {
 }
 
 export default AddNewPost
-
-//

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './EditForms.css'//Code => 86
 import { MdAddAPhoto } from 'react-icons/md'
 import { Input, TextArea } from '../../components/Inputs/Inputs'
@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { setStoreInfo } from '../../redux/StoreReducer/StoreSlice'
 import { setUserInfo } from '../../redux/UserReducer/userSlice'
-import { retry } from '@reduxjs/toolkit/query'
+import { ImageUploader_Multi } from '../../components/FileUploader/FileUploader'
 
 const EditStorePanel = () => {
     const Store_Info = useSelector(state => state.storeInfo)
@@ -225,25 +225,13 @@ const EditStorePanel = () => {
                     <div className="image-input_88 col-span_88">
                         <span> عکس فروشگاه خودرا وارد کنید </span>
 
-                        <div className="image-content_88">
-
-                            <div className="upload-box_88">
-                                <input type="file" multiple={true} id="imageUploader81" onChange={addStoreImage} />
-                                <label htmlFor="imageUploader81" className="uploader-btn_88">
-                                    <MdAddAPhoto size={40} />
-                                </label>
-                            </div>
-                            <ul className="img-list_88">
-                                {storeImages.length && storeImages.map(img =>
-                                    <li key={img.id} className="img_88">
-                                        <img src={img.url} alt="User Profile" />
-                                        <span className="remove_88" title='حذف عکس' onClick={() => removeStoreImage(img.id)} >
-                                            &#10006;
-                                        </span>
-                                    </li>
-                                )}
-                            </ul>
-                        </div>
+                        <ImageUploader_Multi
+                            size={'6rem'}
+                            onUpload={addStoreImage}
+                            imageList={storeImages}
+                            deleteAction={removeStoreImage}
+                            multiple
+                        />
                     </div>
                 </div>
 

@@ -1,6 +1,6 @@
 .main-container_81{
     position: relative;
-    padding: .5rem;
+    padding: .5rem 1.5rem;
 }
 
 .edit-btn_81{
@@ -82,7 +82,6 @@
 }
 
 .my-cities_81{
-    margin-inline: 1rem;
     border-radius: .5rem;
 }
 
@@ -122,6 +121,44 @@
     border: 1px solid var(--gray-300);
 }
 
+.story-modal_81{
+    position: relative;
+    background-color: var(--slate-100);
+    width: 30rem;
+    height: clamp(10rem , 95vh , 99vh);
+    overflow: hidden;
+    border-radius: .25rem;
+}
+.story_81{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+.story_81 img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+.story-buttons_81{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    border-top: 2px solid var(--gray-200);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+.story-buttons_81 button{
+    background-color: transparent;
+    color: var(--white);
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+}
+
 /*_________________ Make Responcive _________________________*/
 @media screen and (max-width:568px) {
     .persenal-info_81,
@@ -134,5 +171,9 @@
     }
     .my-cities_81 ul{
         max-height: 10rem;
+    }
+    .story-modal_81{
+        width: 98%;
+        height:98%;
     }
 }

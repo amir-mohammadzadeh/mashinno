@@ -1,28 +1,40 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import './StoryContainer.css' // Code => 11
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs'
 import ModalContainer from '../../ModalContainer/ModalContainer'
 import { useHorizontalScroll } from '../../Hook/useHorizontalScroll'
+import Stories from 'react-insta-stories';
+import { useOutClicker } from '../../Hook/useOutsideClick'
 
 const StoryContainer = () => {
     const storyList = Array.from(Array(20).keys())
     const [showStory, setShowStory] = useState(false)
     const scrollArea_ref = useHorizontalScroll()
+    const [modal_ref, closeAction] = useOutClicker(setShowStory)
 
     const arrowClickHandler = (n) => {
         const scroll_val = (scrollArea_ref.current.offsetWidth / 2) - 100;
         scrollArea_ref.current.scrollLeft = (-1) * (Math.abs(scrollArea_ref.current.scrollLeft) + (scroll_val * n))
     }
 
-    const openStoryBox = () => {
+    const storyBoxToggle = () => {
         setShowStory(!showStory)
     }
-    const storyNextArrow = () => {
-        console.log('Go to " next " story')
-    }
-    const storyPreventArrow = () => {
-        console.log('Go to " prevent " story')
-    }
+
+    const stories = [
+        '/public/Images/no-image.webp',
+        {
+            url: '/public/Banners/baner_2.webp',
+            duration: 5000,
+            header: {
+                heading: 'نام کاربر',
+                subheading: 'Posted 30m ago',
+                profileImage: '/public/Images/NoPhoto.jpg',
+            },
+        },
+    ];
+
+
     return (<>
         <div className="container story-container_11">
             <div className="next-arrow_11" >
@@ -31,7 +43,7 @@ const StoryContainer = () => {
             <ul ref={scrollArea_ref} className="stories_11 no-scrollbar">
                 {storyList.map(story =>
                     <li key={story} className="story-item_11">
-                        <div className="profile-img_11" onClick={openStoryBox}>
+                        <div className="profile-img_11" onClick={storyBoxToggle}>
                             <img src="/Images/NoPhoto.jpg" alt="" />
                         </div>
                         <span className="name_11 line-limit-1">
@@ -46,26 +58,17 @@ const StoryContainer = () => {
         </div>
 
         {showStory &&
-            <ModalContainer>
-                <div className="story-preview_11">
-                    <div className="image-content_11">
-                        <img src="/public/Images/no-image.webp" alt="" />
-                    </div>
-                    <div className="story-avatar_11">
-                        <div className="avatar-img_11">
-                            <img src="/Images/NoPhoto.jpg" alt="" />
-                        </div>
-                        <span className="line-limit-1">
-                            نام فروشگاه
-                        </span>
-                    </div>
-                    <div className="story-p-arrow_11" onClick={storyPreventArrow}>
-                        <BsChevronRight size={32} />
-                    </div>
-                    <div className="stpry-n-arrow_11" onClick={storyNextArrow}  >
-                        <BsChevronLeft size={32} />
-                    </div>
-                    <div className="close-story_11" onClick={openStoryBox}>
+            <ModalContainer onClick={closeAction}>
+                <div ref={modal_ref} dir='ltr' className="story-preview_11">
+                    <Stories
+                        stories={stories}
+                        defaultInterval={5000}
+                        keyboardNavigation={true}
+                        width={'100%'}
+                        height={'100%'}
+                        onAllStoriesEnd={storyBoxToggle}
+                    />
+                    <div className="close-story_11" onClick={storyBoxToggle}>
                         &#10006;
                     </div>
                 </div>

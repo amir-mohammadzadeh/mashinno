@@ -1,10 +1,16 @@
-.man-container_84{
+.s_panel_84,
+.s_panel-preview_84{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem ;
     padding: .5rem 1rem;
 }
 
+.s_panel-preview_84{
+    max-width: 80rem;
+    padding: 2rem;
+    margin-inline: auto;
+}
 
 .header_84{
     grid-column: span 2;
@@ -14,6 +20,7 @@
     padding-block: .25rem 1rem;
     border-bottom: 2px dashed var(--gray-300) ;
 }
+
 .logo-content_84{
     flex-shrink: 0;
     width: 6rem;
@@ -31,6 +38,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.header-title_84{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
 }
 
 .label_84{
@@ -54,7 +67,6 @@
     gap: .5rem;
 }
 
-.image-card_84,
 .card_84{
     grid-column: span 2 ;
     position: relative;
@@ -71,7 +83,7 @@
     grid-column: auto;
 }
 
-.image-card_84{
+.image-content_84{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 2rem 1rem;
@@ -82,7 +94,6 @@
 .image_84 img{
     max-width: 100%;
     height: auto;
-   
 }
 
 .card-icon_84{
@@ -100,9 +111,39 @@
     transform: rotateY(180deg) rotateZ(90deg);
 }
 
+.img-header_84{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drop-btn_84{
+    cursor: pointer;
+    transition: .3s;
+    transform: translateY(2px) ;
+}
+.drop-U-btn_84{
+    transform: translateY(0) rotate(180deg) ;
+}
+
+.post-wrapper_84{
+    grid-column: span 2 ;
+    padding: 1rem .5rem;
+    border-top: 2px dashed var(--gray-300);
+}
+
+.posts-content_84{
+    margin-block: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(25rem , 1fr));
+    gap: 1rem;
+}
 
 /*_________________ Make Responcive _________________________*/
 @media screen and (max-width:568px) {
+    .s_panel-preview_84{
+        padding: 1.5rem 1rem;
+    }
     .no-span_84{
         grid-column: span 2;
     }
@@ -110,7 +151,7 @@
         width: calc(3rem + 9vw);
         height: calc(3rem + 9vw);
     }
-    .image-card_84{
+    .image-content_84{
         grid-template-columns: repeat(2, 1fr);
     }
 }
