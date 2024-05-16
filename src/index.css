@@ -179,6 +179,7 @@ body {
 }
 
 .btn {
+  height: 2.25rem;
   min-width: max-content;
   padding: .4rem 1rem;
   font-size: 1rem;

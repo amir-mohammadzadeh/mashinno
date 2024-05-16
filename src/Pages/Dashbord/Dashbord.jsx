@@ -86,6 +86,16 @@ const Dashbord = () => {
               </li>
               <li className="panel-item_8">
                 <NavLink
+                  to={'/userdashbord/orders'}
+                  className={link => active_link(link)}
+                  onClick={openPanel}
+                >
+                  <span className="icon_8"> <FaScroll size={25} /> </span>
+                  سفارشات من
+                </NavLink>
+              </li>
+              <li className="panel-item_8">
+                <NavLink
                   to={'/userdashbord/favorites'}
                   className={link => active_link(link)}
                   onClick={openPanel}

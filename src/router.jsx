@@ -28,6 +28,7 @@ import CartPage from "./Pages/CartPage/CartPage";
 import OrderDetails from "./Pages/CartPage/OrderDetails/OrderDetails";
 import CartContent from "./Pages/CartPage/CartContent/CartContent";
 import Stores from "./Pages/StoresPage/Stores";
+import MyOrders from "./Pages/Dashbord.MyOrders/MyOrders";
 
 const routes = createBrowserRouter([
     {
@@ -96,6 +97,10 @@ const routes = createBrowserRouter([
                             {
                                 path: 'profile/edit',
                                 element: <EditProfile />
+                            },
+                            {
+                                path: 'orders',
+                                element: <MyOrders />
                             },
                             {
                                 path: 'favorites',
