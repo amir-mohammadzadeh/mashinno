@@ -1,0 +1,82 @@
+.orders-content_89 {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    gap: 1rem;
+}
+
+.order-card_89 {
+    height: max-content;
+    max-height: 18rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.store-name_89 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding-bottom: .5rem;
+}
+
+.order-list_89 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    overflow-y: auto;
+    padding-block: .5rem;
+    height: 100%;
+}
+
+.order_89 {
+    padding: .5rem;
+    border-radius: .5rem;
+    background-color: var(--slate-100);
+}
+
+.order-body_89 {
+    padding-top: .25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.order-summary_89 {
+    margin-top: .75rem;
+    padding-top: .75rem;
+    border-top: 2px dashed var(--gray-400);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
+}
+.order-summary_89 span{
+    padding-inline: .25rem;
+    font-size: 1.1rem;
+}
+.order-status_89 {
+    grid-row: span 2;
+    place-self: end;
+    font-size: 1.15rem;
+    font-weight: bold;
+
+}
+
+.green_89 {
+    color: var(--green-500);
+}
+
+.red_89 {
+    color: var(--red-500);
+}
+
+.orange_89 {
+    color: var(--orange-500);
+}
+
+/*_________________ Make Responcive _________________________*/
+@media screen and (max-width:568px) {
+    .orders-content_89{
+        grid-template-columns: 1fr;
+    }
+}

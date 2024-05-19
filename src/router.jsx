@@ -24,10 +24,8 @@ import PostPreview from "./Pages/PostManager.preview/PostPreview";
 import PellePromote from "./Pages/PostManager.pelleTab/PellePromote";
 import PostUpgrate from "./Pages/PostManager.PostUpgrate/PostUpgrate";
 import SpecifitionsPage from "./Pages/SpecifitionsPage/SpecifitionsPage";
-import CartPage from "./Pages/CartPage/CartPage";
-import OrderDetails from "./Pages/CartPage/OrderDetails/OrderDetails";
-import CartContent from "./Pages/CartPage/CartContent/CartContent";
 import Stores from "./Pages/StoresPage/Stores";
+import MyOrders from "./Pages/Dashbord.MyOrders/MyOrders";
 
 const routes = createBrowserRouter([
     {
@@ -96,6 +94,10 @@ const routes = createBrowserRouter([
                             {
                                 path: 'profile/edit',
                                 element: <EditProfile />
+                            },
+                            {
+                                path: 'orders',
+                                element: <MyOrders />
                             },
                             {
                                 path: 'favorites',
