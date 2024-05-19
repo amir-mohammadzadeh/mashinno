@@ -4,6 +4,7 @@ import  citiesSlice , {cityModalStatus} from "./CityReducer/CitySlice";
 import StoreSlice from "./StoreReducer/StoreSlice";
 import BrandSlice from "./BrandsReducer/BrandSlice";
 import PostsSlice from "./PostsReducer/PostsSlice";
+import CartSlice, { cartMenuSlice } from "./CartReducer/CartSlice";
 
 
 
@@ -14,7 +15,9 @@ const store = configureStore({
         citiesList: citiesSlice,
         storeInfo: StoreSlice,
         brands:BrandSlice,
-        posts:PostsSlice
+        posts:PostsSlice,
+        cart:CartSlice,
+        cartSideMenuStatus:cartMenuSlice
     }
 })
 

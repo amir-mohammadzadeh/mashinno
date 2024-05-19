@@ -1,6 +1,6 @@
 .Header_01 {
     height: auto;
-    padding: 2rem 2rem .5rem 2rem;
+    padding: 2rem 1rem .5rem 1rem;
     background-color: var(--white);
     box-shadow: 0 1px 15px 1px var(--shadow-color-1);
 }
@@ -64,6 +64,18 @@
     font-weight: bold;
 }
 
+.counter_01{
+    height: auto;
+    min-width: 1.6rem;
+    padding: .25rem;
+    border-radius: 1rem;
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    background-color: var(--gray-800);
+    font-size: .9rem;
+}
+
 /*______________________________________ RESPONCIVE ________________*/
 @media screen and (max-width:992px) {
     .Header_01 {
@@ -81,6 +93,7 @@
 
     .button_01:nth-child(1),
     .button_01:nth-child(2),
+    .button_01:nth-child(3),
     .header-logo_01 {
         display: none;
     }
