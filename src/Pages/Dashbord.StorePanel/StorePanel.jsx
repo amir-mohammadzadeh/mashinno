@@ -12,7 +12,7 @@ import { useOutClicker } from '../../Hook/useOutsideClick'
 
 const StorePanel = () => {
   const [imgDropDown, setImgDropDown] = useState(false)
-  const [orderDetailesModal, setOrderDetailesModal] = useState(0)
+  const [orderDetailesModal, setOrderDetailesModal] = useState(false)
   const [rejectModal, setRejectModal] = useState(false)
   const reject_input = useRef(null)
   const [modal_ref, closeAction] = useOutClicker(setOrderDetailesModal)
@@ -28,6 +28,10 @@ const StorePanel = () => {
     window.scroll({ behavior: 'instant', top: 0, left: 0 })
     document.title = preview ? `${Store_Info.storeName} | کاپوت` : 'کاپوت من | پنل فروشگاه';
   }, [])
+
+  const orderIDsearchHandeler = (e) => {
+    console.log(`جستجو " ${e.target.value} " در لیست سفارشات`)
+  }
 
   const rejectOrderHandel = (orderID) => {
     console.log('سفارش رد شده: ', orderID)
@@ -105,31 +109,66 @@ const StorePanel = () => {
       {!preview &&
         <section className="card card_84 ">
           <span className="card-icon_84"> <IoReceiptOutline size='100%' /> </span>
-          <h5>
-            سفارشات فروشگاه
-          </h5>
+          <div className="order-card-header_84">
+            <h5>
+              سفارشات فروشگاه
+            </h5>
+            <div className="order-Search_84">
+              <input type="search" placeholder='جستجو کد سفارش...' onChange={orderIDsearchHandeler} />
+            </div>
+          </div>
 
           <ul className="order-list_84 font-lg">
             <li className="order_84 " onClick={() => setOrderDetailesModal(1)}>
-              <span>
-                سفارش شماره ۱
-              </span>
+              <div>
+                <span>
+                  سفارش شماره ۱
+                </span>
+                <div className="order-id_84">
+                  <span>
+                    کد سفارش:
+                  </span>
+                  <span>
+                    2he85fg
+                  </span>
+                </div>
+              </div>
               <span>
                 بررسی نشده
               </span>
             </li>
             <li className="order_84 status-2_84" onClick={() => setOrderDetailesModal(2)}>
-              <span>
-                سفارش شماره ۲
-              </span>
+              <div>
+                <span>
+                  سفارش شماره ۲
+                </span>
+                <div className="order-id_84">
+                  <span>
+                    کد سفارش:
+                  </span>
+                  <span>
+                    ghs59jd
+                  </span>
+                </div>
+              </div>
               <span>
                 تأیید شده
               </span>
             </li>
             <li className="order_84 status-1_84" onClick={() => setOrderDetailesModal(3)}>
-              <span>
-                سفارش شماره ۳
-              </span>
+              <div>
+                <span>
+                  سفارش شماره ۳
+                </span>
+                <div className="order-id_84">
+                  <span>
+                    کد سفارش:
+                  </span>
+                  <span>
+                    2heer45
+                  </span>
+                </div>
+              </div>
               <span>
                 رد شده
               </span>

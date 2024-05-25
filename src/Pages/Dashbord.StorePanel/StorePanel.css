@@ -141,6 +141,33 @@
     gap: 1rem;
 }
 
+.order-card-header_84{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+.order-Search_84{
+    flex: 1 1 18rem;
+    height: 2rem;
+    max-width: 20rem;
+    margin-inline-end: 1rem;
+}
+
+.order-Search_84 input{
+    border-radius: .25rem;
+    padding: .25rem .5rem;
+    border: 2px solid var(--gray-300);
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    transition: .3s;
+}
+.order-Search_84 input:focus{
+    border-color: var(--gray-500);
+}
+
 .order-list_84{
     height: max-content;
     max-height: 15rem;
@@ -165,6 +192,20 @@
 .order_84:hover{
     cursor: pointer;
     transform: translateY(-3px);
+}
+
+.order-id_84{
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    font-size: .8em;
+    margin-top: .5rem;
+    color: var(--gray-500);
+}
+
+.order-id_84 > span:nth-child(2){
+    font-weight: 600;
+    letter-spacing: 1.5px;
 }
 
 .status-1_84{

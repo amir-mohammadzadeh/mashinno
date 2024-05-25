@@ -7,15 +7,29 @@
 
 .order-card_89 {
     height: max-content;
-    max-height: 18rem;
+    max-height: 20rem;
     display: flex;
     flex-direction: column;
 }
 
 .store-name_89 {
+    display: block;
     font-size: 1.1rem;
     font-weight: bold;
+    padding-bottom: .25rem;
+}
+.order-id_89{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    color: var(--gray-500);
     padding-bottom: .5rem;
+}
+
+.order-id_89 span:nth-child(2){
+    color: var(--gray-900);
+    font-weight: bold;
+    letter-spacing: 1.5px;
 }
 
 .order-list_89 {
@@ -26,15 +40,18 @@
     overflow-y: auto;
     padding-block: .5rem;
     height: 100%;
+    font-size: 1.15rem;
 }
 
 .order_89 {
+    font-size: 1em;
     padding: .5rem;
     border-radius: .5rem;
     background-color: var(--slate-100);
 }
 
 .order-body_89 {
+    font-size: .95em;
     padding-top: .25rem;
     display: flex;
     align-items: center;
@@ -47,19 +64,29 @@
     padding-top: .75rem;
     border-top: 2px dashed var(--gray-400);
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr auto;
     gap: .5rem;
-}
-.order-summary_89 span{
-    padding-inline: .25rem;
     font-size: 1.1rem;
 }
+
+.order-summary_89 > div span:nth-child(1){
+    padding-inline-end: .5rem;
+    font-size: 1rem;
+    color: var(--slate-500);
+}
+
 .order-status_89 {
     grid-row: span 2;
     place-self: end;
     font-size: 1.15rem;
     font-weight: bold;
+}
 
+.reject-msg_89{
+    margin: 0;
+    grid-column: span 2;
+    color: var(--red-700);
+    font-size: 1rem;
 }
 
 .green_89 {

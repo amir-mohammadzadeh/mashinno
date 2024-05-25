@@ -11,11 +11,21 @@ const MyOrders = () => {
         <div className="orders-content_89">
 
             <div className="card order-card_89">
-                <div className="store-name_89">
-                    نام فروشگاه
+                <div className="order-header_89">
+                    <span className="store-name_89">
+                        نام فروشگاه
+                    </span>
+                    <div className="order-id_89">
+                        <span>
+                            کد سفارش :
+                        </span>
+                        <span>
+                            o9yb9svu
+                        </span>
+                    </div>
                 </div>
                 <ul className="order-list_89 no-scrollbar">
-                    <li className="order_89 font-lg">
+                    <li className="order_89">
                         <span className='line-line-limit-1'>
                             <Link to={`/pd/KpT111`} >
                                 نام آگهی
@@ -30,7 +40,57 @@ const MyOrders = () => {
                             </span>
                         </div>
                     </li>
-                    <li className="order_89 font-lg">
+                    <li className="order_89">
+                        <span className='line-line-limit-1'>
+                            <Link to={`/pd/KpT111`} >
+                                نام آگهی
+                            </Link>
+                        </span>
+                        <div className="order-body_89">
+                            <span>
+                                ۱ عدد
+                            </span>
+                            <span>
+                                {useSeparate(1200000)} تومان
+                            </span>
+                        </div>
+                    </li>
+                </ul>
+                <div className="order-summary_89">
+                    <div>
+                        <span>
+                            جمع کل :
+                        </span>
+                        <span>{usePersianNumbers(5)} عدد</span>
+                    </div>
+                    <div className="order-status_89 green_89">
+                        تایید شده
+                    </div>
+                    <div>
+                        <span>
+                            قیمت کل :
+                        </span>
+                        <span>{useSeparate(5000000)} تومان</span>
+                    </div>
+                </div>
+            </div>
+
+            <div className="card order-card_89">
+                <div className="order-header_89">
+                    <span className="store-name_89">
+                        نام فروشگاه
+                    </span>
+                    <div className="order-id_89">
+                        <span>
+                            کد سفارش :
+                        </span>
+                        <span>
+                            or8h63vu
+                        </span>
+                    </div>
+                </div>
+                <ul className="order-list_89 no-scrollbar">
+                    <li className="order_89">
                         <span className='line-line-limit-1'>
                             <Link to={`/pd/KpT111`} >
                                 نام آگهی
@@ -66,11 +126,21 @@ const MyOrders = () => {
             </div>
 
             <div className="card order-card_89">
-                <div className="store-name_89">
-                    نام فروشگاه
+                <div className="order-header_89">
+                    <span className="store-name_89">
+                        نام فروشگاه
+                    </span>
+                    <div className="order-id_89">
+                        <span>
+                            کد سفارش :
+                        </span>
+                        <span>
+                            pd2n85ah
+                        </span>
+                    </div>
                 </div>
                 <ul className="order-list_89 no-scrollbar">
-                    <li className="order_89 font-lg">
+                    <li className="order_89">
                         <span className='line-line-limit-1'>
                             <Link to={`/pd/KpT111`} >
                                 نام آگهی
@@ -91,7 +161,7 @@ const MyOrders = () => {
                         <span>
                             جمع کل :
                         </span>
-                        <span>{usePersianNumbers(2)} عدد</span>
+                        <span>{usePersianNumbers(5)} عدد</span>
                     </div>
                     <div className="order-status_89 red_89">
                         رد شده
@@ -100,48 +170,11 @@ const MyOrders = () => {
                         <span>
                             قیمت کل :
                         </span>
-                        <span>{useSeparate(5000000)} تومان</span>
+                        <span>{useSeparate(1200000)} تومان</span>
                     </div>
-                </div>
-            </div>
-
-            <div className="card order-card_89">
-                <div className="store-name_89">
-                    نام فروشگاه
-                </div>
-                <ul className="order-list_89 no-scrollbar">
-                    <li className="order_89 font-lg">
-                        <span className='line-line-limit-1'>
-                            <Link to={`/pd/KpT111`} >
-                                نام آگهی
-                            </Link>
-                        </span>
-                        <div className="order-body_89">
-                            <span>
-                                ۱ عدد
-                            </span>
-                            <span>
-                                {useSeparate(1200000)} تومان
-                            </span>
-                        </div>
-                    </li>
-                </ul>
-                <div className="order-summary_89">
-                    <div>
-                        <span>
-                            جمع کل :
-                        </span>
-                        <span>{usePersianNumbers(3)} عدد</span>
-                    </div>
-                    <div className="order-status_89 green_89">
-                        تایید شده
-                    </div>
-                    <div>
-                        <span>
-                            قیمت کل :
-                        </span>
-                        <span>{useSeparate(5000000)} تومان</span>
-                    </div>
+                    <p className="reject-msg_89">
+                        به فلان دلیل رد شد!
+                    </p>
                 </div>
             </div>
 
