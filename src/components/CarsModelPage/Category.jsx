@@ -11,11 +11,11 @@ const Category = ({ valueList, brandName }) => {
                     <li key={car.id} className="model-item_22">
                         <div className="card_22">
                             <div className="image_22">
-                                <img src="/Images/no-image.webp" alt="" />
+                                <img src={car.image} alt={car.title} />
                             </div>
 
                             <span>
-                                {car.title} {car.id}
+                                {car.title}
                             </span>
                             <div className="card-btn_22">
 

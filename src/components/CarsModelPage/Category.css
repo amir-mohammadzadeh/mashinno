@@ -38,6 +38,7 @@
     height: auto;
     aspect-ratio: 150 / 90;
     object-fit: cover;
+    mix-blend-mode: multiply;
 }
 
 .card-btn_22 a {

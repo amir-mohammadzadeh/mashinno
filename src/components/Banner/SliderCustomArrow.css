@@ -5,7 +5,7 @@
 .custom_prev-btn,
 .custom_next-btn{
     position: absolute;
-    bottom: 1rem;
+    top: calc(50% - 1.5rem);
     background-color:  #ffffffa4;
     text-align: center;
     line-height: 3.8rem;
@@ -18,8 +18,8 @@
     opacity: 0;
 }
 .custom_next-btn{
-    right: 1.25rem;
+    right:1rem;
 }
 .custom_prev-btn{
-    right: 4.5rem;
+    left: 1rem;
 }

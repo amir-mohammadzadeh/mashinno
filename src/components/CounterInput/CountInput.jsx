@@ -1,17 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useRef } from 'react'
 import './CountInput.css' // Code => 011
 
 const CountInput = ({ value, onPluse, onMinus, onInputValue, className = '' }) => {
-  const [count, setcount] = useState(value)
-  const minus = () => {
-    value != 1 && onMinus()
+  const count_input = useRef(null)
+
+  useEffect(() => {
+    count_input.current.value = value <= 0 ? 1 : value;
+  }, [value])
+
+  const decrement = () => {
+    if (value != 1) onMinus()
   }
+
   const changeHandel = (e) => {
-    setcount(e.target.value)
+    Number(e.target.value) ?
+      count_input.current.value = e.target.value <= 0 ? 1 : e.target.value
+      : count_input.current.value = 1;
   }
 
   const onFocusOut = () => {
-    onInputValue && onInputValue(count)
+    onInputValue && onInputValue(count_input.current.value)
   }
 
   return (
@@ -19,11 +27,10 @@ const CountInput = ({ value, onPluse, onMinus, onInputValue, className = '' }) =
       <div className="button_011" onClick={onPluse}>
         &#43;
       </div>
-      <input type='number' inputMode='numeric' className="result_011" onBlur={onFocusOut} onChange={changeHandel} value={count <= 0 ? 1 : count} onWheel={(e) => e.target.blur()} />
-      <div className="button_011" onClick={minus}>
+      <input ref={count_input} type='tel' inputMode='numeric' className="result_011" onBlur={onFocusOut} onChange={changeHandel} onWheel={(e) => e.target.blur()} />
+      <div className="button_011" onClick={decrement}>
         &#8722;
       </div>
-
     </div>
   )
 }

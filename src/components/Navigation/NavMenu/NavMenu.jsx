@@ -17,11 +17,10 @@ const NavMenu = () => {
   Brand_List.current = brands.map(brand => {
     return {
       id: brand.id,
-      title: brand.name,
-      link: `/brand/${brand.slug}`
+      title: brand.title,
+      link: `/brand/${brand.url}`
     }
   })
-
 
   const onHoverHandler = (e) => {
     for (let menuItem of menu_ref.current.children) {

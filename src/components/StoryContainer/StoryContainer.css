@@ -117,6 +117,10 @@
     .stories_11 {
         margin-inline: 1rem;
     }
+    .prevent-arrow_11,
+    .next-arrow_11 {
+        display: none;
+    }
 
 }
 

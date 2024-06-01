@@ -4,10 +4,9 @@ import SliderContent from '../Slider/SliderContent';
 import SliderCard from '../SliderCard/SliderCard';
 import { NextArrow, PrevArrow } from './SliderCustomArrow';
 
-
+const Exampel_BannerList = new Array(8).fill().map((e, i) => ({ id: `bnr:${i + 1}`, imgURL: `banner-T0${i + 1}.jpg` }))
 
 const Banner = () => {
-
     const BannerSlider_Settings = {
         className: 'banner-slider-21',
         fade: true,
@@ -36,26 +35,14 @@ const Banner = () => {
 
             <div className="banner-slider_12">
                 <SliderContent setting={BannerSlider_Settings}  >
-                    <div className='banner-image_12'>
-                        <a href="">
-                            <img src="/Banners/baner_1.webp" alt="" />
-                        </a>
-                    </div>
-                    <div className='banner-image_12'>
-                        <a href="">
-                            <img src="/Banners/baner_2.webp" alt="" />
-                        </a>
-                    </div>
-                    <div className='banner-image_12'>
-                        <a href="">
-                            <img src="/Banners/baner_3.webp" alt="" />
-                        </a>
-                    </div>
-                    <div className='banner-image_12'>
-                        <a href="">
-                            <img src="/Banners/baner_4.webp" alt="" />
-                        </a>
-                    </div>
+                    {Exampel_BannerList.map(banner =>
+
+                        <div key={banner.id} className='banner-image_12'>
+                            <img src={`/Banners/${banner.imgURL}`} alt="فروش قطعات خودرویی کاپوت" />
+                        </div>
+
+                    )}
+
                 </SliderContent>
             </div>
         </div>

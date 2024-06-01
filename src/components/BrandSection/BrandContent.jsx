@@ -13,12 +13,12 @@ const BrandContent = ({ limit }) => {
         <ul className="brands-holder_16" style={{ maxHeight: limitHeight }}>
             {brandsList.map(brand =>
                 <li key={brand.id} className="brand_16">
-                    <Link to={'/brand/' + brand.slug}>
+                    <Link to={'/brand/' + brand.url}>
                         <div className="brand-image_16">
-                            <img src="/Images/no-image.webp" alt={brand.name} />
+                            <img src={brand.image} alt={brand.title} />
                         </div>
-                        <span className="brand-name_16">
-                            {brand.name}
+                        <span>
+                            {brand.title}
                         </span>
                     </Link>
                 </li>
